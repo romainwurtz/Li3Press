@@ -34,26 +34,46 @@ Collection::formats('lithium\net\http\Media');
  * plugin's `webroot` directory into your main application's `webroot` directory, or adding routing
  * rules in your web server's configuration.
  */
-// use lithium\action\Dispatcher;
-// use lithium\action\Response;
-// use lithium\net\http\Media;
-//
-// Dispatcher::applyFilter('_callable', function($self, $params, $chain) {
-// 	list($library, $asset) = explode('/', $params['request']->url, 2) + array("", "");
-//
-// 	if ($asset && ($path = Media::webroot($library)) && file_exists($file = "{$path}/{$asset}")) {
-// 		return function() use ($file) {
-// 			$info = pathinfo($file);
-// 			$media = Media::type($info['extension']);
-// 			$content = (array) $media['content'];
-//
-// 			return new Response(array(
-// 				'headers' => array('Content-type' => reset($content)),
-// 				'body' => file_get_contents($file)
-// 			));
-// 		};
-// 	}
-// 	return $chain->next($self, $params, $chain);
-// });
+ use lithium\action\Dispatcher;
+ use lithium\action\Response;
+ use lithium\net\http\Media;
+
+ Dispatcher::applyFilter('_callable', function($self, $params, $chain) {
+ 	list($library, $asset) = explode('/', $params['request']->url, 2) + array("", "");
+
+ 	if ($asset && ($path = Media::webroot($library)) && file_exists($file = "{$path}/{$asset}")) {
+ 		return function() use ($file) {
+ 			$info = pathinfo($file);
+ 			$media = Media::type($info['extension']);
+ 			$content = (array) $media['content'];
+
+ 			return new Response(array(
+ 				'headers' => array('Content-type' => reset($content)),
+ 				'body' => file_get_contents($file)
+ 			));
+ 		};
+ 	}
+ 	return $chain->next($self, $params, $chain);
+ });
+
+
+Media::type('json', 'application/json', array(
+    'layout' => false,
+    'encode' => 'json_encode',
+    'decode' => 'json_decode'
+));
+
+Media::type('ajax', array('application/xhtml+xml', 'text/html'), array(
+    'view' => 'lithium\template\View',
+    'paths' => array(
+        'template' => array(
+            '{:library}/views/{:controller}/{:template}.ajax.php',
+            '{:library}/views/{:controller}/{:template}.html.php'
+        ),
+        'layout' => '{:library}/views/layouts/default.ajax.php'
+    ),
+    'conditions' => array('ajax' => true)
+));
+
 
 ?>

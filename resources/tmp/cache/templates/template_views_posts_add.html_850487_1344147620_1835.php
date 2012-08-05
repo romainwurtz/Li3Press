@@ -1,13 +1,13 @@
-<?=$this->form->create(null, array("id" => "form_edit", "class" => "form-vertical")); ?>
+<?php echo $this->form->create(null, array("id" => "form_edit", "class" => "form-vertical")); ?>
  <fieldset>
-    	<?=$this->form->field('title',  array('id' => 'edit_title', 'autocomplete' => 'off', 'class' => 'span9', 'wrap' => array('class' => 'control-group')));?>
-    	<?=$this->form->field('body', array('type' => 'textarea', 'autocomplete' => 'off', 'class' => 'span9', 'style' => 'height:200px', 'id' => 'edit_body', 'wrap' => array('class' => 'control-group')));?>
+    	<?php echo $this->form->field('title',  array('id' => 'edit_title', 'autocomplete' => 'off', 'class' => 'span9', 'wrap' => array('class' => 'control-group'))); ?>
+    	<?php echo $this->form->field('body', array('type' => 'textarea', 'autocomplete' => 'off', 'class' => 'span9', 'style' => 'height:200px', 'id' => 'edit_body', 'wrap' => array('class' => 'control-group'))); ?>
     <div style="margin-top:42px">
-    	<?=$this->form->submit('Add Post', array('class' => 'btn btn-success btn-large span6')); ?>
+    	<?php echo $this->form->submit('Add Post', array('class' => 'btn btn-success btn-large span6')); ?>
     	<button class="btn btn-large span2" style="float: right"type="button">Cancel</button> 
     </div>
  </fieldset>
-<?=$this->form->end(); ?>
+<?php echo $this->form->end(); ?>
 
 <script type="text/javascript">
 	$(document).ready(function() {
