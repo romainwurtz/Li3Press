@@ -67,13 +67,14 @@ if (!Environment::is('production')) {
  //Router::connect('/{:controller}/{:action}/{:id:[0-9]+}.{:type}', array('id' => null));
 //Router::connect('/{:controller}/{:action}/{:id:[0-9]+}');
 Router::connect('/', 'Posts::index');
+Router::connect('/login', 'Sessions::add');
+Router::connect('/logout', 'Sessions::delete');
 Router::connect('/blog/page/{:page:[0-9]+}', array('controller' => 'posts', "action" => 'index'));
 Router::connect('/blog/page/{:page:[0-9]+}.{:type}', array('controller' => 'posts', "action" => 'indexAction'));
 Router::connect('/blog/{:action}/{:id:[0-9]+}.{:type}', array('controller' => 'posts'));
 Router::connect('/blog/{:action}/{:id:[0-9]+}', array('controller' => 'posts'));
 Router::connect('/blog/{:action}', array('controller' => 'posts'));
-
-//Router::connect('/{:controller}/{:action}/{:args}');
+Router::connect('/{:controller}/{:action}/{:args}');
  
 
 ?>

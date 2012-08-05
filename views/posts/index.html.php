@@ -22,7 +22,7 @@ $(window).scroll(function () {
     if (ajax == true) return;
     if ($(window).scrollTop() >= $(document).height() - $(window).height() - 10) {
         ajax = true;
-        $('#loader').fadeIn('fast', function () {
+        $('#loader').fadeIn('420', function () {
             $.ajax({
             	dataType: "html",
                 url: url + (currentPage + 1) + '.ajax',
@@ -32,7 +32,7 @@ $(window).scroll(function () {
 					{
 						var elementScrollTo = $('article:last')
 						$('#loader').before($(data));
-						 $('html, body').animate({scrollTop: $(elementScrollTo).offset().top}, 'fast');
+						 $('html, body').animate({scrollTop: $(elementScrollTo).offset().top}, 'slow');
 					}
 					else
 					end = true;
@@ -42,7 +42,7 @@ $(window).scroll(function () {
                 },
                 complete: function(){
                 						ajax = false;
-                						 $('#loader').fadeOut('fast');
+                						 $('#loader').fadeOut('420');
    }
             });
 

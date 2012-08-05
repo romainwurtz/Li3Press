@@ -6,6 +6,9 @@
  * @license       http://opensource.org/licenses/bsd-license.php The BSD License
  */
 
+require __DIR__ . '/bootstrap/param.ini.php';
+ 
+ 
 /**
  * This is the primary bootstrap file of your application, and is loaded immediately after the front
  * controller (`webroot/index.php`) is invoked. It includes references to other feature-specific
@@ -62,7 +65,11 @@ require __DIR__ . '/bootstrap/action.php';
  * This file contains configuration for session (and/or cookie) storage, and user or web service
  * authentication.
  */
- require __DIR__ . '/bootstrap/session.php';
+ 
+require __DIR__ . '/bootstrap/auth.php';
+
+require __DIR__ . '/bootstrap/session.php';
+
 
 /**
  * This file contains your application's globalization rules, including inflections,
@@ -78,8 +85,7 @@ require __DIR__ . '/bootstrap/action.php';
 require __DIR__ . '/bootstrap/media.php';
 
 
-require __DIR__ . '/bootstrap/auth.php';
-
+require __DIR__ . '/bootstrap/custom.php';
 
 /**
  * This file configures console filters and settings, specifically output behavior and coloring.

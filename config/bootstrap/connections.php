@@ -61,11 +61,11 @@ use lithium\data\Connections;
  */
  Connections::add('default', array(
  	'type' => 'database',
- 	'adapter' => 'MySql',
- 	'host' => 'localhost',
- 	'login' => 'root',
- 	'password' => 'root',
- 	'database' => 'lithium_test',
+ 	'adapter' => DB_ADAPTER,
+ 	'host' => DB_HOST,
+ 	'login' => DB_LOGIN,
+ 	'password' => DB_PASSWORD,
+ 	'database' => DB_DATABASE,
  	'encoding' => 'UTF-8'
  ));
 
