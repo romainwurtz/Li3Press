@@ -20,7 +20,7 @@
 	      });
 	      $.ajaxQueue({
 		     type: "POST",
-		     url: ""<?php echo $this->url(array('Posts::addAction', 'id' => $this->request()->id, 'type' => 'json')); ?>",
+		     url: "<?php echo $this->url(array('Posts::addAction', 'type' => 'json')); ?>",
             async: true,
             cache: false,
             timeout: 50000,

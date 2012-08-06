@@ -10,6 +10,9 @@ Object.size = function(obj) {
 function stringFromArrayClean(data) {
 	var out = '';
 	for (var i in data) {
+		if (data[i] instanceof Array)
+		out += stringFromArrayClean(data[i]);
+		else
 		out += data[i] + "<br />";
 	}
 	return out;

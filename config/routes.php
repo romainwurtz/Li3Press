@@ -17,64 +17,19 @@
  * @see lithium\net\http\Route
  */
 use lithium\net\http\Router;
-use lithium\core\Environment;
 
-/**
- * Add the testing routes. These routes are only connected in non-production environments, and allow
- * browser-based access to the test suite for running unit and integration tests for the Lithium
- * core, as well as your own application and any other loaded plugins or frameworks. Browse to
- * [http://path/to/app/test](/test) to run tests.
- */
-if (!Environment::is('production')) {
-	Router::connect('/test/{:args}', array('controller' => 'lithium\test\Controller'));
-	Router::connect('/test', array('controller' => 'lithium\test\Controller'));
+if (file_exists($_SERVER['DOCUMENT_ROOT']."/install")) {
+	Router::connect('/', 'Installs::index');
+	Router::connect('/install/{:action}.{:type}', array('controller' => 'installs'));
+} else {
+	Router::connect('/', 'Posts::index');
+	Router::connect('/login', 'Sessions::add');
+	Router::connect('/logout', 'Sessions::delete');
+	Router::connect('/blog/page/{:page:[0-9]+}', array('controller' => 'posts', "action" => 'index'));
+	Router::connect('/blog/page/{:page:[0-9]+}.{:type}', array('controller' => 'posts', "action" => 'indexAction'));
+	Router::connect('/blog/{:action}/{:id:[0-9]+}.{:type}', array('controller' => 'posts'));
+	Router::connect('/blog/{:action}/{:id:[0-9]+}', array('controller' => 'posts'));
+	Router::connect('/blog/{:action}.{:type}', array('controller' => 'posts'));
+	Router::connect('/blog/{:action}', array('controller' => 'posts'));
 }
-
-/**
- * ### Database object routes
- *
- * The routes below are used primarily for accessing database objects, where `{:id}` corresponds to
- * the primary key of the database object, and can be accessed in the controller as
- * `$this->request->id`.
- *
- * If you're using a relational database, such as MySQL, SQLite or Postgres, where the primary key
- * is an integer, uncomment the routes below to enable URLs like `/posts/edit/1138`,
- * `/posts/view/1138.json`, etc.
- */
-// Router::connect('/{:controller}/{:action}/{:id:\d+}.{:type}', array('id' => null));
-// Router::connect('/{:controller}/{:action}/{:id:\d+}');
-
-/**
- * If you're using a document-oriented database, such as CouchDB or MongoDB, or another type of
- * database which uses 24-character hexidecimal values as primary keys, uncomment the routes below.
- */
-// Router::connect('/{:controller}/{:action}/{:id:[0-9a-f]{24}}.{:type}', array('id' => null));
-// Router::connect('/{:controller}/{:action}/{:id:[0-9a-f]{24}}');
-
-/**
- * Finally, connect the default route. This route acts as a catch-all, intercepting requests in the
- * following forms:
- *
- * - `/foo/bar`: Routes to `FooController::bar()` with no parameters passed.
- * - `/foo/bar/param1/param2`: Routes to `FooController::bar('param1, 'param2')`.
- * - `/foo`: Routes to `FooController::index()`, since `'index'` is assumed to be the action if none
- *   is otherwise specified.
- *
- * In almost all cases, custom routes should be added above this one, since route-matching works in
- * a top-down fashion.
- */ 
-
- //Router::connect('/{:controller}/{:action}/{:id:[0-9]+}.{:type}', array('id' => null));
-//Router::connect('/{:controller}/{:action}/{:id:[0-9]+}');
-Router::connect('/', 'Posts::index');
-Router::connect('/login', 'Sessions::add');
-Router::connect('/logout', 'Sessions::delete');
-Router::connect('/blog/page/{:page:[0-9]+}', array('controller' => 'posts', "action" => 'index'));
-Router::connect('/blog/page/{:page:[0-9]+}.{:type}', array('controller' => 'posts', "action" => 'indexAction'));
-Router::connect('/blog/{:action}/{:id:[0-9]+}.{:type}', array('controller' => 'posts'));
-Router::connect('/blog/{:action}/{:id:[0-9]+}', array('controller' => 'posts'));
-Router::connect('/blog/{:action}', array('controller' => 'posts'));
-Router::connect('/{:controller}/{:action}/{:args}');
- 
-
 ?>

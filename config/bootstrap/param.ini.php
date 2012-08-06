@@ -8,7 +8,7 @@ define('DB_DATABASE' , 'lithium_test');
 define('DB_ADAPTER' , 'MySql');
 
 /* Website config */
-define('BLOG_TITLE' , 'My amazing blog');
+define('BLOG_TITLE' , 'Li3 Press');
 define('BLOG_BG' , '/img/bg.jpg');
 
 ?>

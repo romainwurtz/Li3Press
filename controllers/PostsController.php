@@ -27,7 +27,17 @@ class PostsController extends \lithium\action\Controller {
 		$posts = Posts::find('all', array('limit' => ITEMS_PAGE, 'page' => $page));
 		return count($posts);
 	}
+	
+	public function addPost($title, $body, &$errors) {
+		$success = false;
 
+		$post = Posts::create(array('title' => $title, 'body' => $body));
+		if (!($success = $post -> save())) {
+			$errors = $post -> errors();
+		}
+		return $success;
+	}
+	
 	public function index() {
 		$page = 1;
 
@@ -59,6 +69,8 @@ class PostsController extends \lithium\action\Controller {
 
 		if (!Auth::check('default')) {
 			$errors['login'] = 'You need to be logged.';
+		} else if (!$this -> request -> is('post')) {
+			$errors['call'] = 'This action can only be called with post';
 		} else if ($this -> request -> data) {
 			$post = Posts::create($this -> request -> data);
 			if (($success = $post -> save())) {
@@ -87,6 +99,8 @@ class PostsController extends \lithium\action\Controller {
 
 		if (!Auth::check('default')) {
 			$errors['login'] = 'You need to be logged.';
+		} else if (!$this -> request -> is('post')) {
+			$errors['call'] = 'This action can only be called with post';
 		} else {
 			if (!($success = self::getPost($this -> request -> id, $post))) {
 				$errors['post'] = 'This post doesn\'t exist';
@@ -102,17 +116,29 @@ class PostsController extends \lithium\action\Controller {
 
 	public function view() {
 		$success = self::getPost($this -> request -> id, $post);
-
 		return compact('success', 'post');
 	}
 
-	public function delete() {
-		if (!$this -> request -> is('post') && !$this -> request -> is('delete')) {
-			$msg = "Users::delete can only be called with http:post or http:delete.";
-			throw new DispatchException($msg);
+	public function deleteAction() {
+		$url = "";
+		$success = false;
+		$errors = array();
+
+		if (!Auth::check('default')) {
+			$errors['login'] = 'You need to be logged.';
+		} else if (!$this -> request -> is('post')) {
+			$errors['call'] = 'This action can only be called with post';
+		} else {
+			if (!($success = self::getPost($this -> request -> id, $post))) {
+				$errors['post'] = 'This post doesn\'t exist';
+			}
+			if (($success = $post -> delete())) {
+				$url = "http://" . $_SERVER['HTTP_HOST'];
+			} else {
+				$errors = $post -> errors();
+			}
 		}
-		Users::find($this -> request -> id) -> delete();
-		return $this -> redirect('Users::index');
+		return compact('success', 'errors', 'url');
 	}
 
 }

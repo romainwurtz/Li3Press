@@ -7,24 +7,16 @@ use lithium\action\DispatchException;
 
 class UsersController extends \lithium\action\Controller {
 
-	public function index() {
-		$users = Users::all();
-		return compact('users');
-	}
+	public function addUser($login, $password, &$errors) {
+		$success = false;
 
-	public function view() {
-		$user = Users::first($this->request->id);
-		return compact('user');
-	}
-
-	public function add() {
-		$user = Users::create();
-
-		if (($this->request->data) && $user->save($this->request->data)) {
-			return $this->redirect(array('Users::view', 'args' => array($user->id)));
+		$user = Users::create(array('username' => $login, 'password' => $password));
+		if (!($success = $user -> save())) {
+			$errors = $user -> errors();
 		}
-		return compact('user');
+		return $success;
 	}
+
 }
 
 ?>
