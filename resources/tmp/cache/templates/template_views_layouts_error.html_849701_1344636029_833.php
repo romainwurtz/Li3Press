@@ -22,5 +22,6 @@ if (\lithium\core\Environment::is('production')) { ?>
 		</div>
 	</div>
 	<?php } ?>
+	
 </body>
 </html>

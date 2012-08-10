@@ -6,7 +6,10 @@
   * @copyright		Copyright 2012, Romain Wurtz (http://www.t3kila.com)
   * 
   */
-  
+
+/* Lithium core */
+define('LITHIUM_LIBRARY_PATH', '/Users/t3kila/Sites/lithium/libraries/');  
+    
 /* Connection to the db */
 define('DB_HOST' , 'localhost');
 define('DB_LOGIN' , 'root');

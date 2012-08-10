@@ -9,7 +9,7 @@ if (isset($post)) {
 <head>
 	<?php echo $this -> html -> charset(); ?>
 	<title><?php echo $title ?></title>
-	<?php echo $this -> html -> style(array('bootstrap.min','debug', 'lithium')); ?>
+	<?php echo $this -> html -> style(array('bootstrap.min','li3Press')); ?>
 	<?php echo $this -> html -> link('Icon', null, array('type' => 'icon')); ?>
 	<?php echo $this -> html -> script(array('jquery-1.7.2.min', 'jquery.ajaxQueue', 'bootstrap.min', 'jquery.backstretch.min', 'nicEdit', 'li3Press')); ?>
 	<script type="text/javascript">
