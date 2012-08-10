@@ -1,4 +1,4 @@
-Li3-Press
+Li3Press
 =========
 
 An example of how to implement a blog with the lithium framework.
@@ -16,17 +16,28 @@ Implemented
 *	Basic design
 *	WYSIWYG editor ([NicEdit](http://nicedit.com/))
 *	Basic error control
+*	Basic security control
 
 Not implemented (TO DO)
 --------------------
-*	User account management (modification, delete, rights)
+*	User account management (modification, delete, groups, rights)
 *	Posts management (visibility, upload, assign to a page, options)
 *	Pages management (creation, modification, delete, visibility)
 *	Comments management (visibility, assign to a page, options)
 *	Template management (options, customize)
 *	Security improvment (captcha, CSRF)
 *	Better error control
+*	JavaScript Improvements
 *	MongoDB support
+
+Libraries / Framework
+--------------------
+*	[Lithium](https://github.com/UnionOfRAD/lithium/) ;)
+*	[jQuery](http://jquery.com/)
+*	[NicEdit](http://nicedit.com/)
+*	[Twitter Bootstrap](http://twitter.github.com/bootstrap/)
+*	[jQuery-ajaxQueue](https://gist.github.com/1039247)
+*	[jQuery-backstretch](https://github.com/srobbin/jquery-backstretch/)
 
 VERSION HISTORY
 --------------------
@@ -53,7 +64,7 @@ WANT TO CONTRIBUTE?
 ---------------------
 
 If you've found a bug or have a great idea for new feature let me know by [adding your suggestion]
-(https://github.com/t3kila/Li3-Press/issues/new) to [issues list](https://github.com/t3kila/Li3-Press/issues).
+(https://github.com/t3kila/Li3Press/issues/new) to [issues list](https://github.com/t3kila/Li3Press/issues).
 
 If you have fixed a bug or implemented a feature that you'd like to share, send your pull request.
 
