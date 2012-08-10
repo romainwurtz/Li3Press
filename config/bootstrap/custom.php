@@ -1,5 +1,12 @@
 <?php
-
+ /**
+  * Li3Press: A simple blog using Lithium framework
+  *
+  * @author 		Romain Wurtz (http://www.t3kila.com)
+  * @copyright		Copyright 2012, Romain Wurtz (http://www.t3kila.com)
+  * 
+  */
+  
 use app\models\Users;
 use lithium\security\Password;
 
@@ -24,5 +31,7 @@ Validator::add('usernameTaken', function($value) {
     	$success = count(Users::findByUsername($value)) == 0 ? false : true;
     return !$success;
 });
+
+define('_INSTALL' , file_exists($_SERVER['DOCUMENT_ROOT']."/install") ? '1' : '0');
 
 ?>

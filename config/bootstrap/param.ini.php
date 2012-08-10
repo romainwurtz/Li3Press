@@ -1,5 +1,12 @@
 <?php
-
+ /**
+  * Li3Press: A simple blog using Lithium framework
+  *
+  * @author 		Romain Wurtz (http://www.t3kila.com)
+  * @copyright		Copyright 2012, Romain Wurtz (http://www.t3kila.com)
+  * 
+  */
+  
 /* Connection to the db */
 define('DB_HOST' , 'localhost');
 define('DB_LOGIN' , 'root');

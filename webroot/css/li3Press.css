@@ -1,0 +1,28 @@
+/**
+ * Li3Press: A simple blog using Lithium framework
+ *
+ * @author 			Romain Wurtz (http://www.t3kila.com)
+ * @copyright		Copyright 2012, Romain Wurtz (http://www.t3kila.com)
+ *
+ */
+
+body { font-family: Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.5em; color: #0d0d0d; background-color: #fff; }
+#container { position: relative; background-color: white; padding: 10px; margin-top: 42px; }
+#content { margin-top: 20px }
+.dotted { border-top-style: dotted; border-top-width: 2px; border-top-color: #DDDDDD; margin-top: 10px; margin-bottom: 10px; }
+.submit_button { width: 100% !important }
+#header h1 { margin: .1em 0; font-size: 135px; line-height: 120px; }
+#header h2 { width: 70%; margin: .5em .5em 2em 0; color: #666; font-size: 22px; line-height: 28px; }
+#header { }
+.right { float: right }
+#loader { text-align: center }
+#loader { display: none }
+article h1 { background: none repeat scroll 0 0 #666666; color: white; margin-bottom: 30px; padding-right: 5px; text-align: right; }
+article h1 a { color: white }
+article h1 a:active { color: white }
+article h1 a:visited { color: white }
+article h1 a:hover { color: #76CCCD }
+#header a { color: black }
+.admin_action { margin-bottom: 10px }
+a { text-decoration: none !important }
+article { margin-bottom: 30px }

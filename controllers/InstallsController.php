@@ -1,4 +1,12 @@
 <?php
+ /**
+  * Li3Press: A simple blog using Lithium framework
+  *
+  * @author 		Romain Wurtz (http://www.t3kila.com)
+  * @copyright		Copyright 2012, Romain Wurtz (http://www.t3kila.com)
+  * 
+  */
+ 
 namespace app\controllers;
 
 use app\models\Users;
@@ -50,7 +58,6 @@ class InstallsController extends \lithium\action\Controller {
 			if (!($success = UsersController::addUser($this -> request -> data['user'], $this -> request -> data['password'], $errors))) {
 				$errors['User'] = "User can't be created.";
 			}
-
 			if ($success && !($success = PostsController::addPost("Post example", "Cupcake ipsum dolor sit. Amet pastry cheesecake. Danish sesame snaps caramels wypas. Caramels candy dragée dragée halvah cupcake. Bear claw gingerbread tiramisu candy tart sweet roll marzipan. Icing macaroon faworki.
 Halvah chocolate macaroon bonbon jelly macaroon faworki. Cheesecake dessert chocolate cake cotton candy sesame snaps fruitcake.<br />Marshmallow dragée chocolate cake tiramisu candy muffin sugar plum sesame snaps. Sugar plum halvah ice cream wafer toffee icing. Chocolate bar candy donut topping gummies tiramisu muffin pudding. Gummies oat cake marzipan pie ice cream marshmallow macaroon marzipan caramels.
 Pie biscuit pudding jelly beans chocolate oat cake. Danish cotton candy tootsie roll. Jelly muffin lemon drops wafer bonbon wafer chocolate bar dessert. Pie danish tootsie roll cotton candy. Halvah chocolate pie dragée apple pie candy canes marshmallow. Liquorice bonbon apple pie jelly-o jelly-o.
@@ -58,7 +65,6 @@ Biscuit bonbon powder pie pastry cheesecake gummies. Tootsie roll jelly marzipan
 Toffee cheesecake cupcake caramels jujubes gingerbread cookie sesame snaps. Candy canes caramels cupcake cotton candy oat cake. Cheesecake cheesecake dessert tart. Donut tiramisu apple pie. Sweet roll pudding donut chocolate tiramisu tiramisu marzipan. Chocolate cake sesame snaps sweet.", $errors))) {
 				$errors['Post'] = "Post can't be created.";
 			}
-
 			if ($success) {
 				self::$_install = true;
 			}

@@ -1,8 +1,12 @@
 <?php
-/*
- * Li3Press
- * Created by Romain Wurtz and Adrien Candiotti
+/**
+ * Li3Press: A simple blog using Lithium framework
+ *
+ * @author 		Romain Wurtz (http://www.t3kila.com)
+ * @copyright		Copyright 2012, Romain Wurtz (http://www.t3kila.com)
+ *
  */
+
 namespace app\controllers;
 
 use lithium\net\http\Router;
@@ -27,7 +31,7 @@ class PostsController extends \lithium\action\Controller {
 		$posts = Posts::find('all', array('limit' => ITEMS_PAGE, 'page' => $page));
 		return count($posts);
 	}
-	
+
 	public function addPost($title, $body, &$errors) {
 		$success = false;
 
@@ -37,7 +41,7 @@ class PostsController extends \lithium\action\Controller {
 		}
 		return $success;
 	}
-	
+
 	public function index() {
 		$page = 1;
 
