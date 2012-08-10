@@ -53,7 +53,12 @@ Basic functionalities.
 HOW TO INSTALL
 --------------------
 
-Soon
+1.	Go to /config/bootstrap
+2.	Copy the file param.ini.template.php and rename it param.ini.php
+3.	Edit param.ini.php to match your configuration
+4.	Launch the website.
+5.	When finish remove the file /install
+6.	DONE :)
 
 EXAMPLES AND DEMOS
 --------------------
