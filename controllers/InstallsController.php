@@ -44,6 +44,7 @@ class InstallsController extends \lithium\action\Controller {
 					`id` int(11) NOT NULL AUTO_INCREMENT,
 					`title` text NOT NULL,
 					`body` text NOT NULL,
+					`visibility` TINYINT DEFAULT 1 NOT NULL,
 					PRIMARY KEY (`id`)
 					) ENGINE=InnoDB;
 					DROP TABLE IF EXISTS `users`;

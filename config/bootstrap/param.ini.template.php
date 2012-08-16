@@ -8,7 +8,7 @@
   */
 
 /* Lithium core libraries */
-define('LITHIUM_LIBRARY_PATH', '');		// Ex: /home/[NAME]/Sites/lithium/libraries/ 
+define('LITHIUM_LIBRARY_PATH', '');// Ex: /home/[NAME]/Sites/lithium/libraries/ 
     
 /* Connection to the db */
 define('DB_HOST' , '');					// Ex: localhost 

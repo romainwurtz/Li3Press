@@ -20,9 +20,17 @@ class PostsController extends \lithium\action\Controller {
 	protected function getPost($id, &$post) {
 		$post = null;
 		$success = false;
+		$request_details = array();
+
+		if (!Auth::check('default'))
+		{
+		  $request_details['conditions'] = array('visibility' => 1);
+		  var_dump($request_details);
+		  exit(1);
+		}
 
 		if ($id > 0)
-			$success = (($post = Posts::find($id))) ? true : false;
+		  $success = (($post = Posts::find($id, $request_details))) ? true : false;
 		return $success;
 	}
 
@@ -121,6 +129,24 @@ class PostsController extends \lithium\action\Controller {
 	public function view() {
 		$success = self::getPost($this -> request -> id, $post);
 		return compact('success', 'post');
+	}
+
+	public function hide() {
+	}
+	
+	public function hideAction() {
+		$success = true;
+		$errors = array();
+		$post = null;
+
+		if (!($success = self::getPost($this -> request -> data['id'], $post))) {
+		  $errors['post'] = 'This post doesn\'t exist';
+		}
+		else {
+		  $post->visibility = $this->request->data['visibility'] == 'true' ? 1 : 0;
+		  $post->save();
+		}
+		return compact('success', 'errors', 'debug', 'post');
 	}
 
 	public function deleteAction() {
