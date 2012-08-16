@@ -20,7 +20,7 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Users <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li>
-								<a href="#">List</a>
+								   <?php echo $this->html->link('List', $this->url(array('Users::listUsers'))); ?>  
 							</li>
 							<li>
 								   <?php echo $this->html->link('Create', $this->url(array('Users::add'))); ?>  
