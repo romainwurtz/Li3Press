@@ -2,24 +2,24 @@
 		<thead>
 			<tr>
 				<th>ID</th>
-				<th>Username</th>
+				<th>Title</th>
 				<th></th>
 			</tr>
 		</thead>
 		<tbody>
-			<?php foreach($users as $user):
+			<?php foreach($posts as $post):
 			?>
-			<tr data-id="<?= $user->id ?>">
-				<td><?= $user -> id ?></td>
-				<td><?= $user -> username ?></td>
-				<td>       
+			<tr data-id="<?= $post->id ?>">
+				<td><?= $post -> id ?></td>
+				<td><?= $post -> title ?></td>
+				<td>       <?php $this->url(array('Posts::edit', 'id' => $post->id)); ?>
 					 <div class="right btn-group">
-         				<a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i> Profile</a>
+         				<a class="btn btn-primary" href="<?php echo $this->url(array('Posts::view', 'id' => $post->id)); ?>"><i class="icon-home icon-white"></i> View</a>
           				<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
          	 			<ul class="dropdown-menu">
-          	  				<li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+          	  				<li><a href="<?php echo $this->url(array('Posts::edit', 'id' => $post->id)); ?>"><i class="icon-pencil"></i> Edit</a></i>
             				<li class="divider"></li>
-            				<li><a href="#" class="delete_user"><i class="icon-trash"></i> Delete</a></li>
+            				<li><a href="#" class="delete_post"><i class="icon-trash"></i> Delete</a></li>
           				</ul>
         			</div>
         		</td>
@@ -32,13 +32,13 @@
 	$(document).ready(function () {
    
     
-        $(".delete_user").click(function (e) {
+        $(".delete_post").click(function (e) {
 	e.preventDefault();
 	var element = $(this).parents('tr');
 		
 	$.ajaxQueue({
             type: "POST",
-            url: "<?php echo $this->url(array('Users::deleteAction', 'type' => 'json')); ?>",
+            url: "<?php echo $this->url(array('Posts::deleteAction', 'type' => 'json')); ?>",
             async: true,
             cache: false,
             timeout: 50000,

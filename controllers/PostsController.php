@@ -26,9 +26,15 @@ class PostsController extends \lithium\action\Controller {
 		return $success;
 	}
 
-	protected function getPosts($page, &$posts) {
-		$page = ($page <= 0) ? 1 : $page;
-		$posts = Posts::find('all', array('limit' => ITEMS_PAGE, 'page' => $page));
+	protected function getPosts(&$posts, $page = 0) {
+		$page = ($page < 0) ? 1 : $page;
+		$validates = array();
+		
+		if ($page != 0) {
+			$validates['limit'] = ITEMS_PAGE;
+			$validates['page'] = $page;
+		}
+		$posts = Posts::find('all', $validates);
 		return count($posts);
 	}
 
@@ -47,7 +53,7 @@ class PostsController extends \lithium\action\Controller {
 
 		if (isset($this -> request -> page) && $this -> request -> page > 0)
 			$page = $this -> request -> page;
-		self::getPosts($page, $posts);
+		self::getPosts($posts, $page);
 		return compact('posts');
 	}
 
@@ -56,7 +62,7 @@ class PostsController extends \lithium\action\Controller {
 
 		if (isset($this -> request -> page) && $this -> request -> page > 0)
 			$page = $this -> request -> page;
-		self::getPosts($page, $posts);
+		self::getPosts($posts, $page);
 		return compact('posts');
 	}
 
@@ -123,6 +129,16 @@ class PostsController extends \lithium\action\Controller {
 		return compact('success', 'post');
 	}
 
+	public function listPosts() {
+		$posts = array();
+
+		if (!Auth::check('default')) {
+			return $this -> redirect('Sessions::add');
+		}
+		self::getPosts($posts);
+		return compact('posts');
+	}
+
 	public function deleteAction() {
 		$url = "";
 		$success = false;
@@ -133,10 +149,9 @@ class PostsController extends \lithium\action\Controller {
 		} else if (!$this -> request -> is('post')) {
 			$errors['call'] = 'This action can only be called with post';
 		} else {
-			if (!($success = self::getPost($this -> request -> id, $post))) {
+			if (!($success = self::getPost($this -> request -> data['id'], $post))) {
 				$errors['post'] = 'This post doesn\'t exist';
-			}
-			else {
+			} else {
 				if (($success = $post -> delete())) {
 					$url = "http://" . $_SERVER['HTTP_HOST'];
 				} else {

@@ -10,6 +10,9 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Posts <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li>
+								   <?php echo $this->html->link('List', $this->url(array('Posts::listPosts'))); ?>  
+							</li>
+							<li>
    									<?php echo $this->html->link('Create', $this->url(array('Posts::add'))); ?> 
 							</li>
 						</ul>
