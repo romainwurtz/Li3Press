@@ -22,7 +22,9 @@ if (_INSTALL) {
 	Router::connect('/blog/{:action}/{:id:[0-9]+}', array('controller' => 'posts'));
 	Router::connect('/blog/{:action}.{:type}', array('controller' => 'posts'));
 	Router::connect('/blog/{:action}', array('controller' => 'posts'));
-	Router::connect('/admin/{:action}.{:type}', array('controller' => 'users'));
-	Router::connect('/admin/{:action}', array('controller' => 'users'));
+	Router::connect('/admin', 'Users::index');
+	Router::connect('/admin/users/{:action}.{:type}', array('controller' => 'users'));
+	Router::connect('/admin/users/{:action}', array('controller' => 'users'));
+	Router::connect('/user/{:action}/{:id:[0-9]+}', array('controller' => 'users'));
 }
 ?>

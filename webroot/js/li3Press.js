@@ -30,7 +30,7 @@ function stringFromArrayClean(data) {
 function generateError(errors) {
 	var error = "";
 	if ( typeof errors == "undefined" || Object.size(errors) == 0)
-		error = "An unexpected error occurred :(";
+		error = "<ul><li>An unexpected error occurred :(</li></ul>";
 	else
 		error = stringFromArrayClean(errors);
 

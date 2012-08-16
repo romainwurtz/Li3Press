@@ -8,8 +8,8 @@ Implemented
 *   Configuration file
 *	Install script
 *	Custom routes
-*	User account (create)
-*	Post (list, create, modification, delete)
+*	User account management (create, modification, delete)
+*	Post management (list, create, modification, delete)
 *	Ajax for each actions
 *	Lazy load when list posts
 *	Responsive design ([Twitter bootstrap](http://twitter.github.com/bootstrap))
@@ -20,7 +20,7 @@ Implemented
 
 Not implemented (TO DO)
 --------------------
-*	User account management (modification, delete, groups, rights)
+*	User account management (groups, rights)
 *	Posts management (visibility, upload, assign to a page, options)
 *	Pages management (creation, modification, delete, visibility)
 *	Comments management (visibility, assign to a page, options)

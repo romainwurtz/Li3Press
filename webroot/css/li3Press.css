@@ -26,3 +26,20 @@ article h1 a:hover { color: #76CCCD }
 .admin_action { margin-bottom: 10px }
 a { text-decoration: none !important }
 article { margin-bottom: 30px }
+
+.navbar .user {
+    -moz-transition: all 0.2s linear 0s; 
+    color: #000000 !important;
+    float: right !important;
+    font-weight: bold !important;
+    margin-left: 20px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 30px rgba(255, 255, 255, 0.125) !important;
+    font-size: 20px !important;
+}
+
+.user_profile h1{
+	text-align:left !important;
+	padding-left:5px; 
+}
