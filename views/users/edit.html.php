@@ -1,12 +1,29 @@
-<?=$this->form->create(null, array("id" => "form_create", "class" => "form-vertical")); ?>
+
+<article class="row user_profile" id="<?php echo $user->id ?>">
+	<div class="span2">
+		<a href="#" class="thumbnail">
+			<img src="http://placehold.it/260x180" alt="">
+		</a>
+		<br />
+    </div>
+    	<div class="span7">
+       <h1>Edit</h1>
+   
+    <?=$this->form->create(null, array("id" => "form_create", "class" => "form-vertical")); ?>
  <fieldset>
-    	<?=$this->form->field('username',  array('id' => 'create_username', 'autocomplete' => 'off', 'class' => 'span3', 'wrap' => array('class' => 'control-group')));?>
-    	<?=$this->form->field('password', array('type' => 'password', 'autocomplete' => 'off', 'class' => 'span3', 'id' => 'create_password', 'wrap' => array('class' => 'control-group')));?>
+    	<?=$this->form->field('username',  array('id' => 'edit_username', 'autocomplete' => 'off', 'class' => 'span3', 'wrap' => array('class' => 'control-group')));?>
     <div style="margin-top:42px">
-    	<?=$this->form->submit('Create admin', array('class' => 'btn btn-success btn-large span3', "id" => "create_button")); ?>
+    	<?=$this->form->submit('Save', array('class' => 'btn btn-success btn-large span3', "id" => "create_button")); ?>
     </div>
  </fieldset>
 <?=$this->form->end(); ?>
+    </div>
+</article>
+
+
+
+
+
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -16,13 +33,13 @@
 	      });
 	      $.ajaxQueue({
 		     type: "POST",
-		     url: "<?php echo $this->url(array('Users::addAction', 'type' => 'json')); ?>",
+		     url: "<?php echo $this->url(array('Users::editAction', 'type' => 'json')); ?>",
             async: true,
             cache: false,
             timeout: 50000,
             data: {
-                "username": $('#create_username').val(),
-                "password": $('#create_password').val()
+            	"id" : <?php echo $this -> request() -> id ?> ,
+                "username": $('#edit_username').val(),
             },
             success: function (data) {
                 if (data) {

@@ -34,7 +34,7 @@
 				<ul class="nav pull-right">
 					<li class="divider-vertical"></li>
 					<li>
-						<a href="#" class="user"></i>TOTO</a>
+						<a href="#" class="user"></i><?= $this->login->displayName(); ?></a>
 					</li>
 				</ul>
 			</div><!-- /.nav-collapse -->
