@@ -136,10 +136,12 @@ class PostsController extends \lithium\action\Controller {
 			if (!($success = self::getPost($this -> request -> id, $post))) {
 				$errors['post'] = 'This post doesn\'t exist';
 			}
-			if (($success = $post -> delete())) {
-				$url = "http://" . $_SERVER['HTTP_HOST'];
-			} else {
-				$errors = $post -> errors();
+			else {
+				if (($success = $post -> delete())) {
+					$url = "http://" . $_SERVER['HTTP_HOST'];
+				} else {
+					$errors = $post -> errors();
+				}
 			}
 		}
 		return compact('success', 'errors', 'url');
