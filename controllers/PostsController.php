@@ -23,11 +23,7 @@ class PostsController extends \lithium\action\Controller {
 		$request_details = array();
 
 		if (!Auth::check('default'))
-		{
 		  $request_details['conditions'] = array('visibility' => 1);
-		  var_dump($request_details);
-		  exit(1);
-		}
 
 		if ($id > 0)
 		  $success = (($post = Posts::find($id, $request_details))) ? true : false;
@@ -42,6 +38,8 @@ class PostsController extends \lithium\action\Controller {
 			$validates['limit'] = ITEMS_PAGE;
 			$validates['page'] = $page;
 		}
+		if (!Auth::check('default'))
+		    $validates['conditions'] = array('visibility' => 1);
 		$posts = Posts::find('all', $validates);
 		return count($posts);
 	}
@@ -153,6 +151,7 @@ class PostsController extends \lithium\action\Controller {
 		  $post->save();
 		}
 		return compact('success', 'errors', 'debug', 'post');
+	}
 
 	public function listPosts() {
 		$posts = array();
