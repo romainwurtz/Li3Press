@@ -15,6 +15,7 @@ body { font-family: Helvetica, Arial, sans-serif; font-size: 14px; line-height: 
 #header h2 { width: 70%; margin: .5em .5em 2em 0; color: #666; font-size: 22px; line-height: 28px; }
 #header { }
 .right { float: right }
+.left {float: left}
 #loader { text-align: center }
 #loader { display: none }
 article h1 { background: none repeat scroll 0 0 #666666; color: white; margin-bottom: 30px; padding-right: 5px; text-align: right; }
