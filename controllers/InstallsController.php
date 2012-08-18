@@ -39,14 +39,14 @@ CREATE TABLE IF NOT EXISTS `users` (`id` int(11) NOT NULL AUTO_INCREMENT,
 
 DROP TABLE IF EXISTS `comments`;
 
-CREATE TABLE IF NOT EXISTS `comments` (`id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `comments` (`comments_id` int(11) NOT NULL AUTO_INCREMENT,
 				       `title` text NOT NULL,
 				       `body` text NOT NULL,
 				       `post_id` int(11) NOT NULL,
 				       FOREIGN KEY(post_id) REFERENCES posts(id)
 				       ON UPDATE CASCADE
 				       ON DELETE RESTRICT,
-				       PRIMARY KEY(`id`)) ENGINE=InnoDB;
+				       PRIMARY KEY(`comments_id`)) ENGINE=InnoDB;
 ";
 	# ENDFIXME
 
