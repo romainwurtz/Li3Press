@@ -43,7 +43,7 @@ function generateSuccessNotice(title, notice) {
 function displaySuccessNotice(title, notice) {
     if (title == null || title) title = 'Well done!';
     if (notice == null || notice) notice = 'Your changes have been successfully saved.';
-    $(".alert-area").stop(true, true).fadeOut('slow', function() {
+    $(".alert-area").stop(true).fadeOut('slow', function() {
         $(this).empty();
         $(generateSuccessNotice(title, notice)).prependTo(this)
         $(this).fadeIn("slow").delay(2000).fadeOut("slow");
@@ -52,7 +52,7 @@ function displaySuccessNotice(title, notice) {
 }
 
 function displayErrorNotice(errors) {
-    $(".alert-area").stop(true, true).fadeOut('slow', function() {
+    $(".alert-area").stop(true).fadeOut('slow', function() {
         $(this).empty();
         $(generateErrorNotice(errors)).prependTo(this);
         $(this).fadeIn("slow").delay(2000).fadeOut("slow");
