@@ -18,15 +18,6 @@
     	<?=$this->form->field('body', array('type' => 'textarea', 'autocomplete' => 'off', 'class' => 'span9', 'style' => 'height:200px', 'id' => 'edit_body', 'wrap' => array('class' => 'control-group')));?>
     <div style="margin-top:42px">
     	<?=$this->form->submit('Edit Post', array('class' => 'btn btn-success btn-large span2 right')); ?>
-<?php
-	  $text = 'Show Post';
-	  $class = 'btn btn-large btn-info span2 right';
-	  if ($post->visibility) {
-	    $text = 'Hide Post';
-	    $class .= ' visible';
-	  }
-  
-	  echo $this->html->link($text, '', array('class' => $class, 'id' => 'hide_post')); ?> 
     	<?php echo $this->html->link('Delete post', $this->url(array('Posts::editAction', 'id' => $this->request()->id)), array('class' => "btn btn-large btn-danger span2 right", 'id' => 'delete_post')); ?> 
     </div>
  </fieldset>

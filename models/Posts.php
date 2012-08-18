@@ -9,9 +9,9 @@
   
 namespace app\models;
 
-use app\models\Comments;
-
 class Posts extends \lithium\data\Model {
+      public $hasMany = array('Comments');
+
 	    public $validates = array(
         'title' => array(
             array(

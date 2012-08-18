@@ -12,7 +12,6 @@ namespace app\controllers;
 use lithium\net\http\Router;
 use lithium\security\Auth;
 use app\models\Posts;
-use app\models\Comments;
 
 define('ITEMS_PAGE', 10);
 
@@ -21,7 +20,7 @@ class PostsController extends \lithium\action\Controller {
 	protected function getPost($id, &$post) {
 		$post = null;
 		$success = false;
-		$request_details = array('with' => 'comments');
+		$request_details = array();//'with' => 'comments');
 
 		if (!Auth::check('default'))
 		  $request_details['conditions'] = array('visibility' => 1);
