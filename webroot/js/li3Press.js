@@ -20,6 +20,7 @@ function displayClearErrors() {
     $(".alert").fadeOut('slow', function() {
         $(this).remove();
     });
+    return false;
 }
 
 function generateErrorNotice(errors) {
@@ -35,20 +36,59 @@ function generateErrorNotice(errors) {
 function generateSuccessNotice(title, notice) {
     return '<div class="alert alert-block alert-success fade in">\
     <button type="button" class="close" data-dismiss="alert">&times;</button>\
-    <h4 class="alert-heading">' + title + '</h4>\
+     <h4 class="alert-heading">' + title + '</h4>\
     <p>' + notice + '</p></div>';
 }
 
 function displaySuccessNotice(title, notice) {
-    displayClearErrors();
     if (title == null || title) title = 'Well done!';
     if (notice == null || notice) notice = 'Your changes have been successfully saved.';
-    $(generateSuccessNotice(title, notice)).prependTo('#content').fadeIn("slow");
+    var previous = $(".alert-area");
+    if ($(previous).length) $(previous).fadeOut('slow', function() {
+        $(this).empty();
+        $(generateSuccessNotice(title, notice)).prependTo(this)
+        $(this).fadeIn("slow").delay(2000).fadeOut("slow");
+    });
+    else $(generateSuccessNotice(title, notice)).prependTo(previous).fadeIn("slow").delay(2000).fadeOut("slow");
+    return false;
 }
 
 function displayErrorNotice(errors) {
-    displayClearErrors();
-    $(generateErrorNotice(errors)).prependTo('#content').fadeIn("slow");
+    var previous = $(".alert-area");
+    if ($(previous).length) $(previous).fadeOut('slow', function() {
+        $(this).empty();
+        $(generateErrorNotice(errors)).prependTo(this);
+        $(this).fadeIn("slow").delay(2000).fadeOut("slow");
+    });
+    else $(generateErrorNotice(errors)).prependTo(this).fadeIn("slow").delay(2000).fadeOut("slow");
+    return false;
+}
+
+function postAddAction(url, title, body) {
+    $.ajaxQueue({
+        type: "POST",
+        url: url,
+        async: true,
+        cache: false,
+        timeout: 50000,
+        data: {
+            "title": title,
+            "body": body
+        },
+        success: function(data) {
+            if (data) {
+                if (data.success) {
+                    window.location.replace(data.url);
+                } else displayErrorNotice(data.errors);
+            } else displayErrorNotice(null);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            displayErrorNotice({
+                'URL': "This url is not defined or does not exist."
+            });
+        }
+    });
+    return false;
 }
 
 function postVisibleAction(url, id, status) {
@@ -79,9 +119,10 @@ function postVisibleAction(url, id, status) {
             });
         }
     });
+    return false;
 }
 
-function postDeleteAction(url, id) {
+function postDeleteAction(url, id, callback) {
     $.ajaxQueue({
         type: "POST",
         url: url,
@@ -94,7 +135,8 @@ function postDeleteAction(url, id) {
         success: function(data) {
             if (data) {
                 if (data.success) {
-                    window.location.replace(data.url);
+                    if (callback && $.isFunction(callback)) callback();
+                    else window.location.replace(data.url);
                 } else displayErrorNotice(data.errors);
             } else displayErrorNotice(null);
         },
@@ -104,6 +146,7 @@ function postDeleteAction(url, id) {
             });
         }
     });
+    return false;
 }
 
 function postEditAction(url, id, title, body) {
@@ -131,4 +174,5 @@ function postEditAction(url, id, title, body) {
             });
         }
     });
+    return false;
 }

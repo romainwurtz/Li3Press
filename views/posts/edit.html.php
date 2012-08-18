@@ -1,3 +1,4 @@
+<div class="alert-area"></div>
 <?= $this->form->create($post, array("id" => "form_edit", "class" => "form-vertical ")); ?>
 <fieldset>
     <div class="clearfix">
@@ -26,9 +27,7 @@
 
 
         $("#form_edit").submit(function (e) {
-            $(".alert").fadeOut('slow', function () {
-                $(this).remove();
-            });
+            e.preventDefault();
             postEditAction("<?php echo $this->url(array('Posts::editAction', 'type' => 'json')); ?>", <?php echo $this->request()->id ?> , $('#edit_title').val(), $('#edit_body').val());
             return false;
         });
