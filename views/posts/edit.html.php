@@ -28,119 +28,38 @@
     new nicEditor({
         fullPanel: true
     }).panelInstance('edit_body');
-    
-    
+
+
     $("#form_edit").submit(function (e) {
         $(".alert").fadeOut('slow', function () {
             $(this).remove();
         });
-        $.ajaxQueue({
-            type: "POST",
-            url: "<?php echo $this->url(array('Posts::editAction', 'type' => 'json')); ?>",
-            async: true,
-            cache: false,
-            timeout: 50000,
-            data: {
-            	"id" : <?php echo $this -> request() -> id ?> ,
-                "title": $('#edit_title').val(),
-                "body": $('#edit_body').val()
-            },
-            success: function (data) {
-                if (data) {
-                    if (data.success) {
-                        $('#content').prepend('<div class="alert alert-block alert-success fade in">\
-						<button type="button" class="close" data-dismiss="alert">&times;</button>\
-						<h4 class="alert-heading">Well done!</h4>\
-						<p>Your changes have been successfully saved.</p></div>');
-                    } else {
-                        $('#content').prepend(generateError(data.errors));
-                    }
-                }
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {}
-        });
+        postEditAction("<?php echo $this->url(array('Posts::editAction', 'type' => 'json')); ?>", <?php echo $this -> request() -> id ?> , $('#edit_title').val(), $('#edit_body').val());
         return false;
     });
-    
- $("#delete_post").click(function (e) {
-	e.preventDefault();
-	$.ajaxQueue({
-            type: "POST",
-            url: "<?php echo $this->url(array('Posts::deleteAction', 'type' => 'json')); ?>",
-            async: true,
-            cache: false,
-            timeout: 50000,
-            data: {
-            	"id" : <?php echo $this -> request() -> id ?> ,
-            },
-            success: function (data) {
-                if (data) {
-                    if (data.success) {
-						window.location.replace(data.url);
-                    } else {
-                        $('#content').prepend(generateError(data.errors));
-                    }
-                }
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {}
-        });
-	        });
 
-function visibleAction(status)
-{
-	$.ajaxQueue({
-            type: "POST",
-            url: "/blog/hideAction.json",
-            async: true,
-            cache: false,
-            timeout: 50000,
-            data: {
-            	"id" : <?php echo $this -> request() -> id ?> ,
-				"visibility" : status,
-            },
-            success: function (data) {
-                if (data && data.success) {
-		  			var group = $('#visible_choice');
-					$('.disabled', group).not("#visible_text").removeClass('disabled');
-					$('.active', group).not("#visible_text").removeClass('active');
-					(status == true) ? $('#visible_off', group).addClass('disabled') : $('#visible_on', group).addClass('disabled');
-					 $('#content').prepend('<div class="alert alert-block alert-success fade in">\
-						<button type="button" class="close" data-dismiss="alert">&times;</button>\
-						<h4 class="alert-heading">Well done!</h4>\
-						<p>Your changes have been successfully saved.</p></div>');
-                    } else {
-                        $('#content').prepend(generateError(data.errors));
-                    }
-                
-            },
-            error: function (XMLHttpRequest, textStatus, errorThrown) {}
-        });
-}
+    $("#delete_post").click(function (e) {
+        e.preventDefault();
+        postDeleteAction("<?php echo $this->url(array('Posts::deleteAction', 'type' => 'json')); ?>", <?php echo $this -> request() -> id ?> );
+        return false;
+    });
 
+    $("#visible_on").click(function (e) {
+        e.preventDefault();
+        if ($(this).hasClass('disabled')) postVisibleAction("<?php echo $this->url(array('Posts::hideAction', 'type' => 'json')); ?>", <?php echo $this -> request() -> id ?> , true);
+        return false;
 
+    });
 
+    $("#visible_off").click(function (e) {
+        e.preventDefault();
+        if ($(this).hasClass('disabled')) postVisibleAction("<?php echo $this->url(array('Posts::hideAction', 'type' => 'json')); ?>", <?php echo $this -> request() -> id ?> , false);
+        return false;
 
-
-		$("#visible_on").click(function (e) {
-    e.preventDefault();
-    if ($(this).hasClass('disabled')) visibleAction(true);
-    return false;
-
-});
-
-$("#visible_off").click(function (e) {
-    e.preventDefault();
-    if ($(this).hasClass('disabled')) visibleAction(false);
-    return false;
-
-});
-$("#visible_text").click(function (e) {
-    e.preventDefault();
-    return false;
-});
-
-   
-
-
-		});
-</script>
+    });
+    $("#visible_text").click(function (e) {
+        e.preventDefault();
+        return false;
+    });
+  
+});</script>
