@@ -43,24 +43,20 @@ function generateSuccessNotice(title, notice) {
 function displaySuccessNotice(title, notice) {
     if (title == null || title) title = 'Well done!';
     if (notice == null || notice) notice = 'Your changes have been successfully saved.';
-    var previous = $(".alert-area");
-    if ($(previous).length) $(previous).fadeOut('slow', function() {
+    $(".alert-area").stop(true, true).fadeOut('slow', function() {
         $(this).empty();
         $(generateSuccessNotice(title, notice)).prependTo(this)
         $(this).fadeIn("slow").delay(2000).fadeOut("slow");
     });
-    else $(generateSuccessNotice(title, notice)).prependTo(previous).fadeIn("slow").delay(2000).fadeOut("slow");
     return false;
 }
 
 function displayErrorNotice(errors) {
-    var previous = $(".alert-area");
-    if ($(previous).length) $(previous).fadeOut('slow', function() {
+    $(".alert-area").stop(true, true).fadeOut('slow', function() {
         $(this).empty();
         $(generateErrorNotice(errors)).prependTo(this);
         $(this).fadeIn("slow").delay(2000).fadeOut("slow");
     });
-    else $(generateErrorNotice(errors)).prependTo(this).fadeIn("slow").delay(2000).fadeOut("slow");
     return false;
 }
 
