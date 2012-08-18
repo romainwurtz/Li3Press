@@ -10,24 +10,18 @@
 namespace app\models;
 
 class Comments extends \lithium\data\Model {
-      public $belongsTo = array('Posts');
-
-	    public $validates = array(
+      public $validates = array(
         'title' => array(
-            array(
+           array(
                 'notEmpty',
                 'required' => true,
-                'message' => 'Please supply a title.'
-            )
-        ),
+                'message' => 'Please supply a title.')),
         'body' => array(
-            array(
+           array(
                 'notEmpty',
                 'required' => true,
-                'message' => 'Please supply a content for this comment.'
-            )
-        )
-    );
+                'message' => 'Please supply a content for this comment.'))
+      );
 	
 }
 

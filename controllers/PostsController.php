@@ -20,7 +20,7 @@ class PostsController extends \lithium\action\Controller {
 	protected function getPost($id, &$post) {
 		$post = null;
 		$success = false;
-		$request_details = array();//'with' => 'comments');
+		$request_details = array('with' => 'Comments');
 
 		if (!Auth::check('default'))
 		  $request_details['conditions'] = array('visibility' => 1);

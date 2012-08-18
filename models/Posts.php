@@ -12,7 +12,7 @@ namespace app\models;
 class Posts extends \lithium\data\Model {
       public $hasMany = array('Comments');
 
-	    public $validates = array(
+      public $validates = array(
         'title' => array(
             array(
                 'notEmpty',
