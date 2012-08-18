@@ -35,7 +35,19 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (`id` int(11) NOT NULL AUTO_INCREMENT,
 				    `username` varchar(256) NOT NULL,
 				    `password` varchar(256) NOT NULL,
-				    PRIMARY KEY (`id`), UNIQUE KEY `username` (`username`)) ENGINE=InnoDB;";
+				    PRIMARY KEY (`id`), UNIQUE KEY `username` (`username`)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS `comments`;
+
+CREATE TABLE IF NOT EXISTS `comments` (`id` int(11) NOT NULL AUTO_INCREMENT,
+				       `title` text NOT NULL,
+				       `body` text NOT NULL,
+				       `post_id` int(11) NOT NULL,
+				       FOREIGN KEY(post_id) REFERENCES posts(id)
+				       ON UPDATE CASCADE
+				       ON DELETE RESTRICT,
+				       PRIMARY KEY(`id`)) ENGINE=InnoDB;
+";
 	# ENDFIXME
 
 	# FIXME : put into the unittest mock, replace with some instructions 
