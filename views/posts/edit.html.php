@@ -137,8 +137,6 @@ $("#visible_off").click(function (e) {
 $("#visible_text").click(function (e) {
     e.preventDefault();
     return false;
-
->>>>>>> d986a998192e7ea3d678fdc593299b11c5745be4
 });
 
    
