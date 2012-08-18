@@ -33,7 +33,7 @@
                     if (data.success) {
                        window.location.replace(data.url);
                     } else {
-                        $('#content').prepend(generateError(data.errors));
+                        $('#content').prepend(generateErrorNotice(data.errors));
                     }
                 }
             },

@@ -6,16 +6,6 @@
  *
  */
 
-// HELPER
-Object.size = function (obj) {
-    var size = 0,
-        key;
-    for (key in obj) {
-        if (obj.hasOwnProperty(key)) size++;
-    }
-    return size;
-};
-
 function stringFromArrayClean(data) {
     var out = '<ul>';
     for (var i in data) {
@@ -26,12 +16,39 @@ function stringFromArrayClean(data) {
     return out;
 }
 
-function generateError(errors) {
-    var error = "";
-    if (typeof errors == "undefined" || Object.size(errors) == 0) error = "<ul><li>An unexpected error occurred :(</li></ul>";
-    else error = stringFromArrayClean(errors);
+function displayClearErrors() {
+    $(".alert").fadeOut('slow', function() {
+        $(this).remove();
+    });
+}
 
-    return '<div class="alert alert-block alert-error fade in"><button type="button" class="close" data-dismiss="alert">&times;</button><h4 class="alert-heading">Oh snap! You got an error!</h4><p>Error details:' + error + '</p></div>';
+function generateErrorNotice(errors) {
+    var error = "";
+    if (typeof errors == "undefined" || !errors || errors.length == 0) error = "<ul><li>An unexpected error occurred :(</li></ul>";
+    else error = stringFromArrayClean(errors);
+    return '<div class="alert alert-block alert-error fade in">\
+    <button type="button" class="close" data-dismiss="alert">&times;</button>\
+    <h4 class="alert-heading">Oh snap! You got an error!</h4>\
+    <p>Error details:' + error + '</p></div>';
+}
+
+function generateSuccessNotice(title, notice) {
+    return '<div class="alert alert-block alert-success fade in">\
+    <button type="button" class="close" data-dismiss="alert">&times;</button>\
+    <h4 class="alert-heading">' + title + '</h4>\
+    <p>' + notice + '</p></div>';
+}
+
+function displaySuccessNotice(title, notice) {
+    displayClearErrors();
+    if (title == null || title) title = 'Well done!';
+    if (notice == null || notice) notice = 'Your changes have been successfully saved.';
+    $(generateSuccessNotice(title, notice)).prependTo('#content').fadeIn("slow");
+}
+
+function displayErrorNotice(errors) {
+    displayClearErrors();
+    $(generateErrorNotice(errors)).prependTo('#content').fadeIn("slow");
 }
 
 function postVisibleAction(url, id, status) {
@@ -43,24 +60,24 @@ function postVisibleAction(url, id, status) {
         timeout: 50000,
         data: {
             "id": id,
-            "visibility": status,
+            "visibility": status
         },
-        success: function (data) {
-            if (data && data.success) {
-                var group = $('#visible_choice');
-                $('.disabled', group).not("#visible_text").removeClass('disabled');
-                $('.active', group).not("#visible_text").removeClass('active');
-                (status == true) ? $('#visible_off', group).addClass('disabled') : $('#visible_on', group).addClass('disabled');
-                $('#content').prepend('<div class="alert alert-block alert-success fade in">\
-						<button type="button" class="close" data-dismiss="alert">&times;</button>\
-						<h4 class="alert-heading">Well done!</h4>\
-						<p>Your changes have been successfully saved.</p></div>');
-            } else {
-                $('#content').prepend(generateError(data.errors));
-            }
-
+        success: function(data) {
+            if (data) {
+                if (data.success) {
+                    var group = $('#visible_choice');
+                    $('.disabled', group).not("#visible_text").removeClass('disabled');
+                    $('.active', group).not("#visible_text").removeClass('active');
+                    (status == true) ? $('#visible_off', group).addClass('disabled') : $('#visible_on', group).addClass('disabled');
+                    displaySuccessNotice(null, null);
+                } else displayErrorNotice(data.errors);
+            } else displayErrorNotice(null);
         },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {}
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            displayErrorNotice({
+                'URL': "This url is not defined or does not exist."
+            });
+        }
     });
 }
 
@@ -72,18 +89,20 @@ function postDeleteAction(url, id) {
         cache: false,
         timeout: 50000,
         data: {
-            "id": id,
+            "id": id
         },
-        success: function (data) {
+        success: function(data) {
             if (data) {
                 if (data.success) {
                     window.location.replace(data.url);
-                } else {
-                    $('#content').prepend(generateError(data.errors));
-                }
-            }
+                } else displayErrorNotice(data.errors);
+            } else displayErrorNotice(null);
         },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {}
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            displayErrorNotice({
+                'URL': "This url is not defined or does not exist."
+            });
+        }
     });
 }
 
@@ -99,16 +118,17 @@ function postEditAction(url, id, title, body) {
             "title": title,
             "body": body
         },
-        success: function (data) {
-            if (data && data.success) {
-                    $('#content').prepend('<div class="alert alert-block alert-success fade in">\
-						<button type="button" class="close" data-dismiss="alert">&times;</button>\
-						<h4 class="alert-heading">Well done!</h4>\
-						<p>Your changes have been successfully saved.</p></div>');
-                } else {
-                    $('#content').prepend(generateError(data.errors));
-                }
+        success: function(data) {
+            if (data) {
+                if (data.success) {
+                    displaySuccessNotice(null, null);
+                } else displayErrorNotice(data.errors);
+            } else displayErrorNotice(null);
         },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {}
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            displayErrorNotice({
+                'URL': "This url is not defined or does not exist."
+            });
+        }
     });
 }

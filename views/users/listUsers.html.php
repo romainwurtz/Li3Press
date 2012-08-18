@@ -54,7 +54,7 @@
 						<p>This user has been successfully added.</p></div>');
 						$(element).fadeOut(300, function() { $(this).remove(); });
                     } else {
-                        $('#content').prepend(generateError(data.errors));
+                        $('#content').prepend(generateErrorNotice(data.errors));
                     }
                 }
             },

@@ -49,7 +49,7 @@
 						<h4 class="alert-heading">Well done!</h4>\
 						<p>This user has been successfully added.</p></div>');
                     } else {
-                        $('#content').prepend(generateError(data.errors));
+                        $('#content').prepend(generateErrorNotice(data.errors));
                     }
                 }
             },

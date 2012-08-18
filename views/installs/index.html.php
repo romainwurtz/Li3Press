@@ -35,7 +35,7 @@ $('#content').empty().prepend('<div class="alert alert-block alert-success fade 
 						<h4 class="alert-heading">Well done!</h4>\
 						<p>Your changes have been successfully saved.</p></div>');
                     } else {
-                        $('#content').prepend(generateError(data.errors));
+                        $('#content').prepend(generateErrorNotice(data.errors));
                     }
                 }
             },
