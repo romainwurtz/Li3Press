@@ -36,7 +36,7 @@
         });
         $.ajaxQueue({
             type: "POST",
-            url: "<?php echo $this->url(array('Posts::editAction', 'id' => $this->request()->id, 'type' => 'json')); ?>",
+            url: "<?php echo $this->url(array('Posts::editAction', 'type' => 'json')); ?>",
             async: true,
             cache: false,
             timeout: 50000,
@@ -66,7 +66,7 @@
 	e.preventDefault();
 	$.ajaxQueue({
             type: "POST",
-            url: "<?php echo $this->url(array('Posts::deleteAction', 'id' => $this->request()->id, 'type' => 'json')); ?>",
+            url: "<?php echo $this->url(array('Posts::deleteAction', 'type' => 'json')); ?>",
             async: true,
             cache: false,
             timeout: 50000,

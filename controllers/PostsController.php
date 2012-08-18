@@ -118,7 +118,7 @@ class PostsController extends \lithium\action\Controller {
 		} else if (!$this -> request -> is('post')) {
 			$errors['call'] = 'This action can only be called with post';
 		} else {
-			if (!($success = self::getPost($this -> request -> id, $post))) {
+			if (!($success = self::getPost($this -> request -> data['id'], $post))) {
 				$errors['post'] = 'This post doesn\'t exist';
 			}
 			if ($success && $this -> request -> data) {
