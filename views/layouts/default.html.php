@@ -1,43 +1,43 @@
 <?php
 $title = BLOG_TITLE;
 if (isset($post)) {
-	$title .= " | " . $post -> title;
+    $title .= " | " . $post->title;
 }
 ?>
 <!doctype html>
 <html>
-<head>
-	<?php echo $this -> html -> charset(); ?>
-	<title><?php echo $title ?></title>
-	<?php echo $this -> html -> style(array('bootstrap.min', 'li3Press')); ?>
-	<?php echo $this -> html -> link('Icon', null, array('type' => 'icon')); ?>
-	<?php echo $this -> html -> script(array('jquery-1.7.2.min', 'jquery.ajaxQueue', 'bootstrap.min', 'jquery.backstretch.min', 'nicEdit', 'li3Press')); ?>
-	<script type="text/javascript">
-			$(document).ready(function() {
-	  $.backstretch("<?php echo BLOG_BG; ?>
-		", {speed: 150});
-		});
+    <head>
+        <?php echo $this->html->charset(); ?>
+        <title><?php echo $title ?></title>
+        <?php echo $this->html->style(array('bootstrap.min', 'li3Press')); ?>
+        <?php echo $this->html->link('Icon', null, array('type' => 'icon')); ?>
+        <?php echo $this->html->script(array('jquery-1.7.2.min', 'jquery.ajaxQueue', 'bootstrap.min', 'jquery.backstretch.min', 'nicEdit', 'li3Press')); ?>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $.backstretch("<?php echo BLOG_BG; ?>
+                ", {speed: 150});
+            });
 
-	</script>
-</head>
-<body class="app">
-	<?php
-	if ($this -> login -> isUserAuth()) {
-		echo $this -> _render('element', 'adminMenu');
-	}
-	?>
-	<div class="row">
-	<div id="container" class="span9 offset1">
-		<div class="row">
-			<div id="header" class="span9">
-				<h1><?php echo $this -> html -> link(BLOG_TITLE, "/"); ?></h1>
-			</div>
-			<span class="span9 dotted"></span>
-			<div id="content" class="span9">
-				<?php echo $this -> content(); ?>
-			</div>
-		</div>
-	</div>
-	</div>
-</body>
+        </script>
+    </head>
+    <body class="app">
+        <?php
+        if ($this->login->isUserAuth()) {
+            echo $this->_render('element', 'adminMenu');
+        }
+        ?>
+        <div class="row">
+            <div id="container" class="span9 offset1">
+                <div class="row">
+                    <div id="header" class="span9">
+                        <h1><?php echo $this->html->link(BLOG_TITLE, "/"); ?></h1>
+                    </div>
+                    <span class="span9 dotted"></span>
+                    <div id="content" class="span9">
+                        <?php echo $this->content(); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
