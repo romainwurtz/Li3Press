@@ -27,3 +27,31 @@ article{margin-bottom:30px;}
 #visible_text{background-color:#FFF;}
 .btn.disabled{background-color:#E6E6E6;color:#333;}
 article h1 a,article h1 a:active,article h1 a:visited{color:#FFF;}
+
+
+
+#dropzone {
+    background: palegreen;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+}
+#dropzone.in {
+    width: 600px;
+    height: 200px;
+    line-height: 200px;
+    font-size: larger;
+}
+#dropzone.hover {
+    background: lawngreen;
+}
+#dropzone.fade {
+    --:  0.3s -;
+    --:  0.3s -;
+    --:  0.3s -;
+    --:  0.3s -;
+    :  0.3s -;
+    opacity: 1;
+}

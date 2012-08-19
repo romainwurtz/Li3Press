@@ -8,7 +8,10 @@
     </div>
     <div class="span7">
         <h1>Edit</h1>
-
+        <!--
+        <div id="dropzone" class="fade well">Drop files here</div>
+        <input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
+        -->
         <?= $this->form->create(null, array("id" => "form_create", "class" => "form-vertical")); ?>
         <fieldset>
             <?= $this->form->field('username', array('id' => 'edit_username', 'autocomplete' => 'off', 'class' => 'span3', 'wrap' => array('class' => 'control-group'))); ?>
@@ -27,6 +30,39 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
+        
+        
+        $(document).bind('dragover', function (e) {
+            var dropZone = $('#dropzone'),
+            timeout = window.dropZoneTimeout;
+            if (!timeout) {
+                dropZone.addClass('in');
+            } else {
+                clearTimeout(timeout);
+            }
+            if (e.target === dropZone[0]) {
+                dropZone.addClass('hover');
+            } else {
+                dropZone.removeClass('hover');
+            }
+            window.dropZoneTimeout = setTimeout(function () {
+                window.dropZoneTimeout = null;
+                dropZone.removeClass('in hover');
+            }, 100);
+        });
+        
+        
+        $('#fileupload').fileupload({
+            dataType: 'json',
+            dropZone: $('#dropzone'),
+            done: function (e, data) {
+                $.each(data.result, function (index, file) {
+                    $('<p/>').text(file.name).appendTo(document.body);
+                });
+            }
+        });
+        
+        
         $("#form_create").submit(function(e) {
             $(".alert").fadeOut('slow', function() {
                 $(this).remove();

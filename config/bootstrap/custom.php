@@ -32,6 +32,8 @@ Validator::add('usernameTaken', function($value) {
     return !$success;
 });
 
-define('_INSTALL' , file_exists($_SERVER['DOCUMENT_ROOT']."/install") ? '1' : '0');
+use  lithium\core\Libraries;
+Libraries::add('upload', array('path' => 'libraries/_source/upload'));
 
+define('_INSTALL' , file_exists($_SERVER['DOCUMENT_ROOT']."/install") ? '1' : '0');
 ?>

@@ -11,7 +11,9 @@ if (isset($post)) {
         <title><?php echo $title ?></title>
         <?php echo $this->html->style(array('bootstrap.min', 'li3Press')); ?>
         <?php echo $this->html->link('Icon', null, array('type' => 'icon')); ?>
-        <?php echo $this->html->script(array('jquery-1.7.2.min', 'jquery.ajaxQueue', 'bootstrap.min', 'jquery.backstretch.min', 'nicEdit', 'li3Press')); ?>
+        <?php echo $this->html->script(array('jquery-1.7.2.min', 'jquery.ajaxQueue', 'bootstrap.min', 'jquery.backstretch.min', 'nicEdit', "upload/vendor/jquery.ui.widget.js", "upload/jquery.iframe-transport.js", "upload/jquery.fileupload.js", 'li3Press')); ?>
+        
+        
         <script type="text/javascript">
             $(document).ready(function() {
                 $.backstretch("<?php echo BLOG_BG; ?>
