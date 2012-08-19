@@ -55,3 +55,11 @@ article h1 a,article h1 a:active,article h1 a:visited{color:#FFF;}
     :  0.3s -;
     opacity: 1;
 }
+
+.progress {
+    width:200px
+}
+.bar {
+    height: 18px;
+    background: green;
+}

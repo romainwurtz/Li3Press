@@ -10,7 +10,10 @@
         <h1>Edit</h1>
         <!--
         <div id="dropzone" class="fade well">Drop files here</div>
-        <input id="fileupload" type="file" name="files[]" data-url="server/php/" multiple>
+        <input id="fileupload" type="file" name="files[]" data-url="<?php echo $this->url(array('Uploads::add', 'type' => 'upload')); ?>" multiple>
+        <div id="progress">
+            <div class="bar" style="width: 0%;"></div>
+        </div>
         -->
         <?= $this->form->create(null, array("id" => "form_create", "class" => "form-vertical")); ?>
         <fieldset>
@@ -59,6 +62,13 @@
                 $.each(data.result, function (index, file) {
                     $('<p/>').text(file.name).appendTo(document.body);
                 });
+            },
+            progressall: function (e, data) {
+                var progress = parseInt(data.loaded / data.total * 100, 10);
+                $('#progress .bar').css(
+                'width',
+                progress + '%'
+            );
             }
         });
         

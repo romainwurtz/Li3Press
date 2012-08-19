@@ -26,5 +26,7 @@ if (_INSTALL) {
 	Router::connect('/admin/users/{:action}.{:type}', array('controller' => 'users'));
 	Router::connect('/admin/users/{:action}', array('controller' => 'users'));
 	Router::connect('/user/{:action}/{:id:[0-9]+}', array('controller' => 'users'));
+        	Router::connect('/upload/{:action}.{:type}', array('controller' => 'uploads'));
+
 }
 ?>

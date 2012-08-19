@@ -75,5 +75,15 @@ Media::type('ajax', array('application/xhtml+xml', 'text/html'), array(
     'conditions' => array('ajax' => true)
 ));
 
-
+Media::type('upload', array('application/xhtml+xml', 'text/html'), array(
+    'view' => 'lithium\template\View',
+    'paths' => array(
+        'template' => array(
+            '{:library}/views/{:controller}/{:template}.upload.php',
+            '{:library}/views/{:controller}/{:template}.html.php'
+        ),
+        'layout' => '{:library}/views/layouts/default.upload.php'
+    ),
+    'conditions' => array('ajax' => true)
+));
 ?>

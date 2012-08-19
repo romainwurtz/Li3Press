@@ -1,2 +1,4 @@
 config/bootstrap/param.ini.php
 install
+webroot/upload/files/*
+webroot/upload/thumbnails/*

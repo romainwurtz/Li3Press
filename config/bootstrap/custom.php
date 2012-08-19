@@ -10,6 +10,7 @@
 use app\models\Users;
 use lithium\security\Password;
 
+
 Users::applyFilter('save', function($self, $params, $chain) {
     if ($params['data']) {
         $params['entity']->set($params['data']);
@@ -33,7 +34,7 @@ Validator::add('usernameTaken', function($value) {
 });
 
 use  lithium\core\Libraries;
-Libraries::add('upload', array('path' => 'libraries/_source/upload'));
+Libraries::add('upload', array('path' => LITHIUM_APP_PATH . '/libraries/_source/upload/'));
 
 define('_INSTALL' , file_exists($_SERVER['DOCUMENT_ROOT']."/install") ? '1' : '0');
 ?>
