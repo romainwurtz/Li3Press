@@ -42,7 +42,8 @@ if ($success): ?>
                         }, 'slow');
                         currentPage++;
                         */
-                    } else end = true;
+                    } 
+                    end = true;
                     ajax = false;
                     $('#loader').fadeOut('420');
                 });
