@@ -1,10 +1,11 @@
 <?php
 /**
- * Lithium: the most rad php framework
+ * Li3Press: A simple blog using Lithium framework
  *
- * @copyright     Copyright 2012, Union of RAD (http://union-of-rad.org)
- * @license       http://opensource.org/licenses/bsd-license.php The BSD License
+ * @author          Romain Wurtz (http://www.t3kila.com)
+ * @copyright     Copyright 2012, Romain Wurtz (http://www.t3kila.com)
+ * 
  */
-?>
-<?php echo '<' . '?xml version="1.0" ?' . '>'; ?>
+
+echo '<' . '?xml version="1.0" ?' . '>'; ?>
 <?=$this->content;?>

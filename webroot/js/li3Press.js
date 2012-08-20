@@ -147,7 +147,7 @@ function postDeleteAction(url, id, callback) {
 
 function postEditAction(url, id, title, body) {
     $.ajaxQueue({
-        type: "POST",
+        type: "GET",
         url: url,
         async: true,
         cache: false,
@@ -163,6 +163,50 @@ function postEditAction(url, id, title, body) {
                     displaySuccessNotice(null, null);
                 } else displayErrorNotice(data.errors);
             } else displayErrorNotice(null);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            displayErrorNotice({
+                'URL': "This url is not defined or does not exist."
+            });
+        }
+    });
+    return false;
+}
+
+function postsIndexAction(url, page, callback) {
+    var posts = null;
+    $.ajax({
+        dataType: "html",
+        url: url + page + '.ajax',
+        success: function (data) {
+            if (data) {
+                posts = data;
+            } else displayErrorNotice(null);
+        },
+        complete: function () {
+            if (callback && $.isFunction(callback)) callback(posts);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            displayErrorNotice({
+                'URL': "This url is not defined or does not exist."
+            });
+        }
+    });
+    return false;
+}
+
+function commentsListAction(url, callback) {
+    var posts = null;
+    $.ajax({
+        dataType: "html",
+        url: url,
+        success: function (data) {
+            if (data) {
+                posts = data;
+            } else displayErrorNotice(null);
+        },
+        complete: function () {
+            if (callback && $.isFunction(callback)) callback(posts);
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
             displayErrorNotice({

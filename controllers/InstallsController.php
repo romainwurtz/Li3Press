@@ -1,11 +1,11 @@
 <?php
- /**
-  * Li3Press: A simple blog using Lithium framework
-  *
-  * @author 		Romain Wurtz (http://www.t3kila.com)
-  * @copyright		Copyright 2012, Romain Wurtz (http://www.t3kila.com)
-  * 
-  */
+/**
+ * Li3Press: A simple blog using Lithium framework
+ *
+ * @author          Romain Wurtz (http://www.t3kila.com)
+ * @copyright     Copyright 2012, Romain Wurtz (http://www.t3kila.com)
+ * 
+ */
  
 namespace app\controllers;
 
@@ -52,10 +52,10 @@ CREATE TABLE IF NOT EXISTS `comments` (`comments_id` int(11) NOT NULL AUTO_INCRE
 
 	# FIXME : put into the unittest mock, replace with some instructions 
 	# about the blog maybe?
-	protected static $_lorem = "Cupcake ipsum dolor sit. Amet pastry cheesecake. Danish sesame snaps caramels wypas. Caramels candy dragée dragée halvah cupcake. Bear claw gingerbread tiramisu candy tart sweet roll marzipan. Icing macaroon faworki.\
-Halvah chocolate macaroon bonbon jelly macaroon faworki. Cheesecake dessert chocolate cake cotton candy sesame snaps fruitcake.<br />Marshmallow dragée chocolate cake tiramisu candy muffin sugar plum sesame snaps. Sugar plum halvah ice cream wafer toffee icing. Chocolate bar candy donut topping gummies tiramisu muffin pudding. Gummies oat cake marzipan pie ice cream marshmallow macaroon marzipan caramels.\
-Pie biscuit pudding jelly beans chocolate oat cake. Danish cotton candy tootsie roll. Jelly muffin lemon drops wafer bonbon wafer chocolate bar dessert. Pie danish tootsie roll cotton candy. Halvah chocolate pie dragée apple pie candy canes marshmallow. Liquorice bonbon apple pie jelly-o jelly-o.\
-Biscuit bonbon powder pie pastry cheesecake gummies. Tootsie roll jelly marzipan pastry tootsie roll chupa chups chupa chups wafer.<br />Gummies marshmallow sugar plum apple pie marzipan cookie.\ Cupcake gummies pastry. Chupa chups lollipop croissant. Tart lollipop carrot cake applicake.<br />Gummies caramels cheesecake liquorice dragée. Chocolate bar sesame snaps chupa chups candy canes. Soufflé cookie chupa chups cheesecake pudding cookie.\
+	protected static $_lorem = "Cupcake ipsum dolor sit. Amet pastry cheesecake. Danish sesame snaps caramels wypas. Caramels candy dragée dragée halvah cupcake. Bear claw gingerbread tiramisu candy tart sweet roll marzipan. Icing macaroon faworki.
+Halvah chocolate macaroon bonbon jelly macaroon faworki. Cheesecake dessert chocolate cake cotton candy sesame snaps fruitcake.<br />Marshmallow dragée chocolate cake tiramisu candy muffin sugar plum sesame snaps. Sugar plum halvah ice cream wafer toffee icing. Chocolate bar candy donut topping gummies tiramisu muffin pudding. Gummies oat cake marzipan pie ice cream marshmallow macaroon marzipan caramels.
+Pie biscuit pudding jelly beans chocolate oat cake. Danish cotton candy tootsie roll. Jelly muffin lemon drops wafer bonbon wafer chocolate bar dessert. Pie danish tootsie roll cotton candy. Halvah chocolate pie dragée apple pie candy canes marshmallow. Liquorice bonbon apple pie jelly-o jelly-o.
+Biscuit bonbon powder pie pastry cheesecake gummies. Tootsie roll jelly marzipan pastry tootsie roll chupa chups chupa chups wafer.<br />Gummies marshmallow sugar plum apple pie marzipan cookie.\ Cupcake gummies pastry. Chupa chups lollipop croissant. Tart lollipop carrot cake applicake.<br />Gummies caramels cheesecake liquorice dragée. Chocolate bar sesame snaps chupa chups candy canes. Soufflé cookie chupa chups cheesecake pudding cookie.
 Toffee cheesecake cupcake caramels jujubes gingerbread cookie sesame snaps. Candy canes caramels cupcake cotton candy oat cake. Cheesecake cheesecake dessert tart. Donut tiramisu apple pie. Sweet roll pudding donut chocolate tiramisu tiramisu marzipan. Chocolate cake sesame snaps sweet.";
 	# ENDFIXME
 

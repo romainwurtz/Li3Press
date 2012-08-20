@@ -1,4 +1,13 @@
-<?php if ($success): ?>
+<?php
+/**
+ * Li3Press: A simple blog using Lithium framework
+ *
+ * @author          Romain Wurtz (http://www.t3kila.com)
+ * @copyright     Copyright 2012, Romain Wurtz (http://www.t3kila.com)
+ * 
+ */
+
+if ($success): ?>
 <article class="row user_profile" id="<?php echo $user->id ?>">
 	<div class="span2">
 		<a href="#" class="thumbnail">

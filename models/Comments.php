@@ -10,7 +10,7 @@
 namespace app\models;
 
 class Comments extends \lithium\data\Model {
-      protected $_schema = array('_id' => 'comments_id');
+      protected $_schema = array('id' => 'comments_id', 'title' => 'title', 'body' => 'body', 'post_id' => 'post_id');
 
       public $validates = array(
         'title' => array(

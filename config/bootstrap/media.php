@@ -70,6 +70,10 @@ Media::type('ajax', array('application/xhtml+xml', 'text/html'), array(
             '{:library}/views/{:controller}/{:template}.ajax.php',
             '{:library}/views/{:controller}/{:template}.html.php'
         ),
+         'element' => array(
+            '{:library}/views/elements/{:template}.ajax.php',
+            '{:library}/views/elements/{:template}.html.php'
+        ),
         'layout' => '{:library}/views/layouts/default.ajax.php'
     ),
     'conditions' => array('ajax' => true)

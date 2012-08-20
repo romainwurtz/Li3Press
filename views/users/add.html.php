@@ -1,3 +1,12 @@
+<?php
+/**
+ * Li3Press: A simple blog using Lithium framework
+ *
+ * @author          Romain Wurtz (http://www.t3kila.com)
+ * @copyright     Copyright 2012, Romain Wurtz (http://www.t3kila.com)
+ * 
+ */
+?>
 <?=$this->form->create(null, array("id" => "form_create", "class" => "form-vertical")); ?>
  <fieldset>
     	<?=$this->form->field('username',  array('id' => 'create_username', 'autocomplete' => 'off', 'class' => 'span3', 'wrap' => array('class' => 'control-group')));?>

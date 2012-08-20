@@ -1,4 +1,13 @@
-<?php if ($display) { ?>
+<?php
+/**
+ * Li3Press: A simple blog using Lithium framework
+ *
+ * @author          Romain Wurtz (http://www.t3kila.com)
+ * @copyright     Copyright 2012, Romain Wurtz (http://www.t3kila.com)
+ * 
+ */
+
+if ($display) { ?>
 <h2>Create admin</h2>
 <?=$this->form->create(null, array("id" => "form_create", "class" => "form-vertical")); ?>
  <fieldset>

@@ -1,11 +1,11 @@
 <?php
- /**
-  * Li3Press: A simple blog using Lithium framework
-  *
-  * @author 		Romain Wurtz (http://www.t3kila.com)
-  * @copyright		Copyright 2012, Romain Wurtz (http://www.t3kila.com)
-  * 
-  */
+/**
+ * Li3Press: A simple blog using Lithium framework
+ *
+ * @author          Romain Wurtz (http://www.t3kila.com)
+ * @copyright     Copyright 2012, Romain Wurtz (http://www.t3kila.com)
+ * 
+ */
 
 /* Lithium core libraries */
 define('LITHIUM_LIBRARY_PATH', '');// Ex: /home/[NAME]/Sites/lithium/libraries/ 

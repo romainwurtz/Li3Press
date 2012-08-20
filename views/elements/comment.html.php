@@ -6,4 +6,5 @@
  * @copyright     Copyright 2012, Romain Wurtz (http://www.t3kila.com)
  * 
  */
-echo $output; ?>
+?>
+<?php echo $comment->body; ?>
