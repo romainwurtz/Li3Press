@@ -34,7 +34,8 @@ if (_INSTALL) {
 
     Router::connect('/comments/list/{:id:[0-9]+}', array('controller' => 'comments', 'action' => 'indexAction'));
     Router::connect('/comments/list/{:id:[0-9]+}.{:type}', array('controller' => 'comments', 'action' => 'indexAction'));
-    Router::connect('/comments/{:action}', array('controller' => 'comments'));
     Router::connect('/comments/{:action}.{:type}', array('controller' => 'comments'));
+        Router::connect('/comments/{:action}', array('controller' => 'comments'));
+
 }
 ?>

@@ -16,7 +16,7 @@ body{background-color:#fff;color:#0d0d0d;font-family:Helvetica, Arial, sans-seri
 .right{float:right;}
 .left{float:left;}
 #loader{display:none;text-align:center;}
-article h1{background:none repeat scroll 0 0 #666;color:#FFF;margin-bottom:30px;padding-right:5px;text-align:right;}
+article h1{background:none repeat scroll 0 0 #666;color:#FFF;margin-bottom:30px;padding:5px;text-align:right;margin-top: 0px}
 article h1 a:hover{color:#76CCCD;}
 #header a{color:#000;}
 .admin_action{margin-bottom:10px;}

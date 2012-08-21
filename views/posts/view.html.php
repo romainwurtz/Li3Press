@@ -20,7 +20,7 @@ if ($success): ?>
     </div>
 </article>
 <div id="loader"><?= $this->html->image('loading.gif', array('align' => 'center', "width" => "64", "height" => "64")); ?></div>
-
+<?php echo $this->_render('element', 'commentCreateForm', array(), array('type' => 'html')); ?>
 <script type="text/javascript">
     $(document).ready(function () {
         var ajax = false;
@@ -43,7 +43,7 @@ if ($success): ?>
                         currentPage++;
                         */
                     } 
-                    end = true;
+                    loaded = true;
                     ajax = false;
                     $('#loader').fadeOut('420');
                 });

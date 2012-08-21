@@ -40,10 +40,11 @@ function generateSuccessNotice(title, notice) {
     <p>' + notice + '</p></div>';
 }
 
-function displaySuccessNotice(title, notice) {
+function displaySuccessNotice(title, notice, element) {
     if (title == null || title) title = 'Well done!';
     if (notice == null || notice) notice = 'Your changes have been successfully saved.';
-    $(".alert-area").stop().clearQueue().fadeOut('slow', function() {
+    if (element == null || element) element = $(".alert-area");
+    $(element).stop().clearQueue().fadeOut('slow', function() {
         $(this).empty();
         $(generateSuccessNotice(title, notice)).prependTo(this)
         $(this).fadeIn("slow").delay(2000).fadeOut("slow");
@@ -51,8 +52,9 @@ function displaySuccessNotice(title, notice) {
     return false;
 }
 
-function displayErrorNotice(errors) {
-    $(".alert-area").stop().clearQueue().fadeOut('slow', function() {
+function displayErrorNotice(errors, element) {
+    if (element == null || element) element = $(".alert-area");
+    $(element).stop().clearQueue().fadeOut('slow', function() {
         $(this).empty();
         $(generateErrorNotice(errors)).prependTo(this);
         $(this).fadeIn("slow").delay(2000).fadeOut("slow");
@@ -75,13 +77,13 @@ function postAddAction(url, title, body) {
             if (data) {
                 if (data.success) {
                     window.location.replace(data.url);
-                } else displayErrorNotice(data.errors);
-            } else displayErrorNotice(null);
+                } else displayErrorNotice(data.errors, null);
+            } else displayErrorNotice(null, null);
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
             displayErrorNotice({
                 'URL': "This url is not defined or does not exist."
-            });
+            }, null);
         }
     });
     return false;
@@ -105,14 +107,14 @@ function postVisibleAction(url, id, status) {
                     $('.disabled', group).not("#visible_text").removeClass('disabled');
                     $('.active', group).not("#visible_text").removeClass('active');
                     (status == true) ? $('#visible_off', group).addClass('disabled') : $('#visible_on', group).addClass('disabled');
-                    displaySuccessNotice(null, null);
-                } else displayErrorNotice(data.errors);
-            } else displayErrorNotice(null);
+                    displaySuccessNotice(null, null, null);
+                } else displayErrorNotice(data.errors, null);
+            } else displayErrorNotice(null, null);
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
             displayErrorNotice({
                 'URL': "This url is not defined or does not exist."
-            });
+            }, null);
         }
     });
     return false;
@@ -133,13 +135,13 @@ function postDeleteAction(url, id, callback) {
                 if (data.success) {
                     if (callback && $.isFunction(callback)) callback();
                     else window.location.replace(data.url);
-                } else displayErrorNotice(data.errors);
-            } else displayErrorNotice(null);
+                } else displayErrorNotice(data.errors, null);
+            } else displayErrorNotice(null, null);
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
             displayErrorNotice({
                 'URL': "This url is not defined or does not exist."
-            });
+            }, null);
         }
     });
     return false;
@@ -160,14 +162,14 @@ function postEditAction(url, id, title, body) {
         success: function(data) {
             if (data) {
                 if (data.success) {
-                    displaySuccessNotice(null, null);
-                } else displayErrorNotice(data.errors);
-            } else displayErrorNotice(null);
+                    displaySuccessNotice(null, null, null);
+                } else displayErrorNotice(data.errors, null);
+            } else displayErrorNotice(null, null);
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
             displayErrorNotice({
                 'URL': "This url is not defined or does not exist."
-            });
+            }, null);
         }
     });
     return false;
@@ -181,7 +183,7 @@ function postsIndexAction(url, page, callback) {
         success: function (data) {
             if (data) {
                 posts = data;
-            } else displayErrorNotice(null);
+            } else displayErrorNotice(null, null);
         },
         complete: function () {
             if (callback && $.isFunction(callback)) callback(posts);
@@ -189,7 +191,7 @@ function postsIndexAction(url, page, callback) {
         error: function(XMLHttpRequest, textStatus, errorThrown) {
             displayErrorNotice({
                 'URL': "This url is not defined or does not exist."
-            });
+            }, null);
         }
     });
     return false;
@@ -203,10 +205,41 @@ function commentsListAction(url, callback) {
         success: function (data) {
             if (data) {
                 posts = data;
-            } else displayErrorNotice(null);
+            } else displayErrorNotice(null, null);
         },
         complete: function () {
             if (callback && $.isFunction(callback)) callback(posts);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            displayErrorNotice({
+                'URL': "This url is not defined or does not exist."
+            }, null);
+        }
+    });
+    return false;
+}
+
+function commentAddAction(url, id, name, email, website, body) {
+    $.ajaxQueue({
+        type: "POST",
+        url: url,
+        async: true,
+        cache: false,
+        timeout: 50000,
+        data: {
+            "id": id,
+            "name": name,
+            "email": email,
+            "website": website,
+            "body": body
+        },
+        success: function(data) {
+            console.log(data);
+            if (data) {
+                if (data.success) {
+                   
+                } else displayErrorNotice(data.errors, null);
+            } else displayErrorNotice(null, null);
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
             displayErrorNotice({

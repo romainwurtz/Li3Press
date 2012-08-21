@@ -45,6 +45,10 @@ class PostsController extends \lithium\action\Controller {
         return count($posts);
     }
 
+   public function postExist($id) {
+        return self::getPost($id, $errors = array());
+    }
+    
     public function addPost($title, $body, &$errors) {
         $success = false;
 

@@ -45,7 +45,7 @@
                 e.preventDefault();
                 var element = $(this).parents('tr');
                 postDeleteAction("<?php echo $this->url(array('Posts::deleteAction', 'type' => 'json')); ?>", $(element).data('id'), function () {
-                    displaySuccessNotice(null, null);
+                    displaySuccessNotice(null, null, null);
                     $(element).fadeOut(300, function () {
                         $(this).remove();
                     });
