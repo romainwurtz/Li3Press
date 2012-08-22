@@ -6,6 +6,8 @@
  *
  */
 
+var _alertTimer = {};
+
 function stringFromArrayClean(data) {
     var out = '<ul>';
     for (var i in data) {
@@ -25,39 +27,68 @@ function displayClearErrors() {
 
 function generateErrorNotice(errors) {
     var error = "";
-    if (typeof errors == "undefined" || !errors || errors.length == 0) error = "<ul><li>An unexpected error occurred :(</li></ul>";
+    var title = "Oh snap!";
+
+    if (errors != null && typeof errors != "undefined" && typeof errors['_title'] != "undefined") {
+        title += " " + errors['_title'];
+        delete errors['_title'];
+    } else title += " You got an error!";
+    if (errors != null && typeof errors == "undefined" || !errors || errors.length == 0) error = "<ul><li>An unexpected error occurred :(</li></ul>";
     else error = stringFromArrayClean(errors);
     return '<div class="alert alert-block alert-error fade in">\
     <button type="button" class="close" data-dismiss="alert">&times;</button>\
-    <h4 class="alert-heading">Oh snap! You got an error!</h4>\
+    <h4 class="alert-heading">' + title + '</h4>\
     <p>Error details:' + error + '</p></div>';
 }
 
-function generateSuccessNotice(title, notice) {
+function generateSuccessNotice(details) {
+    var title = "Well done!";
+    var notice = "";
+
+    if (details != null && typeof details != "undefined" && typeof details['_title'] != "undefined") {
+        title += " " + details['_title'];
+        delete details['_title'];
+    }
+    if (details != null && typeof details != "undefined" && typeof details['_desc'] != "undefined") {
+        notice = details['_desc'];
+        delete details['_desc'];
+    } else notice = 'Your changes have been successfully saved.';
     return '<div class="alert alert-block alert-success fade in">\
     <button type="button" class="close" data-dismiss="alert">&times;</button>\
      <h4 class="alert-heading">' + title + '</h4>\
     <p>' + notice + '</p></div>';
 }
 
-function displaySuccessNotice(title, notice, element) {
-    if (title == null || title) title = 'Well done!';
-    if (notice == null || notice) notice = 'Your changes have been successfully saved.';
+function displaySuccessNotice(details, element) {
     if (element == null || element) element = $(".alert-area");
-    $(element).stop().clearQueue().fadeOut('slow', function() {
+    if (_alertTimer && typeof _alertTimer[$(element)] != "undefined") {
+        clearTimeout(_alertTimer[$(element)]);
+        delete _alertTimer[$(element)];
+    };
+    $(element).stop(true, true).fadeOut('slow', function() {
         $(this).empty();
-        $(generateSuccessNotice(title, notice)).prependTo(this)
-        $(this).fadeIn("slow").delay(2000).fadeOut("slow");
+        $(generateSuccessNotice(details)).prependTo(this)
+        $(this).fadeIn("slow");
+        _alertTimer[$(this)] = setTimeout(function() {
+            $(element).fadeOut("slow");
+        }, 8000);
     });
     return false;
 }
 
 function displayErrorNotice(errors, element) {
     if (element == null || element) element = $(".alert-area");
-    $(element).stop().clearQueue().fadeOut('slow', function() {
+    if (_alertTimer && typeof _alertTimer[$(element)] != "undefined") {
+        clearTimeout(_alertTimer[$(element)]);
+        delete _alertTimer[$(element)];
+    };
+    $(element).stop(true, true).fadeOut('slow', function() {
         $(this).empty();
         $(generateErrorNotice(errors)).prependTo(this);
-        $(this).fadeIn("slow").delay(2000).fadeOut("slow");
+        $(this).fadeIn("slow");
+        _alertTimer[$(this)] = setTimeout(function() {
+            $(element).fadeOut("slow");
+        }, 8000);
     });
     return false;
 }
@@ -107,7 +138,7 @@ function postVisibleAction(url, id, status) {
                     $('.disabled', group).not("#visible_text").removeClass('disabled');
                     $('.active', group).not("#visible_text").removeClass('active');
                     (status == true) ? $('#visible_off', group).addClass('disabled') : $('#visible_on', group).addClass('disabled');
-                    displaySuccessNotice(null, null, null);
+                    displaySuccessNotice(null, null);
                 } else displayErrorNotice(data.errors, null);
             } else displayErrorNotice(null, null);
         },
@@ -162,7 +193,7 @@ function postEditAction(url, id, title, body) {
         success: function(data) {
             if (data) {
                 if (data.success) {
-                    displaySuccessNotice(null, null, null);
+                    displaySuccessNotice(null, null);
                 } else displayErrorNotice(data.errors, null);
             } else displayErrorNotice(null, null);
         },
@@ -205,7 +236,7 @@ function commentsListAction(url, callback) {
         success: function(data) {
             if (data) {
                 posts = data;
-            } else displayErrorNotice(null, null);
+            }
         },
         complete: function() {
             if (callback && $.isFunction(callback)) callback(posts);
@@ -234,11 +265,10 @@ function commentAddAction(url, id, name, email, website, body, callback) {
             "body": body
         },
         success: function(data) {
-            console.log(data);
             if (data) {
                 if (data.success) {
-                    if (callback && $.isFunction(callback)) callback();
-                } else displayErrorNotice(data.errors, null);
+                    if (callback && $.isFunction(callback)) callback(data);
+                } else displayErrorNotice(data.details, null);
             } else displayErrorNotice(null, null);
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {

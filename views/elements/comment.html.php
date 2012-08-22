@@ -20,9 +20,10 @@
                 ?></h4>
         <blockquote class="span7">
             <p><?= $comment->body ?></p>
-            <small>
-              
-            </small>
+        <?php if ($comment->updated) {
+            echo "<small>".date('M d, Y h:i:s A', strtotime($comment->updated))."</small>";
+        }  ?>
+           
         </blockquote>
     </td>
 </tr>

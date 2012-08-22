@@ -6,7 +6,7 @@
  * @copyright     Copyright 2012, Romain Wurtz (http://www.t3kila.com)
  * 
  */
-if ($comments) {
+if ($comments && count($comments) > 0) {
     ?>
 <div class="span9">
 <h2>Comments</h2>

@@ -45,6 +45,8 @@ CREATE TABLE IF NOT EXISTS `comments` (`comments_id` int(11) NOT NULL AUTO_INCRE
 				       `email` text NOT NULL,
 				       `website` text,
 				       `body` text NOT NULL,
+                                                                               `updated` datetime DEFAULT NOW(),
+                                                                               `created` datetime DEFAULT NOW(),
 				       `post_id` int(11) NOT NULL,
 				       FOREIGN KEY(post_id) REFERENCES posts(id)
 				       ON UPDATE CASCADE

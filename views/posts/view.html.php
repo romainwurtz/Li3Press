@@ -10,7 +10,7 @@ if ($success):
     ?>
     <article class="row" id="<?php echo $post->id ?>">
         <div class="span2">
-            <h1>  <?= $this->html->link($post->title, array('controller' => "posts", "action" => "view", "id" => $post->id)) ?></h1>
+            <h2>  <?= $this->html->link($post->title, array('controller' => "posts", "action" => "view", "id" => $post->id)) ?></h2>
             <?php
             if ($this->login->isUserAuth()) {
                 echo $this->html->link('Edit', $this->url(array('Posts::edit', 'id' => $this->request()->id)), array('class' => "btn btn-large span1 right"));
@@ -64,10 +64,7 @@ if ($success):
                 if (loaded == true) return;
                 if (ajax == true) return;
                 if ($(window).scrollTop() >= $(document).height() - $(window).height() - $('#add_comment').position().top) {
-
                     generateComments();
-
-
                 }
             });
         });

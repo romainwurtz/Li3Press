@@ -72,25 +72,27 @@ class CommentsController extends \lithium\action\Controller {
 
     public function addAction() {
         $success = false;
-        $errors = array();
+        $details = array();
 
         if (!$this->request->is('post')) {
-            $errors['call'] = 'This action can only be called with post';
+            $details['call'] = 'This action can only be called with post';
         } else if ($this->request->data) {
             if (!isset($this->request->data['id']) || !PostsController::postExist($this->request->data['id'])) {
-                $errors['post'] = 'This post doesn\'t exist';
+                $details['post'] = 'This post doesn\'t exist';
             } else {
                 $name = (isset($this->request->data['name']) ? $this->request->data['name'] : "");
                 $email = (isset($this->request->data['email']) ? $this->request->data['email'] : "");
                 $website = (isset($this->request->data['website']) ? $this->request->data['website'] : "");
                 $body = (isset($this->request->data['body']) ? $this->request->data['body'] : "");
                 $id = $this->request->data['id'];
-                if (!($success = self::addComment($name, $email, $website, $body, $id, $errors))) {
-                    $errors['comment'] = "Comment can't be created.";
+                if (!($success = self::addComment($name, $email, $website, $body, $id, $details))) {
+                    $details['_title'] = "Comment can't be created.";
                 }
+                else
+                    $details['_desc'] = "Your comment has been posted.";  
             }
         }
-        return compact('success', 'errors');
+        return compact('success', 'details');
     }
 
 }

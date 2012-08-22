@@ -11,6 +11,7 @@
     <h2>Leave a comment</h2>
 </div>
 <?= $this->form->create(null, array("id" => "form_create", "class" => "form-horizontal span9")); ?>
+<div class="alert-area"></div>
 <div class="row">
     <div class="span3">
         <?= $this->form->field('Name', array('id' => 'create_name', 'class' => 'span2')); ?>
@@ -22,11 +23,11 @@
     </div>
 </div>
 
-    <div class="span2 offset2">
-        <!-- CANCEL BUTTON -->
+<div class="span2 offset2">
+    <!-- CANCEL BUTTON -->
 </div>
-    <div class="span3 offset4">
-        <?= $this->form->submit('Submit', array('class' => 'btn btn-success btn-large offset1 span3', "id" => "create_button", 'list' => array())); ?>
+<div class="span3 offset4">
+    <?= $this->form->submit('Submit', array('class' => 'btn btn-success btn-large offset1 span3', "id" => "create_button", 'list' => array())); ?>
 </div>
 
 </div>
@@ -38,7 +39,11 @@
             e.preventDefault();
             commentAddAction("<?php echo $this->url(array('Comments::addAction', 'type' => 'json')); ?>", <?php echo $this->request()->id ?> , 
             $('#create_name').val(), $('#create_email').val(), 
-            $('#create_website').val(), $('#create_body').val(), generateComments);
+            $('#create_website').val(), $('#create_body').val(), function(data) { 
+                displaySuccessNotice(data.details, $("#form_create .alert-area"));
+                $('#create_body').val('');
+                if ($.isFunction(generateComments)) generateComments();
+            });
             return false;
         });
 

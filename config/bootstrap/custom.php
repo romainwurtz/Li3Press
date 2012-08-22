@@ -8,6 +8,7 @@
  * 
  */
 use app\models\Users;
+use app\models\Comments;
 use lithium\security\Password;
 
 Users::applyFilter('save', function($self, $params, $chain) {
@@ -19,6 +20,17 @@ Users::applyFilter('save', function($self, $params, $chain) {
                 if ($params['entity']->password && strlen($params['entity']->password) >= 4)
                     $params['entity']->password = Password::hash($params['entity']->password);
             }
+            return $chain->next($self, $params, $chain);
+        });
+
+Comments::applyFilter('save', function($self, $params, $chain) {
+            if ($params['data']) {
+                $params['entity']->set($params['data']);
+                $params['data'] = array();
+            }
+            if (!$params['entity']->id)
+                $params['entity']->created = date('Y-m-d H:i:s');
+            $params['entity']->updated = date('Y-m-d H:i:s');
             return $chain->next($self, $params, $chain);
         });
 
