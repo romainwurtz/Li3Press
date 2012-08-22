@@ -180,12 +180,12 @@ function postsIndexAction(url, page, callback) {
     $.ajax({
         dataType: "html",
         url: url + page + '.ajax',
-        success: function (data) {
+        success: function(data) {
             if (data) {
                 posts = data;
             } else displayErrorNotice(null, null);
         },
-        complete: function () {
+        complete: function() {
             if (callback && $.isFunction(callback)) callback(posts);
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -202,12 +202,12 @@ function commentsListAction(url, callback) {
     $.ajax({
         dataType: "html",
         url: url,
-        success: function (data) {
+        success: function(data) {
             if (data) {
                 posts = data;
             } else displayErrorNotice(null, null);
         },
-        complete: function () {
+        complete: function() {
             if (callback && $.isFunction(callback)) callback(posts);
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -219,7 +219,7 @@ function commentsListAction(url, callback) {
     return false;
 }
 
-function commentAddAction(url, id, name, email, website, body) {
+function commentAddAction(url, id, name, email, website, body, callback) {
     $.ajaxQueue({
         type: "POST",
         url: url,
@@ -237,7 +237,7 @@ function commentAddAction(url, id, name, email, website, body) {
             console.log(data);
             if (data) {
                 if (data.success) {
-                   
+                    if (callback && $.isFunction(callback)) callback();
                 } else displayErrorNotice(data.errors, null);
             } else displayErrorNotice(null, null);
         },

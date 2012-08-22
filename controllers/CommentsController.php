@@ -39,12 +39,14 @@ class CommentsController extends \lithium\action\Controller {
 
     protected function getComments(&$comments, $postId = 0) {
         $validates = array();
+        $comments = array();
 
-        if ($postId != 0) {
-            $validates['post_id'] = $postId;
+        if ($postId != 0 || $postId == 0 && Auth::check('default')) {
+            if ($postId != 0) {
+                $validates['post_id'] = $postId;
+            }
+            $comments = Comments::find('all', $validates);
         }
-
-        $comments = Comments::find('all', $validates);
         return count($comments);
     }
 
@@ -62,7 +64,7 @@ class CommentsController extends \lithium\action\Controller {
         $comments = array();
         $postId = 0;
 
-        if ($this->request->id && $this->request->id)
+        if ($this->request->id && $this->request->id > 0)
             $postId = $this->request->id;
         self::getComments($comments, $postId);
         return compact('comments');
@@ -92,4 +94,5 @@ class CommentsController extends \lithium\action\Controller {
     }
 
 }
+
 ?>

@@ -8,7 +8,8 @@
 
 body{background-color:#fff;color:#0d0d0d;font-family:Helvetica, Arial, sans-serif;font-size:14px;line-height:1.5em;}
 #container{background-color:#FFF;margin-top:42px;padding:10px;position:relative;}
-#content{margin-top:20px;}
+#content {margin-top:42px;}
+#list_comment {margin-top: 42px;margin-bottom: 42px}
 .dotted{border-top-color:#DDD;border-top-style:dotted;border-top-width:2px;margin-bottom:10px;margin-top:10px;}
 .submit_button{width:100%!important;}
 #header h1{font-size:135px;line-height:120px;margin:.1em 0;}
@@ -27,7 +28,6 @@ article{margin-bottom:30px;}
 #visible_text{background-color:#FFF;}
 .btn.disabled{background-color:#E6E6E6;color:#333;}
 article h1 a,article h1 a:active,article h1 a:visited{color:#FFF;}
-
 
 
 #dropzone {

@@ -7,4 +7,22 @@
  * 
  */
 ?>
-<?php echo $comment->body; ?>
+<tr>
+    <td class="span2"> 
+        <img class="img-rounded" width="150px" height="150px" src="<?php echo "http://www.gravatar.com/avatar/" . md5(strtolower(trim($comment->email))) . "?s=150"; ?>">
+    </td>
+    <td>
+        <h4> <?php
+                $output = $comment->name;
+                if ($comment->website)
+                    $output .= " (" . $comment->website . ")";
+                echo $h($output);
+                ?></h4>
+        <blockquote class="span7">
+            <p><?= $comment->body ?></p>
+            <small>
+              
+            </small>
+        </blockquote>
+    </td>
+</tr>
