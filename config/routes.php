@@ -13,18 +13,18 @@ if (_INSTALL) {
     Router::connect('/', 'Installs::index');
     Router::connect('/install/{:action}.{:type}', array('controller' => 'installs'));
 } else {
-    
+
     Router::connect('/', 'Posts::index');
     Router::connect('/login', 'Sessions::add');
     Router::connect('/logout', 'Sessions::delete');
-    
+
     Router::connect('/blog/page/{:page:[0-9]+}', array('controller' => 'posts', "action" => 'index'));
     Router::connect('/blog/page/{:page:[0-9]+}.{:type}', array('controller' => 'posts', "action" => 'indexAction'));
     Router::connect('/blog/{:action}/{:id:[0-9]+}.{:type}', array('controller' => 'posts'));
     Router::connect('/blog/{:action}/{:id:[0-9]+}', array('controller' => 'posts'));
     Router::connect('/blog/{:action}.{:type}', array('controller' => 'posts'));
     Router::connect('/blog/{:action}', array('controller' => 'posts'));
-    
+
     Router::connect('/admin', 'Users::index');
     Router::connect('/admin/users/{:action}.{:type}', array('controller' => 'users'));
     Router::connect('/admin/users/{:action}', array('controller' => 'users'));
@@ -35,7 +35,9 @@ if (_INSTALL) {
     Router::connect('/comments/list/{:id:[0-9]+}', array('controller' => 'comments', 'action' => 'indexAction'));
     Router::connect('/comments/list/{:id:[0-9]+}.{:type}', array('controller' => 'comments', 'action' => 'indexAction'));
     Router::connect('/comments/{:action}.{:type}', array('controller' => 'comments'));
-        Router::connect('/comments/{:action}', array('controller' => 'comments'));
+    Router::connect('/comments/{:action}', array('controller' => 'comments'));
 
+    Router::connect('/captcha/{:action}', array("controller" => 'captchas', 'type' => 'ajax'));
+    Router::connect('/captcha/{:args}', array("controller" => 'captchas'));
 }
 ?>

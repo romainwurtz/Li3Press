@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Lithium: the most rad php framework
  *
@@ -34,27 +35,33 @@ Collection::formats('lithium\net\http\Media');
  * plugin's `webroot` directory into your main application's `webroot` directory, or adding routing
  * rules in your web server's configuration.
  */
- use lithium\action\Dispatcher;
- use lithium\action\Response;
- use lithium\net\http\Media;
+use lithium\action\Dispatcher;
+use lithium\action\Response;
+use lithium\net\http\Media;
 
- Dispatcher::applyFilter('_callable', function($self, $params, $chain) {
- 	list($library, $asset) = explode('/', $params['request']->url, 2) + array("", "");
+Dispatcher::applyFilter('_callable', function($self, $params, $chain) {
+            $request = isset($params['params']->custom) ? $params['params']->custom : $params['request']->url;
 
- 	if ($asset && ($path = Media::webroot($library)) && file_exists($file = "{$path}/{$asset}")) {
- 		return function() use ($file) {
- 			$info = pathinfo($file);
- 			$media = Media::type($info['extension']);
- 			$content = (array) $media['content'];
-
- 			return new Response(array(
- 				'headers' => array('Content-type' => reset($content)),
- 				'body' => file_get_contents($file)
- 			));
- 		};
- 	}
- 	return $chain->next($self, $params, $chain);
- });
+            if ($request[0] == "/")
+                $request = substr($request, 1);
+            list($library, $asset) = explode('/', $request, 2) + array("", "");
+            if ($asset && ($path = Media::webroot($library)) && file_exists($file = "{$path}/{$asset}")) {
+                return function() use ($file) {
+                            $info = pathinfo($file);
+                            if ($info['extension'] == "php") {
+                                include $file;
+                                return false;
+                            }
+                            $media = Media::type($info['extension']);
+                            $content = (array) $media['content'];
+                            return new Response(array(
+                                        'headers' => array('Content-type' => reset($content)),
+                                        'body' => file_get_contents($file)
+                                    ));
+                        };
+            }
+            return $chain->next($self, $params, $chain);
+        });
 
 
 Media::type('json', 'application/json', array(
@@ -70,7 +77,7 @@ Media::type('ajax', array('application/xhtml+xml', 'text/html'), array(
             '{:library}/views/{:controller}/{:template}.ajax.php',
             '{:library}/views/{:controller}/{:template}.html.php'
         ),
-         'element' => array(
+        'element' => array(
             '{:library}/views/elements/{:template}.ajax.php',
             '{:library}/views/elements/{:template}.html.php'
         ),

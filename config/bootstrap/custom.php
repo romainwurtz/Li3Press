@@ -47,6 +47,10 @@ Validator::add('usernameTaken', function($value) {
 use lithium\core\Libraries;
 
 Libraries::add('upload', array('path' => LITHIUM_APP_PATH . '/libraries/_source/upload/'));
+Libraries::add('captcha', array('path' => LITHIUM_APP_PATH . '/libraries/_source/captcha/', 'webroot' => LITHIUM_APP_PATH . '/libraries/_source/captcha/'));
 
+// FIXME: NO IDEA HOW TO CALL A CLASS WITHOUT NAMESPACE WITH LITHIUM
+require_once LITHIUM_APP_PATH . '/libraries/_source/captcha/securimage.php';
+    
 define('_INSTALL', file_exists($_SERVER['DOCUMENT_ROOT'] . "/install") ? '1' : '0');
 ?>
