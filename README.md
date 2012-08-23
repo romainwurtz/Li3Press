@@ -9,7 +9,8 @@ Implemented
 *	Install script
 *	Custom routes
 *	User account management (create, modification, delete)
-*	Post management (list, create, modification, delete)
+*	Post management (list, create, modification, delete, visibility)
+*	Comments management (add)
 *	Ajax for each actions
 *	Lazy load when list posts
 *	Responsive design ([Twitter bootstrap](http://twitter.github.com/bootstrap))
@@ -21,9 +22,9 @@ Implemented
 Not implemented (TO DO)
 --------------------
 *	User account management (groups, rights)
-*	Posts management (visibility, upload, assign to a page, options)
+*	Posts management (upload, assign to a page, options)
 *	Pages management (creation, modification, delete, visibility)
-*	Comments management (visibility, assign to a page, options)
+*	Comments management (list, modification, delete)
 *	Template management (options, customize)
 *	Security improvment (captcha, CSRF)
 *	Better error control
