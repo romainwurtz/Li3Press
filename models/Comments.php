@@ -30,7 +30,7 @@ class Comments extends \lithium\data\Model {
             array(
                 'notEmpty',
                 'required' => true,
-                'message' => 'Please supply a title.'),
+                'message' => 'Please supply an email.'),
             array(
                 'email',
                 'skipEmpty' => true,

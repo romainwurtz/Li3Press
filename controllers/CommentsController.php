@@ -14,6 +14,7 @@ use lithium\net\http\Router;
 use lithium\security\Auth;
 use app\models\Comments;
 use app\controllers\PostsController;
+use app\controllers\CaptchasController;
 
 class CommentsController extends \lithium\action\Controller {
 
@@ -73,25 +74,27 @@ class CommentsController extends \lithium\action\Controller {
     public function addAction() {
         $success = false;
         $details = array();
-
+        
         if (!$this->request->is('post')) {
             $details['call'] = 'This action can only be called with post';
         } else if ($this->request->data) {
             if (!isset($this->request->data['id']) || !PostsController::postExist($this->request->data['id'])) {
                 $details['post'] = 'This post doesn\'t exist';
             } else {
-                $name = (isset($this->request->data['name']) ? $this->request->data['name'] : "");
-                $email = (isset($this->request->data['email']) ? $this->request->data['email'] : "");
-                $website = (isset($this->request->data['website']) ? $this->request->data['website'] : "");
-                $body = (isset($this->request->data['body']) ? $this->request->data['body'] : "");
-                $id = $this->request->data['id'];
-                if (!($success = self::addComment($name, $email, $website, $body, $id, $details))) {
-                    $details['_title'] = "Comment can't be created.";
+                $captcha = (isset($this->request->data['captcha']) ? $this->request->data['captcha'] : "");
+                if (CaptchasController::check($captcha, $details)) {
+                    $name = (isset($this->request->data['name']) ? $this->request->data['name'] : "");
+                    $email = (isset($this->request->data['email']) ? $this->request->data['email'] : "");
+                    $website = (isset($this->request->data['website']) ? $this->request->data['website'] : "");
+                    $body = (isset($this->request->data['body']) ? $this->request->data['body'] : "");
+                    $id = $this->request->data['id'];
+                    if (($success = self::addComment($name, $email, $website, $body, $id, $details)))
+                        $details['_desc'] = "Your comment has been posted.";
                 }
-                else
-                    $details['_desc'] = "Your comment has been posted.";  
             }
         }
+        if ($success == false)
+            $details['_title'] = "Comment can't be created.";
         return compact('success', 'details');
     }
 

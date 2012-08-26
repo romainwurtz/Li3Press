@@ -20,7 +20,7 @@
             <?= $this->form->field('Email', array('id' => 'create_email', 'class' => 'span3')); ?>
             <?= $this->form->field('Website', array('id' => 'create_website', 'class' => 'span3')); ?>
             <div class="control-group" style="margin-top:-10px">
-                <label class="control-label" for="create_captcha"><img id="captcha" src="<?php echo $this->url(array('Captchas::generate', 'type' => 'ajax')); ?>" alt="CAPTCHA Image" /></label>
+                <label class="control-label" for="create_captcha"><img id="img_captcha" src="<?php echo $this->url(array('Captchas::generate', 'type' => 'ajax')); ?>" alt="CAPTCHA Image" /></label>
                 <div class="controls" style="padding-top:15px"><input type="text" placeholder="Captcha" class="span3" id="create_captcha" name="Captcha"></div>
             </div>
         </div>
@@ -43,13 +43,22 @@
     $(document).ready(function () {
         $("#form_create").submit(function (e) {
             e.preventDefault();
-            commentAddAction("<?php echo $this->url(array('Comments::addAction', 'type' => 'json')); ?>", <?php echo $this->request()->id ?> , 
-            $('#create_name').val(), $('#create_email').val(), 
-            $('#create_website').val(), $('#create_body').val(), function(data) { 
-                displaySuccessNotice(data.details, $("#form_create .alert-area"));
-                $('#create_body').val('');
-                if ($.isFunction(generateComments)) generateComments();
-            });
+            commentAddAction({ "url":"<?php echo $this->url(array('Comments::addAction', 'type' => 'json')); ?>", 
+                "id": "<?php echo $this->request()->id; ?>",
+                "name":$('#create_name').val(),
+                "email":$('#create_email').val(),
+                "website": $('#create_website').val(),
+                "body":$('#create_body').val(),
+                "captcha":$('#create_captcha').val()}, function(data) { 
+                if (data && data.success)
+                {
+                    displaySuccessNotice(data.details, $("#form_create .alert-area"));
+                    $('#create_body').val('');
+                    if ($.isFunction(generateComments)) generateComments();
+                }
+                $("#img_captcha").attr("src", "<?php echo $this->url(array('Captchas::generate', 'type' => 'ajax')); ?>?t=" + new Date().getTime());
+            }
+        );
             return false;
         });
 

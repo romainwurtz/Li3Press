@@ -250,26 +250,30 @@ function commentsListAction(url, callback) {
     return false;
 }
 
-function commentAddAction(url, id, name, email, website, body, callback) {
+function commentAddAction(values, callback) {
     $.ajaxQueue({
         type: "POST",
-        url: url,
+        url: values.url,
         async: true,
         cache: false,
         timeout: 50000,
         data: {
-            "id": id,
-            "name": name,
-            "email": email,
-            "website": website,
-            "body": body
+            "id": values.id,
+            "name": values.name,
+            "email": values.email,
+            "website": values.website,
+            "body": values.body,
+            "captcha": values.captcha
         },
         success: function(data) {
+            var status = false;
+
             if (data) {
                 if (data.success) {
-                    if (callback && $.isFunction(callback)) callback(data);
+                    status = true;
                 } else displayErrorNotice(data.details, null);
             } else displayErrorNotice(null, null);
+            if (callback && $.isFunction(callback)) callback(data);
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
             displayErrorNotice({

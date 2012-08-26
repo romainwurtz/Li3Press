@@ -1,4 +1,5 @@
 <?php
+session_start();
 /**
  * Lithium: the most rad php framework
  *
