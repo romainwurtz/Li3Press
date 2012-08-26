@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Li3Press: A simple blog using Lithium framework
  *

@@ -8,16 +8,16 @@
  */
 if ($comments && count($comments) > 0) {
     ?>
-<div class="span9">
-<h2>Comments</h2>
-</div>
-        <table class="table table-striped span9">
-            <tbody>
-                <?php
-                foreach ($comments as $comment) {
-                    echo $this->_render('element', 'comment', compact('comment'), array('type' => 'html'));
-                }
-                ?>
-            </tbody>
-        </table>
+    <div class="span9">
+        <h2>Comments</h2>
+    </div>
+    <table class="table table-striped span9">
+        <tbody>
+            <?php
+            foreach ($comments as $comment) {
+                echo $this->_render('element', 'comment', compact('comment'), array('type' => 'html'));
+            }
+            ?>
+        </tbody>
+    </table>
 <?php } ?>

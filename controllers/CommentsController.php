@@ -74,7 +74,7 @@ class CommentsController extends \lithium\action\Controller {
     public function addAction() {
         $success = false;
         $details = array();
-        
+
         if (!$this->request->is('post')) {
             $details['call'] = 'This action can only be called with post';
         } else if ($this->request->data) {
@@ -96,6 +96,16 @@ class CommentsController extends \lithium\action\Controller {
         if ($success == false)
             $details['_title'] = "Comment can't be created.";
         return compact('success', 'details');
+    }
+
+    public function listComments() {
+        $comments = array();
+
+        if (!Auth::check('default')) {
+            return $this->redirect('Sessions::add');
+        }
+        self::getComments($comments);
+        return compact('comments');
     }
 
 }

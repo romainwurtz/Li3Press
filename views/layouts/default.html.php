@@ -6,7 +6,6 @@
  * @copyright     Copyright 2012, Romain Wurtz (http://www.t3kila.com)
  * 
  */
-
 $title = BLOG_TITLE;
 if (isset($post)) {
     $title .= " | " . $post->title;
@@ -21,7 +20,7 @@ if (isset($post)) {
         <?php echo $this->html->link('Icon', null, array('type' => 'icon')); ?>
         <?php echo $this->html->script(array('jquery-1.7.2.min', 'jquery.ajaxQueue', 'bootstrap.min', 'jquery.backstretch.min', 'nicEdit', "upload/vendor/jquery.ui.widget.js", "upload/jquery.iframe-transport.js", "upload/jquery.fileupload.js", 'li3Press')); ?>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+
         <script type="text/javascript">
             $(document).ready(function() {
                 $.backstretch("<?php echo BLOG_BG; ?>

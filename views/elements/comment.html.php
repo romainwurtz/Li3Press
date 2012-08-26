@@ -13,17 +13,19 @@
     </td>
     <td>
         <h4> <?php
-                $output = $comment->name;
-                if ($comment->website)
-                    $output .= " (" . $comment->website . ")";
-                echo $h($output);
-                ?></h4>
+$output = $comment->name;
+if ($comment->website)
+    $output .= " (" . $comment->website . ")";
+echo $h($output);
+?></h4>
         <blockquote class="span7">
             <p><?= $comment->body ?></p>
-        <?php if ($comment->updated) {
-            echo "<small>".date('M d, Y h:i:s A', strtotime($comment->updated))."</small>";
-        }  ?>
-           
+            <?php
+            if ($comment->updated) {
+                echo "<small>" . date('M d, Y h:i:s A', strtotime($comment->updated)) . "</small>";
+            }
+            ?>
+
         </blockquote>
     </td>
 </tr>

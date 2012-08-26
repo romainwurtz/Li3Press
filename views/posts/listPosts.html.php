@@ -56,5 +56,5 @@
 
     </script>
 <?php } else { ?>
-    <h4>You doesn't have any post.</h4>
+    <h4>You don't have any post.</h4>
 <?php } ?>

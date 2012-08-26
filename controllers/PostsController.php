@@ -14,8 +14,6 @@ use lithium\net\http\Router;
 use lithium\security\Auth;
 use app\models\Posts;
 
-define('ITEMS_PAGE', 10);
-
 class PostsController extends \lithium\action\Controller {
 
     protected function getPost($id, &$post) {
@@ -45,10 +43,10 @@ class PostsController extends \lithium\action\Controller {
         return count($posts);
     }
 
-   public function postExist($id) {
+    public function postExist($id) {
         return self::getPost($id, $errors = array());
     }
-    
+
     public function addPost($title, $body, &$errors) {
         $success = false;
 

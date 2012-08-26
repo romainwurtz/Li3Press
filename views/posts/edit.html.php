@@ -10,13 +10,17 @@
 <div class="alert-area"></div>
 <?= $this->form->create($post, array("id" => "form_edit", "class" => "form-vertical ")); ?>
 <fieldset>
-    <div class="clearfix">
-        <?= $this->form->field('title', array('id' => 'edit_title', 'autocomplete' => 'off', 'class' => 'span5', 'wrap' => array('class' => 'control-group left'))); ?>
-        <div class="control-group right span3">
-            <div class="btn-group" data-toggle="buttons-radio" id="visible_choice">
-                <button class="btn disabled" style="height:69px;width:100px" id="visible_text" autocomplete="off"><h3>Visible?</h3></button>
-                <button class="btn btn-success <?php echo (!$post->visibility) ? ("disabled") : (""); ?>" id="visible_on" style="height:69px;width:80px" autocomplete="off">YES</button>
-                <button class="btn btn-danger  <?php echo ($post->visibility) ? ("disabled") : (""); ?>" id="visible_off" style="height:69px;width:80px" autocomplete="off">NO</button>
+    <div class="clearfix row">
+        <div class="span5">    
+            <?= $this->form->field('title', array('id' => 'edit_title', 'autocomplete' => 'off', 'class' => 'span5', 'wrap' => array('class' => 'control-group left'))); ?>
+        </div>
+        <div class="span4">    
+            <div class="control-group right span3">
+                <div class="btn-group" data-toggle="buttons-radio" id="visible_choice">
+                    <button class="btn disabled" style="height:69px;width:100px" id="visible_text" autocomplete="off"><h3>Visible?</h3></button>
+                    <button class="btn btn-success <?php echo (!$post->visibility) ? ("disabled") : (""); ?>" id="visible_on" style="height:69px;width:80px" autocomplete="off">YES</button>
+                    <button class="btn btn-danger  <?php echo ($post->visibility) ? ("disabled") : (""); ?>" id="visible_off" style="height:69px;width:80px" autocomplete="off">NO</button>
+                </div>
             </div>
         </div>
     </div>

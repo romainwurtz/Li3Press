@@ -11,7 +11,7 @@
 namespace app\controllers;
 
 use app\models\Users;
-use  lithium\core\Libraries;
+use lithium\core\Libraries;
 use lithium\security\Auth;
 
 class UsersController extends \lithium\action\Controller {
