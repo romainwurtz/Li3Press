@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Li3Press: A simple blog using Lithium framework
+ * Li3Press: A CMS with the Lithium (Li3) framework
  *
  * @author          Romain Wurtz (http://www.t3kila.com)
  * @copyright     Copyright 2012, Romain Wurtz (http://www.t3kila.com)
@@ -21,16 +21,10 @@ class CommentsController extends \lithium\action\Controller {
     protected function getComment($id, &$comment) {
         $comment = null;
         $success = false;
-        $request_details = array('with' => 'Comments',
-            'condition' => array('post_id' => $id));
-
-        /*
-          if (!Auth::check('default'))
-          $request_details['conditions'] = array('visibility' => 1);
-         */
+        $request_details = array('conditions' => array('comment_id' => $id));
 
         if ($id > 0)
-            $success = (($comment = Comments::find($id, $request_details))) ? true : false;
+            $success = (($comment = Comments::find('first', $request_details))) ? true : false;
         return $success;
     }
 
@@ -106,6 +100,14 @@ class CommentsController extends \lithium\action\Controller {
         }
         self::getComments($comments);
         return compact('comments');
+    }
+
+    public function viewAction() {
+        $comment = null;
+        $id = (isset($this->request->id) && $this->request->id > 0) ? $this->request->id : 0;
+        
+        $success = self::getComment($id, $comment);
+        return compact('success', 'comment');
     }
 
 }

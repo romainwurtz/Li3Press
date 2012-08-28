@@ -70,7 +70,7 @@ Media::type('json', 'application/json', array(
     'decode' => 'json_decode'
 ));
 
-Media::type('ajax', array('application/xhtml+xml', 'text/html'), array(
+Media::type('ajax', array('application/x-www-form-urlencoded; charset=UTF-8', 'text/html'), array(
     'view' => 'lithium\template\View',
     'paths' => array(
         'template' => array(

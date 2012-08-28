@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Li3Press: A simple blog using Lithium framework
+ * Li3Press: A CMS with the Lithium (Li3) framework
  *
  * @author 				Adrien Candiotti
  * @copyright		Copyright 2012, Adrien Candiotti
@@ -12,7 +12,7 @@ namespace app\models;
 
 class Comments extends \lithium\data\Model {
 
-    protected $_schema = array('comments_id' => array('type' => 'id'),
+    protected $_schema = array('comment_id' => array('type' => 'id'),
         'name' => array('type' => 'string', 'default' => '', 'null' => false),
         'email' => array('type' => 'string', 'default' => '', 'null' => false),
         'website' => array('type' => 'string', 'default' => '', 'null' => false),

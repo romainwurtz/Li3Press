@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Li3Press: A simple blog using Lithium framework
+ * Li3Press: A CMS with the Lithium (Li3) framework
  *
  * @author          Romain Wurtz (http://www.t3kila.com)
  * @copyright     Copyright 2012, Romain Wurtz (http://www.t3kila.com)
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `users` (`id` int(11) NOT NULL AUTO_INCREMENT,
 
 DROP TABLE IF EXISTS `comments`;
 
-CREATE TABLE IF NOT EXISTS `comments` (`comments_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `comments` (`comment_id` int(11) NOT NULL AUTO_INCREMENT,
 				       `name` text NOT NULL,
 				       `email` text NOT NULL,
 				       `website` text,
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `comments` (`comments_id` int(11) NOT NULL AUTO_INCRE
 				       FOREIGN KEY(post_id) REFERENCES posts(id)
 				       ON UPDATE CASCADE
 				       ON DELETE RESTRICT,
-				       PRIMARY KEY(`comments_id`)) ENGINE=InnoDB;
+				       PRIMARY KEY(`comment_id`)) ENGINE=InnoDB;
 ";
     # ENDFIXME
     # FIXME : put into the unittest mock, replace with some instructions 

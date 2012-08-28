@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Li3Press: A simple blog using Lithium framework
+ * Li3Press: A CMS with the Lithium (Li3) framework
  *
  * @author          Romain Wurtz (http://www.t3kila.com)
  * @copyright     Copyright 2012, Romain Wurtz (http://www.t3kila.com)
@@ -42,6 +42,7 @@ if (_INSTALL) {
 
     Router::connect('/comments/list/{:id:[0-9]+}', array('controller' => 'comments', 'action' => 'indexAction'));
     Router::connect('/comments/list/{:id:[0-9]+}.{:type}', array('controller' => 'comments', 'action' => 'indexAction'));
+    Router::connect('/comments/{:id:[0-9]+}/{:action}.{:type}', array('controller' => 'comments'));
     Router::connect('/comments/{:action}.{:type}', array('controller' => 'comments'));
     Router::connect('/comments/{:action}', array('controller' => 'comments'));
 
