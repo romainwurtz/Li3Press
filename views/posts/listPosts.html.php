@@ -50,10 +50,9 @@
                         $(this).remove();
                     });
                 });
+                return false;
             });
-            return false;
         });
-
     </script>
 <?php } else { ?>
     <h4>You don't have any post.</h4>

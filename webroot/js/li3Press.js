@@ -283,3 +283,53 @@ function commentAddAction(values, callback) {
     });
     return false;
 }
+
+function commentDetailsAction(values, callback) {
+    $.ajaxQueue({
+        type: "GET",
+        url: values.url,
+        async: true,
+        cache: false,
+        timeout: 50000,
+        success: function(data) {
+            var status = false;
+
+            if (!data) {
+                displayErrorNotice(null, null);
+            }
+            if (callback && $.isFunction(callback)) callback(data);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            displayErrorNotice({
+                'URL': "This url is not defined or does not exist."
+            });
+        }
+    });
+    return false;
+}
+
+function postDeleteAction(values, callback) {
+    $.ajaxQueue({
+        type: "POST",
+        url: values.url,
+        async: true,
+        cache: false,
+        timeout: 50000,
+        data: {
+            "id": values.id
+        },
+        success: function(data) {
+            if (data) {
+                if (data.success) {
+                    if (callback && $.isFunction(callback)) callback();
+                } else displayErrorNotice(data.details, null);
+            } else displayErrorNotice(null, null);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            displayErrorNotice({
+                'URL': "This url is not defined or does not exist."
+            }, null);
+        }
+    });
+    return false;
+}

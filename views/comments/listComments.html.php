@@ -32,7 +32,7 @@
                             <a class="btn btn-primary modal_link" href="<?php echo $this->url(array('Comments::viewAction', 'id' => $comment->comment_id, 'type' => 'ajax')); ?>"><i class="icon-home icon-white"></i> Details</a>
                             <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#" class="delete_post"><i class="icon-trash"></i> Delete</a></li>
+                                <li><a href="#" class="delete_comment"><i class="icon-trash"></i> Delete</a></li>
                             </ul>
                         </div>
                     </td>
@@ -42,40 +42,28 @@
     </table>
 
     <script type="text/javascript">
-        $("a.modal_link").click(function(e) {
-            e.preventDefault();
+        $(document).ready(function () {
+            $("a.modal_link").click(function(e) {
+                e.preventDefault();
+                commentDetailsAction({url: $(this).attr('href')}, function(data) {
+                    if (data)
+                        bootbox.alert(data);
+                });
+            });
             
-             $.ajaxQueue({
-        type: "GET",
-        url: $(this).attr('href'),
-        async: false,
-        cache: false,
-        timeout: 50000,
-        success: function(data) {
-            if (data) {
-                                            bootbox.alert(data);
-
-            } else displayErrorNotice(null, null);
-        },
-        error: function(XMLHttpRequest, textStatus, errorThrown) {
-            displayErrorNotice({
-                'URL': "This url is not defined or does not exist."
-            }, null);
-        }
-    });
-            
-       
-            /*
-             lv_target = $(this).attr('data-target')
-  lv_url = $(this).attr('href')
-  $(lv_target).load(lv_url)})
-            var str = $("<p>This content is actually a jQuery object, which will change in 3 seconds...</p>");
-            
-            
-            
-            
-            bootbox.alert(str);*/
+            $(".delete_comment").click(function (e) {
+                e.preventDefault();
+                var element = $(this).parents('tr');
+                postDeleteAction({'url' : "<?php echo $this->url(array('Comments::deleteAction', 'type' => 'json')); ?>", "id" : $(element).data('id')}, function () {
+                    displaySuccessNotice(null, null);
+                    $(element).fadeOut(300, function () {
+                        $(this).remove();
+                    });
+                });
+                return false;
+            });
         });
+            
     </script>
 
 

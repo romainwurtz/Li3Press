@@ -105,9 +105,34 @@ class CommentsController extends \lithium\action\Controller {
     public function viewAction() {
         $comment = null;
         $id = (isset($this->request->id) && $this->request->id > 0) ? $this->request->id : 0;
-        
-        $success = self::getComment($id, $comment);
+        $success = false;
+
+        if (Auth::check('default')) {
+            $success = self::getComment($id, $comment);
+        }
         return compact('success', 'comment');
+    }
+
+    public function deleteAction() {
+        $success = false;
+        $details = array();
+        $comment = null;
+
+        if (!Auth::check('default')) {
+            $details['login'] = 'You need to be logged.';
+        } else if (!($this->request->is('post'))) {
+            $details['call'] = 'This action can only be called with post';
+        } else {
+            $id = (isset($this->request->data['id'])) ? $this->request->data['id'] : 0;
+            if (!($success = self::getComment($id, $comment))) {
+                $details['comment'] = 'This comment doesn\'t exist';
+            } else if (!($success = $comment->delete(array('conditions' => array('comment_id' => $id))))) {
+                $details = $comment->errors();
+            }
+        }
+        if ($success == false)
+            $details['_title'] = "Comment can't be deleted.";
+        return compact('success', 'details');
     }
 
 }
