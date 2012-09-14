@@ -85,7 +85,7 @@ Media::type('ajax', array('application/x-www-form-urlencoded; charset=UTF-8', 't
     ),
     'conditions' => array('ajax' => true)
 ));
-
+/*
 Media::type('upload', array('application/xhtml+xml', 'text/html'), array(
     'view' => 'lithium\template\View',
     'paths' => array(
@@ -97,4 +97,5 @@ Media::type('upload', array('application/xhtml+xml', 'text/html'), array(
     ),
     'conditions' => array('ajax' => true)
 ));
+ */
 ?>

@@ -24,7 +24,7 @@ if (_INSTALL) {
     Router::connect('/admin/posts/list', array('controller' => 'posts', 'action' => 'listPosts'));
     Router::connect('/admin/posts/add', array('controller' => 'posts', 'action' => 'add'));
     Router::connect('/admin/posts/edit/{:id:[0-9]+}', array('controller' => 'posts', 'action' => 'edit'));
-    
+    Router::connect('/admin/files/{:action}', array('controller' => 'uploads'));
     
     Router::connect('/blog/page/{:page:[0-9]+}', array('controller' => 'posts', "action" => 'index'));
     Router::connect('/blog/page/{:page:[0-9]+}.{:type}', array('controller' => 'posts', "action" => 'indexAction'));
@@ -39,7 +39,7 @@ if (_INSTALL) {
     Router::connect('/user/{:action}/{:id:[0-9]+}', array('controller' => 'users'));
 
     Router::connect('/upload/{:action}.{:type}', array('controller' => 'uploads'));
-
+    
     Router::connect('/comments/list/{:id:[0-9]+}', array('controller' => 'comments', 'action' => 'indexAction'));
     Router::connect('/comments/list/{:id:[0-9]+}.{:type}', array('controller' => 'comments', 'action' => 'indexAction'));
     Router::connect('/comments/{:id:[0-9]+}/{:action}.{:type}', array('controller' => 'comments'));

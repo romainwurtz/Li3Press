@@ -68,7 +68,7 @@ class UploadHandler {
         }
     }
 
-    protected function getFullUrl() {
+    public function getFullUrl() {
         $https = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
         return
                 ($https ? 'https://' : 'http://') .
@@ -395,9 +395,11 @@ class UploadHandler {
         echo $json;
     }
 
-    public function delete() {
-        $file_name = isset($_REQUEST['file']) ?
-                basename(stripslashes($_REQUEST['file'])) : null;
+    public function delete($file_name) {
+        if (!$file_name) {
+            $file_name = isset($_REQUEST['file']) ?
+                    basename(stripslashes($_REQUEST['file'])) : null;
+        }
         $file_path = $this->options['upload_dir'] . $file_name;
         $success = is_file($file_path) && $file_name[0] !== '.' && unlink($file_path);
         if ($success) {

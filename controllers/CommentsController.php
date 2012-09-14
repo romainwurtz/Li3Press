@@ -10,14 +10,22 @@
 
 namespace app\controllers;
 
-use lithium\net\http\Router;
-use lithium\security\Auth;
-use app\models\Comments;
-use app\controllers\PostsController;
 use app\controllers\CaptchasController;
+use app\controllers\PostsController;
+use app\models\Comments;
+use lithium\security\Auth;
 
+/**
+ * 
+ */
 class CommentsController extends \lithium\action\Controller {
 
+    /**
+     * 
+     * @param type $id
+     * @param type $comment
+     * @return type
+     */
     protected function getComment($id, &$comment) {
         $comment = null;
         $success = false;
@@ -51,6 +59,20 @@ class CommentsController extends \lithium\action\Controller {
         $comment = Comments::create(array('name' => $name, 'email' => $email, 'website' => $website, 'body' => $body, 'post_id' => $postId));
         if (!($success = $comment->save())) {
             $errors = $comment->errors();
+        }
+        return $success;
+    }
+
+    protected function deleteComment($id, &$errors) {
+        $success = false;
+        $comment = null;
+
+        if ($id > 0) {
+            if (!($success = self::getComment($id, $comment))) {
+                $errors['comment'] = 'This comment doesn\'t exist';
+            } else if (!($success = $comment->delete(array('conditions' => array('comment_id' => $id))))) {
+                $errors = $comment->errors();
+            }
         }
         return $success;
     }

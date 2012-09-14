@@ -45,13 +45,23 @@ CREATE TABLE IF NOT EXISTS `comments` (`comment_id` int(11) NOT NULL AUTO_INCREM
 				       `email` text NOT NULL,
 				       `website` text,
 				       `body` text NOT NULL,
-                                                                               `updated` datetime DEFAULT NOW(),
-                                                                               `created` datetime DEFAULT NOW(),
+                                                                               `updated` datetime NOT NULL,
+                                                                               `created` datetime NOT NULL,
 				       `post_id` int(11) NOT NULL,
 				       FOREIGN KEY(post_id) REFERENCES posts(id)
 				       ON UPDATE CASCADE
 				       ON DELETE RESTRICT,
 				       PRIMARY KEY(`comment_id`)) ENGINE=InnoDB;
+                                       
+DROP TABLE IF EXISTS `uploads`;
+
+CREATE TABLE IF NOT EXISTS `uploads` (`upload_id` int(11) NOT NULL AUTO_INCREMENT,
+				       `filename` text NOT NULL,
+                                                                               `size` int NOT NULL,
+				       `type` varchar(256) NOT NULL,
+				       `thumbnail` tinyint NOT NULL DEFAULT 1,
+                                                                               `created` datetime NOT NULL,
+				       PRIMARY KEY(`upload_id`)) ENGINE=InnoDB;
 ";
     # ENDFIXME
     # FIXME : put into the unittest mock, replace with some instructions 

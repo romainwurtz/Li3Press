@@ -17,8 +17,10 @@ if (isset($post)) {
         <?php echo $this->html->charset(); ?>
         <title><?php echo $title ?></title>
         <?php echo $this->html->style(array('bootstrap.min', 'li3Press')); ?>
+
         <?php echo $this->html->link('Icon', null, array('type' => 'icon')); ?>
-        <?php echo $this->html->script(array('jquery-1.7.2.min', 'jquery.ajaxQueue', 'bootstrap.min', 'jquery.backstretch.min', 'nicEdit', 'bootbox.min', "upload/vendor/jquery.ui.widget.js", "upload/jquery.iframe-transport.js", "upload/jquery.fileupload.js", 'li3Press')); ?>
+        <?php echo $this->html->script(array('jquery-1.8.0.min', 'jquery.ajaxQueue', 'bootstrap.min', 'jquery.backstretch.min', 'nicEdit', 'bootbox.min'));?>
+        <?php echo $this->html->script(array('li3Press')); ?>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <script type="text/javascript">

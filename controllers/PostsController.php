@@ -114,7 +114,6 @@ class PostsController extends \lithium\action\Controller {
     }
 
     public function editAction() {
-        $errors = array();
         $success = false;
         $errors = array();
 

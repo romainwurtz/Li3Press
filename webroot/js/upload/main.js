@@ -25,8 +25,26 @@ $(function () {
         window.location.href.replace(
             /\/[^\/]*$/,
             '/cors/result.html?%s'
-        )
-    );
+            )
+        );
+        
+        
+    $('#fileupload').bind('fileuploaddone', function (e, data) {
+        console.log('ME');
+
+        if (data && data.result && data.result.files) {
+            if (data.result.success) {
+                displaySuccessNotice(null, null);
+            } else displayErrorNotice(data.result.details, null);
+          // Make sure we use the correct plugin way.
+        data.result = data.result.files;           
+        } else displayErrorNotice(null, null);
+
+  
+    });
+
+        
+        
 
     if (window.location.hostname === 'blueimp.github.com') {
         // Demo settings:
@@ -35,19 +53,19 @@ $(function () {
             maxFileSize: 5000000,
             acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
             process: [
-                {
-                    action: 'load',
-                    fileTypes: /^image\/(gif|jpeg|png)$/,
-                    maxFileSize: 20000000 // 20MB
-                },
-                {
-                    action: 'resize',
-                    maxWidth: 1440,
-                    maxHeight: 900
-                },
-                {
-                    action: 'save'
-                }
+            {
+                action: 'load',
+                fileTypes: /^image\/(gif|jpeg|png)$/,
+                maxFileSize: 20000000 // 20MB
+            },
+            {
+                action: 'resize',
+                maxWidth: 1440,
+                maxHeight: 900
+            },
+            {
+                action: 'save'
+            }
             ]
         });
         // Upload server status check for browsers with CORS support:
@@ -57,21 +75,26 @@ $(function () {
                 type: 'HEAD'
             }).fail(function () {
                 $('<span class="alert alert-error"/>')
-                    .text('Upload server currently unavailable - ' +
-                            new Date())
-                    .appendTo('#fileupload');
+                .text('Upload server currently unavailable - ' +
+                    new Date())
+                .appendTo('#fileupload');
             });
         }
     } else {
         // Load existing files:
         $('#fileupload').each(function () {
             var that = this;
+            
             $.getJSON(this.action, function (result) {
                 if (result && result.length) {
                     $(that).fileupload('option', 'done')
-                        .call(that, null, {result: result});
+                    .call(that, null, {
+                        result: result
+                    });
                 }
             });
+            
+            
         });
     }
 
