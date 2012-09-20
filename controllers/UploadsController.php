@@ -76,7 +76,7 @@ class UploadsController extends \lithium\action\Controller {
      * Add a file to the DB with information in $params.
      * @param array $params Informations to save
      * @param array $errors
-     * @param mixed $file Reference to the object created
+     * @param object $file Reference to the object created
      * @return bool
      */
     protected function addUpload($params, &$errors, &$file) {
@@ -93,7 +93,7 @@ class UploadsController extends \lithium\action\Controller {
      * 
      *  The function returns TRUE or FALSE on failure. If success the file is available in $file param.
      * @param int $id ID to get
-     * @param mixed $file Reference to the object
+     * @param object $file Reference to the object
      * @return bool
      */
     protected function getUpload($id, &$file) {
@@ -117,7 +117,7 @@ class UploadsController extends \lithium\action\Controller {
     protected function deleteFile($name, $thumb, &$errors) {
         $success = false;
         $fileTemp = $_SERVER['DOCUMENT_ROOT'] . '/webroot/upload/files/' . $name;
-        if ($success = is_file($fileTemp)) {
+        if (($success = is_file($fileTemp))) {
             if (!($success = unlink($fileTemp))) {
                 $errors['file'] = 'Not allowed to remove the file \'' . $name . '\'.';
             }
@@ -126,7 +126,7 @@ class UploadsController extends \lithium\action\Controller {
         }
         if ($thumb) {
             $fileTemp = $_SERVER['DOCUMENT_ROOT'] . '/webroot/upload/thumbnails/' . $name;
-            if ($success = is_file($fileTemp)) {
+            if (($success = is_file($fileTemp))) {
                 if (!($success = unlink($fileTemp))) {
                     $errors['file_thumb'] = 'Not allowed to remove the thumbnail \'' . $name . '\'.';
                 }
@@ -224,7 +224,7 @@ class UploadsController extends \lithium\action\Controller {
      * 
      * Used to find which handler to use.
      * @todo Manage errors
-     * @param mix $upload Content of the $FILES variable
+     * @param object $upload Content of the $FILES variable
      * @return array Result
      */
     public function dispatcherUpload($upload) {

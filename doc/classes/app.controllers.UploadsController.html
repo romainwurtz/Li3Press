@@ -1,0 +1,366 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>li3Press » \app\controllers\UploadsController</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">li3Press</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/app.html"><i class="icon-th"></i> app</a></li>
+<li><a href="../namespaces/global.html"><i class="icon-th"></i> global</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">102</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul>
+<li>todo 
+                <span class="label label-info">8</span>
+</li>
+<li>fixme 
+                <span class="label label-info">1</span>
+</li>
+</ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#_init" title="_init :: _init()"><span class="description">_init()</span><pre>_init()</pre></a></li>
+<li class="method public "><a href="#add" title="add :: Page add"><span class="description">Page add</span><pre>add()</pre></a></li>
+<li class="method public "><a href="#addAction" title="addAction :: Add upload action"><span class="description">Add upload action</span><pre>addAction()</pre></a></li>
+<li class="method public "><a href="#deleteAction" title="deleteAction :: Delete upload action"><span class="description">Delete upload action</span><pre>deleteAction()</pre></a></li>
+<li class="method public "><a href="#dispatcherUpload" title="dispatcherUpload :: Find the correct handler"><span class="description">Find the correct handler</span><pre>dispatcherUpload()</pre></a></li>
+<li class="method public "><a href="#index" title="index :: "><span class="description">index()
+        </span><pre>index()</pre></a></li>
+<li class="method public "><a href="#loadAction" title="loadAction :: Load previous uploads"><span class="description">Load previous uploads</span><pre>loadAction()</pre></a></li>
+<li class="method public "><a href="#processFile" title="processFile :: Process single file"><span class="description">Process single file</span><pre>processFile()</pre></a></li>
+<li class="method public "><a href="#processFiles" title="processFiles :: Process list of files"><span class="description">Process list of files</span><pre>processFiles()</pre></a></li>
+<li class="nav-header protected">» Protected</li>
+<li class="method protected "><a href="#addUpload" title="addUpload :: Add a file"><span class="description">Add a file</span><pre>addUpload()</pre></a></li>
+<li class="method protected "><a href="#deleteFile" title="deleteFile :: Delete a file on hard drive by name"><span class="description">Delete a file on hard drive by name</span><pre>deleteFile()</pre></a></li>
+<li class="method protected "><a href="#deleteUpload" title="deleteUpload :: Delete upload by ID"><span class="description">Delete upload by ID</span><pre>deleteUpload()</pre></a></li>
+<li class="method protected "><a href="#generateDisplay" title="generateDisplay :: Generate display"><span class="description">Generate display</span><pre>generateDisplay()</pre></a></li>
+<li class="method protected "><a href="#getUpload" title="getUpload :: Get a file by ID"><span class="description">Get a file by ID</span><pre>getUpload()</pre></a></li>
+<li class="method protected "><a href="#getUploads" title="getUploads :: Get uploads"><span class="description">Get uploads</span><pre>getUploads()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="nav-header protected">» Protected</li>
+<li class="property protected "><a href="#%24_uploadHandler" title="$_uploadHandler :: "><span class="description">$_uploadHandler</span><pre>$_uploadHandler</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5Capp%5Ccontrollers%5CUploadsController" id="\app\controllers\UploadsController"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/app.html">app</a></li>
+<span class="divider">\</span><li><a href="../namespaces/app.controllers.html">controllers</a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/app.controllers.UploadsController.html">UploadsController</a>
+</li>
+</ul>
+<div href="../classes/app.controllers.UploadsController.html" class="element class">
+<p class="short_description">Manage files</p>
+<div class="details">
+<p class="long_description"></p>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="_init" id="_init"></a><div class="element clickable method public _init" data-toggle="collapse" data-target="._init .collapse">
+<h2>_init()</h2>
+<pre>_init() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"><p>Setup the php library</p></p></div></div>
+</div>
+<a name="add" id="add"></a><div class="element clickable method public add" data-toggle="collapse" data-target=".add .collapse">
+<h2>Page add</h2>
+<pre>add() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"><p>User must be logged to use this page.</p></p></div></div>
+</div>
+<a name="addAction" id="addAction"></a><div class="element clickable method public addAction" data-toggle="collapse" data-target=".addAction .collapse">
+<h2>Add upload action</h2>
+<pre>addAction() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Add a new file to the disk and to the DB.
+Function available if user logged and callable only by POST. Information in $_FILES are used.</p></p>
+<table class="table table-bordered"><tr>
+<th>todo</th>
+<td>Make a difference if error when erasing file or if error in DB</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Array with success status, associative array of details and associative array of the files</div>
+</div></div>
+</div>
+<a name="deleteAction" id="deleteAction"></a><div class="element clickable method public deleteAction" data-toggle="collapse" data-target=".deleteAction .collapse">
+<h2>Delete upload action</h2>
+<pre>deleteAction() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Delete an element from the disk and from the DB.
+Function available if user logged and callable only by POST. Parameters in the post must contain id of the element.</p></p>
+<table class="table table-bordered"><tr>
+<th>todo</th>
+<td>Make a difference if error when erasing file or if error in DB</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Array with success status and associative array of details</div>
+</div></div>
+</div>
+<a name="dispatcherUpload" id="dispatcherUpload"></a><div class="element clickable method public dispatcherUpload" data-toggle="collapse" data-target=".dispatcherUpload .collapse">
+<h2>Find the correct handler</h2>
+<pre>dispatcherUpload(object $upload) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Used to find which handler to use.</p></p>
+<table class="table table-bordered"><tr>
+<th>todo</th>
+<td>Manage errors</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$upload</h4>
+<code>object</code><p>Content of the $FILES variable</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Result</div>
+</div></div>
+</div>
+<a name="index" id="index"></a><div class="element clickable method public index" data-toggle="collapse" data-target=".index .collapse">
+<h2>index()
+        </h2>
+<pre>index() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="loadAction" id="loadAction"></a><div class="element clickable method public loadAction" data-toggle="collapse" data-target=".loadAction .collapse">
+<h2>Load previous uploads</h2>
+<pre>loadAction() : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>User must be logged to use this function.</p></p>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Associative array with success status, files to display, details</div>
+</div></div>
+</div>
+<a name="processFile" id="processFile"></a><div class="element clickable method public processFile" data-toggle="collapse" data-target=".processFile .collapse">
+<h2>Process single file</h2>
+<pre>processFile($upload, array $info) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Process the files uploaded using the upload library.</p></p>
+<table class="table table-bordered">
+<tr>
+<th>todo</th>
+<td>Manage errors.</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Not sure of the implementation.</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$upload</h4></div>
+<div class="subelement argument">
+<h4>$info</h4>
+<code>array</code><p>Reference to the informations of the file processed</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a name="processFiles" id="processFiles"></a><div class="element clickable method public processFiles" data-toggle="collapse" data-target=".processFiles .collapse">
+<h2>Process list of files</h2>
+<pre>processFiles(array $uploads, array $info) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Process the files uploaded using the upload library.</p></p>
+<table class="table table-bordered">
+<tr>
+<th>todo</th>
+<td>Manage errors.</td>
+</tr>
+<tr>
+<th>todo</th>
+<td>Not sure of the implementation.</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$uploads</h4>
+<code>array</code><p>Array with the files</p></div>
+<div class="subelement argument">
+<h4>$info</h4>
+<code>array</code><p>Reference to the informations of the files processed</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a name="addUpload" id="addUpload"></a><div class="element clickable method protected addUpload" data-toggle="collapse" data-target=".addUpload .collapse">
+<h2>Add a file</h2>
+<pre>addUpload(array $params, array $errors, object $file) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Add a file to the DB with information in $params.</p></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>Informations to save</p></div>
+<div class="subelement argument">
+<h4>$errors</h4>
+<code>array</code>
+</div>
+<div class="subelement argument">
+<h4>$file</h4>
+<code>object</code><p>Reference to the object created</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a name="deleteFile" id="deleteFile"></a><div class="element clickable method protected deleteFile" data-toggle="collapse" data-target=".deleteFile .collapse">
+<h2>Delete a file on hard drive by name</h2>
+<pre>deleteFile(string $name, bool $thumb, array $errors) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>The function returns TRUE or FALSE on failure. Reason of failure is available in $errors param.</p></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>Name of the file</p></div>
+<div class="subelement argument">
+<h4>$thumb</h4>
+<code>bool</code><p>File as a $thumb to delete</p>
+</div>
+<div class="subelement argument">
+<h4>$errors</h4>
+<code>array</code><p>Reference to an array used to handle errors</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a name="deleteUpload" id="deleteUpload"></a><div class="element clickable method protected deleteUpload" data-toggle="collapse" data-target=".deleteUpload .collapse">
+<h2>Delete upload by ID</h2>
+<pre>deleteUpload(int $id, array $errors) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>The function returns TRUE or FALSE on failure. Reason of failure is available in $errors param.</p></p>
+<table class="table table-bordered"><tr>
+<th>todo</th>
+<td>Use delete without array of params (not supported or bug with li3)</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$id</h4>
+<code>int</code><p>ID to delete</p></div>
+<div class="subelement argument">
+<h4>$errors</h4>
+<code>array</code><p>Reference to an array used to handle errors</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a name="generateDisplay" id="generateDisplay"></a><div class="element clickable method protected generateDisplay" data-toggle="collapse" data-target=".generateDisplay .collapse">
+<h2>Generate display</h2>
+<pre>generateDisplay($upload) : object</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Generate object used by the jQuery Library and the js template.</p></p>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$upload</h4></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>object</code>File</div>
+</div></div>
+</div>
+<a name="getUpload" id="getUpload"></a><div class="element clickable method protected getUpload" data-toggle="collapse" data-target=".getUpload .collapse">
+<h2>Get a file by ID</h2>
+<pre>getUpload(int $id, object $file) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>The function returns TRUE or FALSE on failure. If success the file is available in $file param.</p></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$id</h4>
+<code>int</code><p>ID to get</p></div>
+<div class="subelement argument">
+<h4>$file</h4>
+<code>object</code><p>Reference to the object</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>bool</code></div>
+</div></div>
+</div>
+<a name="getUploads" id="getUploads"></a><div class="element clickable method protected getUploads" data-toggle="collapse" data-target=".getUploads .collapse">
+<h2>Get uploads</h2>
+<pre>getUploads(\app\controllers\type $uploads) : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"><p>Get every files record</p></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$uploads</h4>
+<code>\app\controllers\type</code><p>Reference to the files</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>int</code>Number of result</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24_uploadHandler" id="$_uploadHandler"> </a><div class="element clickable property protected $_uploadHandler" data-toggle="collapse" data-target=".$_uploadHandler .collapse">
+<h2>$_uploadHandler</h2>
+<pre>$_uploadHandler </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a10</a> and<br>
+            generated on 2012-09-19T19:18:25-07:00.<br></footer></div>
+</div>
+</body>
+</html>

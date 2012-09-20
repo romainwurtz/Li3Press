@@ -1,0 +1,1615 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project version="2.0.0a10" title="li3Press">
+  <file path="config/bootstrap/action.php" hash="cefe34cb71cc08d6116c99915e4af345" package="Default">
+    <docblock line="2">
+      <description><![CDATA[Lithium: the most rad php framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="2" name="copyright" description="Copyright 2012, Union of RAD (http://union-of-rad.org)"/>
+      <tag line="2" name="license" description="http://opensource.org/licenses/bsd-license.php The BSD License"/>
+    </docblock>
+    <namespace-alias name="Libraries">lithium\core\Libraries</namespace-alias>
+    <namespace-alias name="Environment">lithium\core\Environment</namespace-alias>
+    <namespace-alias name="Dispatcher">lithium\action\Dispatcher</namespace-alias>
+    <include line="49" type="Include" package="Default">
+      <name/>
+    </include>
+  </file>
+  <file path="config/bootstrap/auth.php" hash="9003842026cffaaad197cda2801ad567" package="Default">
+    <namespace-alias name="Session">lithium\storage\Session</namespace-alias>
+    <namespace-alias name="Auth">lithium\security\Auth</namespace-alias>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file config/bootstrap/auth.php</error>
+    </parse_markers>
+  </file>
+  <file path="config/bootstrap/cache.php" hash="fd2f7a9c81b77d88fa21ab932b76d2e2" package="Default">
+    <docblock line="2">
+      <description><![CDATA[Lithium: the most rad php framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="2" name="copyright" description="Copyright 2012, Union of RAD (http://union-of-rad.org)"/>
+      <tag line="2" name="license" description="http://opensource.org/licenses/bsd-license.php The BSD License"/>
+    </docblock>
+    <namespace-alias name="Cache">lithium\storage\Cache</namespace-alias>
+    <namespace-alias name="Libraries">lithium\core\Libraries</namespace-alias>
+    <namespace-alias name="Environment">lithium\core\Environment</namespace-alias>
+    <namespace-alias name="Dispatcher">lithium\action\Dispatcher</namespace-alias>
+    <namespace-alias name="Apc">lithium\storage\cache\adapter\Apc</namespace-alias>
+  </file>
+  <file path="config/bootstrap/connections.php" hash="8987332670e28981809cc2ead3d49294" package="Default">
+    <docblock line="2">
+      <description><![CDATA[Lithium: the most rad php framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="2" name="copyright" description="Copyright 2012, Union of RAD (http://union-of-rad.org)"/>
+      <tag line="2" name="license" description="http://opensource.org/licenses/bsd-license.php The BSD License"/>
+    </docblock>
+    <namespace-alias name="Connections">lithium\data\Connections</namespace-alias>
+  </file>
+  <file path="config/bootstrap/console.php" hash="41bb0a6cace19d3d7a25305bfa5e3770" package="Default">
+    <docblock line="2">
+      <description><![CDATA[Lithium: the most rad php framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="2" name="copyright" description="Copyright 2012, Union of RAD (http://union-of-rad.org)"/>
+      <tag line="2" name="license" description="http://opensource.org/licenses/bsd-license.php The BSD License"/>
+    </docblock>
+    <namespace-alias name="Dispatcher">lithium\console\Dispatcher</namespace-alias>
+    <namespace-alias name="Environment">lithium\core\Environment</namespace-alias>
+  </file>
+  <file path="config/bootstrap/custom.php" hash="7ccacf46fba986896b5c2ddaa1030e56" package="Default">
+    <docblock line="3">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="3" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="3" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+    <namespace-alias name="Users">app\models\Users</namespace-alias>
+    <namespace-alias name="Comments">app\models\Comments</namespace-alias>
+    <namespace-alias name="Uploads">app\models\Uploads</namespace-alias>
+    <namespace-alias name="Password">lithium\security\Password</namespace-alias>
+    <namespace-alias name="Validator">lithium\util\Validator</namespace-alias>
+    <namespace-alias name="Libraries">lithium\core\Libraries</namespace-alias>
+    <namespace-alias name="Environment">lithium\core\Environment</namespace-alias>
+    <constant namespace="global" line="63" package="Default">
+      <name>_INSTALL</name>
+      <full_name>\_INSTALL</full_name>
+      <value><![CDATA[file_exists($_SERVER['DOCUMENT_ROOT'] . "/install") ? '1' : '0']]></value>
+    </constant>
+    <function namespace="global" line="65" package="Default">
+      <name>getBaseUrl</name>
+      <full_name>\getBaseUrl</full_name>
+    </function>
+    <parse_markers>
+      <error line="65" code="50009">No DocBlock was found for function \getBaseUrl()</error>
+    </parse_markers>
+  </file>
+  <file path="config/bootstrap/errors.php" hash="5bbab2a54cdbd24dfab81a98024d1ca0" package="Default">
+    <docblock line="2">
+      <description><![CDATA[Lithium: the most rad php framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="2" name="copyright" description="Copyright 2012, Union of RAD (http://union-of-rad.org)"/>
+      <tag line="2" name="license" description="http://opensource.org/licenses/bsd-license.php The BSD License"/>
+    </docblock>
+    <namespace-alias name="ErrorHandler">lithium\core\ErrorHandler</namespace-alias>
+    <namespace-alias name="Response">lithium\action\Response</namespace-alias>
+    <namespace-alias name="Media">lithium\net\http\Media</namespace-alias>
+  </file>
+  <file path="config/bootstrap/g11n.php" hash="10a15e7c728b389433163a39c007babc" package="Default">
+    <docblock line="2">
+      <description><![CDATA[Lithium: the most rad php framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="2" name="copyright" description="Copyright 2012, Union of RAD (http://union-of-rad.org)"/>
+      <tag line="2" name="license" description="http://opensource.org/licenses/bsd-license.php The BSD License"/>
+    </docblock>
+    <namespace-alias name="Libraries">lithium\core\Libraries</namespace-alias>
+    <namespace-alias name="Environment">lithium\core\Environment</namespace-alias>
+    <namespace-alias name="Locale">lithium\g11n\Locale</namespace-alias>
+    <namespace-alias name="Catalog">lithium\g11n\Catalog</namespace-alias>
+    <namespace-alias name="Message">lithium\g11n\Message</namespace-alias>
+    <namespace-alias name="Inflector">lithium\util\Inflector</namespace-alias>
+    <namespace-alias name="Validator">lithium\util\Validator</namespace-alias>
+    <namespace-alias name="Media">lithium\net\http\Media</namespace-alias>
+    <namespace-alias name="ActionDispatcher">lithium\action\Dispatcher</namespace-alias>
+    <namespace-alias name="ConsoleDispatcher">lithium\console\Dispatcher</namespace-alias>
+  </file>
+  <file path="config/bootstrap/media.php" hash="1d12c851dce6740cc568c642300aafdb" package="Default">
+    <docblock line="3">
+      <description><![CDATA[Lithium: the most rad php framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="3" name="copyright" description="Copyright 2012, Union of RAD (http://union-of-rad.org)"/>
+      <tag line="3" name="license" description="http://opensource.org/licenses/bsd-license.php The BSD License"/>
+    </docblock>
+    <namespace-alias name="Collection">lithium\util\Collection</namespace-alias>
+    <namespace-alias name="Dispatcher">lithium\action\Dispatcher</namespace-alias>
+    <namespace-alias name="Response">lithium\action\Response</namespace-alias>
+    <namespace-alias name="Media">lithium\net\http\Media</namespace-alias>
+    <include line="52" type="Include" package="Default">
+      <name/>
+    </include>
+  </file>
+  <file path="config/bootstrap/param.ini.php" hash="c7f3fe05cf23c27c8791b1f3a46f70c2" package="Default">
+    <constant namespace="global" line="11" package="Default">
+      <name>LITHIUM_LIBRARY_PATH</name>
+      <full_name>\LITHIUM_LIBRARY_PATH</full_name>
+      <value><![CDATA['/Users/t3kila/Sites/lithium/libraries/']]></value>
+      <docblock line="2">
+        <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="2" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+        <tag line="2" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+      </docblock>
+    </constant>
+    <constant namespace="global" line="14" package="Default">
+      <name>DB_HOST</name>
+      <full_name>\DB_HOST</full_name>
+      <value><![CDATA['localhost']]></value>
+    </constant>
+    <constant namespace="global" line="15" package="Default">
+      <name>DB_LOGIN</name>
+      <full_name>\DB_LOGIN</full_name>
+      <value><![CDATA['root']]></value>
+    </constant>
+    <constant namespace="global" line="16" package="Default">
+      <name>DB_PASSWORD</name>
+      <full_name>\DB_PASSWORD</full_name>
+      <value><![CDATA['root']]></value>
+    </constant>
+    <constant namespace="global" line="17" package="Default">
+      <name>DB_DATABASE</name>
+      <full_name>\DB_DATABASE</full_name>
+      <value><![CDATA['lithium_test']]></value>
+    </constant>
+    <constant namespace="global" line="18" package="Default">
+      <name>DB_ADAPTER</name>
+      <full_name>\DB_ADAPTER</full_name>
+      <value><![CDATA['MySql']]></value>
+    </constant>
+    <constant namespace="global" line="21" package="Default">
+      <name>BLOG_TITLE</name>
+      <full_name>\BLOG_TITLE</full_name>
+      <value><![CDATA['Li3 Press']]></value>
+    </constant>
+    <constant namespace="global" line="22" package="Default">
+      <name>BLOG_BG</name>
+      <full_name>\BLOG_BG</full_name>
+      <value><![CDATA['']]></value>
+    </constant>
+    <constant namespace="global" line="24" package="Default">
+      <name>ITEMS_PAGE</name>
+      <full_name>\ITEMS_PAGE</full_name>
+      <value><![CDATA[10]]></value>
+    </constant>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file config/bootstrap/param.ini.php</error>
+    </parse_markers>
+  </file>
+  <file path="config/bootstrap/param.ini.template.php" hash="8645b4ba1c3e96302befbc620df0b28e" package="Default">
+    <constant namespace="global" line="11" package="Default">
+      <name>LITHIUM_LIBRARY_PATH</name>
+      <full_name>\LITHIUM_LIBRARY_PATH</full_name>
+      <value><![CDATA['']]></value>
+      <docblock line="2">
+        <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="2" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+        <tag line="2" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+      </docblock>
+    </constant>
+    <constant namespace="global" line="14" package="Default">
+      <name>DB_HOST</name>
+      <full_name>\DB_HOST</full_name>
+      <value><![CDATA['']]></value>
+    </constant>
+    <constant namespace="global" line="15" package="Default">
+      <name>DB_LOGIN</name>
+      <full_name>\DB_LOGIN</full_name>
+      <value><![CDATA['']]></value>
+    </constant>
+    <constant namespace="global" line="16" package="Default">
+      <name>DB_PASSWORD</name>
+      <full_name>\DB_PASSWORD</full_name>
+      <value><![CDATA['']]></value>
+    </constant>
+    <constant namespace="global" line="17" package="Default">
+      <name>DB_DATABASE</name>
+      <full_name>\DB_DATABASE</full_name>
+      <value><![CDATA['']]></value>
+    </constant>
+    <constant namespace="global" line="18" package="Default">
+      <name>DB_ADAPTER</name>
+      <full_name>\DB_ADAPTER</full_name>
+      <value><![CDATA['MySql']]></value>
+    </constant>
+    <constant namespace="global" line="21" package="Default">
+      <name>BLOG_TITLE</name>
+      <full_name>\BLOG_TITLE</full_name>
+      <value><![CDATA['']]></value>
+    </constant>
+    <constant namespace="global" line="22" package="Default">
+      <name>BLOG_BG</name>
+      <full_name>\BLOG_BG</full_name>
+      <value><![CDATA['']]></value>
+    </constant>
+    <constant namespace="global" line="24" package="Default">
+      <name>ITEMS_PAGE</name>
+      <full_name>\ITEMS_PAGE</full_name>
+      <value><![CDATA[10]]></value>
+    </constant>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file config/bootstrap/param.ini.template.php</error>
+    </parse_markers>
+  </file>
+  <file path="config/bootstrap/session.php" hash="024e248a9a1411c552e49030a81a29ec" package="Default">
+    <docblock line="2">
+      <description><![CDATA[Lithium: the most rad php framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="2" name="copyright" description="Copyright 2012, Union of RAD (http://union-of-rad.org)"/>
+      <tag line="2" name="license" description="http://opensource.org/licenses/bsd-license.php The BSD License"/>
+    </docblock>
+    <namespace-alias name="Session">lithium\storage\Session</namespace-alias>
+    <namespace-alias name="Auth">lithium\security\Auth</namespace-alias>
+  </file>
+  <file path="config/bootstrap.php" hash="59e4347bf27a2514ff428dd6ae0a448d" package="Default">
+    <include line="9" type="Require" package="Default">
+      <name/>
+      <docblock line="2">
+        <description><![CDATA[Lithium: the most rad php framework]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="2" name="copyright" description="Copyright 2012, Union of RAD (http://union-of-rad.org)"/>
+        <tag line="2" name="license" description="http://opensource.org/licenses/bsd-license.php The BSD License"/>
+      </docblock>
+    </include>
+    <include line="35" type="Require" package="Default">
+      <name/>
+      <docblock line="29">
+        <description><![CDATA[The libraries file contains the loading instructions for all plugins, frameworks and other class
+libraries used in the application, including the Lithium core, and the application itself.]]></description>
+        <long-description><![CDATA[<p>These
+instructions include library names, paths to files, and any applicable class-loading rules. This
+file also statically loads common classes to improve bootstrap performance.</p>]]></long-description>
+      </docblock>
+    </include>
+    <include line="42" type="Require" package="Default">
+      <name/>
+      <docblock line="37">
+        <description><![CDATA[The error configuration allows you to use the filter system along with the advanced matching
+rules of the `ErrorHandler` class to provide a high level of control over managing exceptions in
+your application, with no impact on framework or application code.]]></description>
+        <long-description><![CDATA[]]></long-description>
+      </docblock>
+    </include>
+    <include line="49" type="Require" package="Default">
+      <name/>
+    </include>
+    <include line="55" type="Require" package="Default">
+      <name/>
+      <docblock line="52">
+        <description><![CDATA[Include this file if your application uses one or more database connections.]]></description>
+        <long-description><![CDATA[]]></long-description>
+      </docblock>
+    </include>
+    <include line="62" type="Require" package="Default">
+      <name/>
+      <docblock line="57">
+        <description><![CDATA[This file defines bindings between classes which are triggered during the request cycle, and
+allow the framework to automatically configure its environmental settings.]]></description>
+        <long-description><![CDATA[<p>You can add your own
+behavior and modify the dispatch cycle to suit your needs.</p>]]></long-description>
+      </docblock>
+    </include>
+    <include line="69" type="Require" package="Default">
+      <name/>
+      <docblock line="64">
+        <description><![CDATA[This file contains configuration for session (and/or cookie) storage, and user or web service
+authentication.]]></description>
+        <long-description><![CDATA[]]></long-description>
+      </docblock>
+    </include>
+    <include line="71" type="Require" package="Default">
+      <name/>
+    </include>
+    <include line="85" type="Require" package="Default">
+      <name/>
+      <docblock line="81">
+        <description><![CDATA[This file contains configurations for handling different content types within the framework,
+including converting data to and from different formats, and handling static media assets.]]></description>
+        <long-description><![CDATA[]]></long-description>
+      </docblock>
+    </include>
+    <include line="88" type="Require" package="Default">
+      <name/>
+    </include>
+    <include line="94" type="Require" package="Default">
+      <name/>
+    </include>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file config/bootstrap.php</error>
+    </parse_markers>
+  </file>
+  <file path="config/routes.php" hash="f1695f1d6a096992c0515401eaeb2e9c" package="Default">
+    <docblock line="3">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="3" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="3" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+    <namespace-alias name="Router">lithium\net\http\Router</namespace-alias>
+  </file>
+  <file path="controllers/CaptchasController.php" hash="53981cbedbad3a56611b289defd8b0f7" package="Default">
+    <docblock line="3">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="3" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="3" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="app\controllers" line="13" package="Default">
+      <extends>\lithium\action\Controller</extends>
+      <name>CaptchasController</name>
+      <full_name>\app\controllers\CaptchasController</full_name>
+      <property final="false" static="true" visibility="protected" line="15" namespace="app\controllers" package="Default">
+        <name>$_securimage</name>
+        <default><![CDATA[null]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="17" package="Default">
+        <name>init</name>
+        <full_name>init</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="21" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="25" package="Default">
+        <name>generate</name>
+        <full_name>generate</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="34" package="Default">
+        <name>check</name>
+        <full_name>check</full_name>
+        <argument line="34">
+          <name>$captcha</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="34">
+          <name>$errors</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="13" code="50000">No DocBlock was found for \app\controllers\CaptchasController</error>
+      <error line="15" code="50018">No DocBlock was found for property $_securimage</error>
+      <error line="17" code="50010">No DocBlock was found for method init()</error>
+      <error line="21" code="50010">No DocBlock was found for method __construct()</error>
+      <error line="25" code="50010">No DocBlock was found for method generate()</error>
+      <error line="34" code="50010">No DocBlock was found for method check()</error>
+    </parse_markers>
+  </file>
+  <file path="controllers/CommentsController.php" hash="66709c7d8cf1ac6744a4ab2727b2189d" package="Default">
+    <docblock line="3">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="3" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="3" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+    <namespace-alias name="CaptchasController">app\controllers\CaptchasController</namespace-alias>
+    <namespace-alias name="PostsController">app\controllers\PostsController</namespace-alias>
+    <namespace-alias name="Comments">app\models\Comments</namespace-alias>
+    <namespace-alias name="Auth">lithium\security\Auth</namespace-alias>
+    <class final="false" abstract="false" namespace="app\controllers" line="21" package="Default">
+      <extends>\lithium\action\Controller</extends>
+      <name>CommentsController</name>
+      <full_name>\app\controllers\CommentsController</full_name>
+      <docblock line="18">
+        <description><![CDATA[]]></description>
+        <long-description><![CDATA[]]></long-description>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="app\controllers" line="29" package="Default">
+        <name>getComment</name>
+        <full_name>getComment</full_name>
+        <docblock line="23">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="23" name="param" description="" type="\app\controllers\type" variable="$id">
+            <type by_reference="false">\app\controllers\type</type>
+          </tag>
+          <tag line="23" name="param" description="" type="\app\controllers\type" variable="$comment">
+            <type by_reference="false">\app\controllers\type</type>
+          </tag>
+          <tag line="23" name="return" description="" type="\app\controllers\type">
+            <type by_reference="false">\app\controllers\type</type>
+          </tag>
+        </docblock>
+        <argument line="29">
+          <name>$id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="29">
+          <name>$comment</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="app\controllers" line="39" package="Default">
+        <name>commentExist</name>
+        <full_name>commentExist</full_name>
+        <argument line="39">
+          <name>$id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="app\controllers" line="43" package="Default">
+        <name>getComments</name>
+        <full_name>getComments</full_name>
+        <argument line="43">
+          <name>$comments</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="43">
+          <name>$postId</name>
+          <default><![CDATA[0]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="app\controllers" line="56" package="Default">
+        <name>addComment</name>
+        <full_name>addComment</full_name>
+        <argument line="56">
+          <name>$name</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="56">
+          <name>$email</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="56">
+          <name>$website</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="56">
+          <name>$body</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="56">
+          <name>$postId</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="56">
+          <name>$errors</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="app\controllers" line="66" package="Default">
+        <name>deleteComment</name>
+        <full_name>deleteComment</full_name>
+        <argument line="66">
+          <name>$id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="66">
+          <name>$errors</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="80" package="Default">
+        <name>indexAction</name>
+        <full_name>indexAction</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="90" package="Default">
+        <name>addAction</name>
+        <full_name>addAction</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="117" package="Default">
+        <name>listComments</name>
+        <full_name>listComments</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="127" package="Default">
+        <name>viewAction</name>
+        <full_name>viewAction</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="138" package="Default">
+        <name>deleteAction</name>
+        <full_name>deleteAction</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <critical line="18" code="50005">No short description for class \app\controllers\CommentsController</critical>
+      <error line="23" code="50012">No short description for method getComment()</error>
+      <error line="39" code="50010">No DocBlock was found for method commentExist()</error>
+      <error line="43" code="50010">No DocBlock was found for method getComments()</error>
+      <error line="56" code="50010">No DocBlock was found for method addComment()</error>
+      <error line="66" code="50010">No DocBlock was found for method deleteComment()</error>
+      <error line="80" code="50010">No DocBlock was found for method indexAction()</error>
+      <error line="90" code="50010">No DocBlock was found for method addAction()</error>
+      <error line="117" code="50010">No DocBlock was found for method listComments()</error>
+      <error line="127" code="50010">No DocBlock was found for method viewAction()</error>
+      <error line="138" code="50010">No DocBlock was found for method deleteAction()</error>
+    </parse_markers>
+  </file>
+  <file path="controllers/InstallsController.php" hash="c503fcc504880bcbfb019e122128c0cd" package="Default">
+    <docblock line="3">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="3" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="3" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+    <namespace-alias name="Users">app\models\Users</namespace-alias>
+    <namespace-alias name="PostsController">app\controllers\PostsController</namespace-alias>
+    <namespace-alias name="UsersController">app\controllers\UsersController</namespace-alias>
+    <namespace-alias name="Model">lithium\data\Model</namespace-alias>
+    <namespace-alias name="DispatchException">lithium\action\DispatchException</namespace-alias>
+    <class final="false" abstract="false" namespace="app\controllers" line="19" package="Default">
+      <extends>\lithium\action\Controller</extends>
+      <name>InstallsController</name>
+      <full_name>\app\controllers\InstallsController</full_name>
+      <property final="false" static="true" visibility="protected" line="21" namespace="app\controllers" package="Default">
+        <name>$_install</name>
+        <default><![CDATA[false]]></default>
+      </property>
+      <property final="false" static="true" visibility="protected" line="24" namespace="app\controllers" package="Default">
+        <name>$_sql</name>
+        <default><![CDATA["
+
+DROP TABLE IF EXISTS `posts`;
+
+CREATE TABLE IF NOT EXISTS `posts` (`id` int(11) NOT NULL AUTO_INCREMENT,
+				    `title` text NOT NULL,
+				    `body` text NOT NULL,
+				    `visibility` tinyint NOT NULL DEFAULT 1,
+				     PRIMARY KEY (`id`)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE IF NOT EXISTS `users` (`id` int(11) NOT NULL AUTO_INCREMENT,
+				    `username` varchar(256) NOT NULL,
+				    `password` varchar(256) NOT NULL,
+				    PRIMARY KEY (`id`), UNIQUE KEY `username` (`username`)) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS `comments`;
+
+CREATE TABLE IF NOT EXISTS `comments` (`comment_id` int(11) NOT NULL AUTO_INCREMENT,
+				       `name` text NOT NULL,
+				       `email` text NOT NULL,
+				       `website` text,
+				       `body` text NOT NULL,
+                                                                               `updated` datetime NOT NULL,
+                                                                               `created` datetime NOT NULL,
+				       `post_id` int(11) NOT NULL,
+				       FOREIGN KEY(post_id) REFERENCES posts(id)
+				       ON UPDATE CASCADE
+				       ON DELETE RESTRICT,
+				       PRIMARY KEY(`comment_id`)) ENGINE=InnoDB;
+                                       
+DROP TABLE IF EXISTS `uploads`;
+
+CREATE TABLE IF NOT EXISTS `uploads` (`upload_id` int(11) NOT NULL AUTO_INCREMENT,
+				       `filename` text NOT NULL,
+                                                                               `size` int NOT NULL,
+				       `type` varchar(256) NOT NULL,
+				       `thumbnail` tinyint NOT NULL DEFAULT 1,
+                                                                               `created` datetime NOT NULL,
+				       PRIMARY KEY(`upload_id`)) ENGINE=InnoDB;
+"]]></default>
+      </property>
+      <property final="false" static="true" visibility="protected" line="69" namespace="app\controllers" package="Default">
+        <name>$_lorem</name>
+        <default><![CDATA["Cupcake ipsum dolor sit. Amet pastry cheesecake. Danish sesame snaps caramels wypas. Caramels candy dragée dragée halvah cupcake. Bear claw gingerbread tiramisu candy tart sweet roll marzipan. Icing macaroon faworki.
+Halvah chocolate macaroon bonbon jelly macaroon faworki. Cheesecake dessert chocolate cake cotton candy sesame snaps fruitcake.<br />Marshmallow dragée chocolate cake tiramisu candy muffin sugar plum sesame snaps. Sugar plum halvah ice cream wafer toffee icing. Chocolate bar candy donut topping gummies tiramisu muffin pudding. Gummies oat cake marzipan pie ice cream marshmallow macaroon marzipan caramels.
+Pie biscuit pudding jelly beans chocolate oat cake. Danish cotton candy tootsie roll. Jelly muffin lemon drops wafer bonbon wafer chocolate bar dessert. Pie danish tootsie roll cotton candy. Halvah chocolate pie dragée apple pie candy canes marshmallow. Liquorice bonbon apple pie jelly-o jelly-o.
+Biscuit bonbon powder pie pastry cheesecake gummies. Tootsie roll jelly marzipan pastry tootsie roll chupa chups chupa chups wafer.<br />Gummies marshmallow sugar plum apple pie marzipan cookie.\ Cupcake gummies pastry. Chupa chups lollipop croissant. Tart lollipop carrot cake applicake.<br />Gummies caramels cheesecake liquorice dragée. Chocolate bar sesame snaps chupa chups candy canes. Soufflé cookie chupa chups cheesecake pudding cookie.
+Toffee cheesecake cupcake caramels jujubes gingerbread cookie sesame snaps. Candy canes caramels cupcake cotton candy oat cake. Cheesecake cheesecake dessert tart. Donut tiramisu apple pie. Sweet roll pudding donut chocolate tiramisu tiramisu marzipan. Chocolate cake sesame snaps sweet."]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="app\controllers" line="77" package="Default">
+        <name>_init</name>
+        <full_name>_init</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="88" package="Default">
+        <name>index</name>
+        <full_name>index</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="93" package="Default">
+        <name>addAction</name>
+        <full_name>addAction</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="19" code="50000">No DocBlock was found for \app\controllers\InstallsController</error>
+      <error line="21" code="50018">No DocBlock was found for property $_install</error>
+      <error line="24" code="50018">No DocBlock was found for property $_sql</error>
+      <error line="69" code="50018">No DocBlock was found for property $_lorem</error>
+      <error line="77" code="50010">No DocBlock was found for method _init()</error>
+      <error line="88" code="50010">No DocBlock was found for method index()</error>
+      <error line="93" code="50010">No DocBlock was found for method addAction()</error>
+    </parse_markers>
+  </file>
+  <file path="controllers/PostsController.php" hash="5ca4e7e178aa6d8e2621342786a3ce11" package="Default">
+    <docblock line="3">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="3" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="3" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+    <namespace-alias name="Router">lithium\net\http\Router</namespace-alias>
+    <namespace-alias name="Auth">lithium\security\Auth</namespace-alias>
+    <namespace-alias name="Posts">app\models\Posts</namespace-alias>
+    <class final="false" abstract="false" namespace="app\controllers" line="17" package="Default">
+      <extends>\lithium\action\Controller</extends>
+      <name>PostsController</name>
+      <full_name>\app\controllers\PostsController</full_name>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="app\controllers" line="19" package="Default">
+        <name>getPost</name>
+        <full_name>getPost</full_name>
+        <argument line="19">
+          <name>$id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="19">
+          <name>$post</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="app\controllers" line="32" package="Default">
+        <name>getPosts</name>
+        <full_name>getPosts</full_name>
+        <argument line="32">
+          <name>$posts</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="32">
+          <name>$page</name>
+          <default><![CDATA[0]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="46" package="Default">
+        <name>postExist</name>
+        <full_name>postExist</full_name>
+        <argument line="46">
+          <name>$id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="50" package="Default">
+        <name>addPost</name>
+        <full_name>addPost</full_name>
+        <argument line="50">
+          <name>$title</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="50">
+          <name>$body</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="50">
+          <name>$errors</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="60" package="Default">
+        <name>index</name>
+        <full_name>index</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="70" package="Default">
+        <name>indexAction</name>
+        <full_name>indexAction</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="80" package="Default">
+        <name>add</name>
+        <full_name>add</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="86" package="Default">
+        <name>addAction</name>
+        <full_name>addAction</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="106" package="Default">
+        <name>edit</name>
+        <full_name>edit</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="116" package="Default">
+        <name>editAction</name>
+        <full_name>editAction</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="137" package="Default">
+        <name>view</name>
+        <full_name>view</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="142" package="Default">
+        <name>hide</name>
+        <full_name>hide</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="146" package="Default">
+        <name>hideAction</name>
+        <full_name>hideAction</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="160" package="Default">
+        <name>listPosts</name>
+        <full_name>listPosts</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="170" package="Default">
+        <name>deleteAction</name>
+        <full_name>deleteAction</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="17" code="50000">No DocBlock was found for \app\controllers\PostsController</error>
+      <error line="19" code="50010">No DocBlock was found for method getPost()</error>
+      <error line="32" code="50010">No DocBlock was found for method getPosts()</error>
+      <error line="46" code="50010">No DocBlock was found for method postExist()</error>
+      <error line="50" code="50010">No DocBlock was found for method addPost()</error>
+      <error line="60" code="50010">No DocBlock was found for method index()</error>
+      <error line="70" code="50010">No DocBlock was found for method indexAction()</error>
+      <error line="80" code="50010">No DocBlock was found for method add()</error>
+      <error line="86" code="50010">No DocBlock was found for method addAction()</error>
+      <error line="106" code="50010">No DocBlock was found for method edit()</error>
+      <error line="116" code="50010">No DocBlock was found for method editAction()</error>
+      <error line="137" code="50010">No DocBlock was found for method view()</error>
+      <error line="142" code="50010">No DocBlock was found for method hide()</error>
+      <error line="146" code="50010">No DocBlock was found for method hideAction()</error>
+      <error line="160" code="50010">No DocBlock was found for method listPosts()</error>
+      <error line="170" code="50010">No DocBlock was found for method deleteAction()</error>
+    </parse_markers>
+  </file>
+  <file path="controllers/SessionsController.php" hash="c19b0fd9e81f78ac8de8b4261693bf5e" package="Default">
+    <docblock line="3">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="3" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="3" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+    <namespace-alias name="Auth">lithium\security\Auth</namespace-alias>
+    <class final="false" abstract="false" namespace="app\controllers" line="15" package="Default">
+      <extends>\lithium\action\Controller</extends>
+      <name>SessionsController</name>
+      <full_name>\app\controllers\SessionsController</full_name>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="17" package="Default">
+        <name>add</name>
+        <full_name>add</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="25" package="Default">
+        <name>delete</name>
+        <full_name>delete</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="15" code="50000">No DocBlock was found for \app\controllers\SessionsController</error>
+      <error line="17" code="50010">No DocBlock was found for method add()</error>
+      <error line="25" code="50010">No DocBlock was found for method delete()</error>
+    </parse_markers>
+  </file>
+  <file path="controllers/UploadsController.php" hash="ee0ad8943a79567cbd1c90f303edf207" package="Default">
+    <docblock line="3">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="3" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="3" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+    <namespace-alias name="Uploads">app\models\Uploads</namespace-alias>
+    <namespace-alias name="Auth">lithium\security\Auth</namespace-alias>
+    <namespace-alias name="UploadHandler">upload\UploadHandler</namespace-alias>
+    <namespace-alias name="Router">lithium\net\http\Router</namespace-alias>
+    <class final="false" abstract="false" namespace="app\controllers" line="21" package="Default">
+      <extends>\lithium\action\Controller</extends>
+      <name>UploadsController</name>
+      <full_name>\app\controllers\UploadsController</full_name>
+      <docblock line="17">
+        <description><![CDATA[Manage files]]></description>
+        <long-description><![CDATA[]]></long-description>
+      </docblock>
+      <property final="false" static="true" visibility="protected" line="23" namespace="app\controllers" package="Default">
+        <name>$_uploadHandler</name>
+        <default><![CDATA[null]]></default>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="30" package="Default">
+        <name>_init</name>
+        <full_name>_init</full_name>
+        <docblock line="25">
+          <description><![CDATA[_init()]]></description>
+          <long-description><![CDATA[<p>Setup the php library</p>]]></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="app\controllers" line="67" package="Default">
+        <name>getUploads</name>
+        <full_name>getUploads</full_name>
+        <docblock line="60">
+          <description><![CDATA[Get uploads]]></description>
+          <long-description><![CDATA[<p>Get every files record</p>]]></long-description>
+          <tag line="60" name="param" description="Reference to the files" type="\app\controllers\type" variable="$uploads">
+            <type by_reference="false">\app\controllers\type</type>
+          </tag>
+          <tag line="60" name="return" description="Number of result" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="67">
+          <name>$uploads</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="app\controllers" line="82" package="Default">
+        <name>addUpload</name>
+        <full_name>addUpload</full_name>
+        <docblock line="73">
+          <description><![CDATA[Add a file]]></description>
+          <long-description><![CDATA[<p>Add a file to the DB with information in $params.</p>]]></long-description>
+          <tag line="73" name="param" description="Informations to save" type="array" variable="$params">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="73" name="param" description="" type="array" variable="$errors">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="73" name="param" description="Reference to the object created" type="object" variable="$file">
+            <type by_reference="false">object</type>
+          </tag>
+          <tag line="73" name="return" description="" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="82">
+          <name>$params</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="82">
+          <name>$errors</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="82">
+          <name>$file</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="app\controllers" line="99" package="Default">
+        <name>getUpload</name>
+        <full_name>getUpload</full_name>
+        <docblock line="91">
+          <description><![CDATA[Get a file by ID]]></description>
+          <long-description><![CDATA[<p>The function returns TRUE or FALSE on failure. If success the file is available in $file param.</p>]]></long-description>
+          <tag line="91" name="param" description="ID to get" type="int" variable="$id">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="91" name="param" description="Reference to the object" type="object" variable="$file">
+            <type by_reference="false">object</type>
+          </tag>
+          <tag line="91" name="return" description="" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="99">
+          <name>$id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="99">
+          <name>$file</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="app\controllers" line="117" package="Default">
+        <name>deleteFile</name>
+        <full_name>deleteFile</full_name>
+        <docblock line="108">
+          <description><![CDATA[Delete a file on hard drive by name]]></description>
+          <long-description><![CDATA[<p>The function returns TRUE or FALSE on failure. Reason of failure is available in $errors param.</p>]]></long-description>
+          <tag line="108" name="param" description="Name of the file" type="string" variable="$name">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="108" name="param" description="File as a $thumb to delete" type="bool" variable="$thumb">
+            <type by_reference="false">bool</type>
+          </tag>
+          <tag line="108" name="param" description="Reference to an array used to handle errors" type="array" variable="$errors">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="108" name="return" description="" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="117">
+          <name>$name</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="117">
+          <name>$thumb</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="117">
+          <name>$errors</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="app\controllers" line="149" package="Default">
+        <name>deleteUpload</name>
+        <full_name>deleteUpload</full_name>
+        <docblock line="140">
+          <description><![CDATA[Delete upload by ID]]></description>
+          <long-description><![CDATA[<p>The function returns TRUE or FALSE on failure. Reason of failure is available in $errors param.</p>]]></long-description>
+          <tag line="140" name="todo" description="Use delete without array of params (not supported or bug with li3)"/>
+          <tag line="140" name="param" description="ID to delete" type="int" variable="$id">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="140" name="param" description="Reference to an array used to handle errors" type="array" variable="$errors">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="140" name="return" description="" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="149">
+          <name>$id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="149">
+          <name>$errors</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="169" package="Default">
+        <name>index</name>
+        <full_name>index</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="183" package="Default">
+        <name>processFile</name>
+        <full_name>processFile</full_name>
+        <docblock line="173">
+          <description><![CDATA[Process single file]]></description>
+          <long-description><![CDATA[<p>Process the files uploaded using the upload library.</p>]]></long-description>
+          <tag line="173" name="todo" description="Manage errors."/>
+          <tag line="173" name="todo" description="Not sure of the implementation."/>
+          <tag line="173" name="param" description="Array with the file" type="array" variable="$uploads">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="173" name="param" description="Reference to the informations of the file processed" type="array" variable="$info">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="173" name="return" description="" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="183">
+          <name>$upload</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="183">
+          <name>$info</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="206" package="Default">
+        <name>processFiles</name>
+        <full_name>processFiles</full_name>
+        <docblock line="196">
+          <description><![CDATA[Process list of files]]></description>
+          <long-description><![CDATA[<p>Process the files uploaded using the upload library.</p>]]></long-description>
+          <tag line="196" name="todo" description="Manage errors."/>
+          <tag line="196" name="todo" description="Not sure of the implementation."/>
+          <tag line="196" name="param" description="Array with the files" type="array" variable="$uploads">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="196" name="param" description="Reference to the informations of the files processed" type="array" variable="$info">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="196" name="return" description="" type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="206">
+          <name>$uploads</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="206">
+          <name>$info</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="230" package="Default">
+        <name>dispatcherUpload</name>
+        <full_name>dispatcherUpload</full_name>
+        <docblock line="222">
+          <description><![CDATA[Find the correct handler]]></description>
+          <long-description><![CDATA[<p>Used to find which handler to use.</p>]]></long-description>
+          <tag line="222" name="todo" description="Manage errors"/>
+          <tag line="222" name="param" description="Content of the $FILES variable" type="object" variable="$upload">
+            <type by_reference="false">object</type>
+          </tag>
+          <tag line="222" name="return" description="Result" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="230">
+          <name>$upload</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="app\controllers" line="246" package="Default">
+        <name>generateDisplay</name>
+        <full_name>generateDisplay</full_name>
+        <docblock line="240">
+          <description><![CDATA[Generate display]]></description>
+          <long-description><![CDATA[<p>Generate object used by the jQuery Library and the js template.</p>]]></long-description>
+          <tag line="240" name="return" description="File" type="object">
+            <type by_reference="false">object</type>
+          </tag>
+        </docblock>
+        <argument line="246">
+          <name>$upload</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="265" package="Default">
+        <name>addAction</name>
+        <full_name>addAction</full_name>
+        <docblock line="257">
+          <description><![CDATA[Add upload action]]></description>
+          <long-description><![CDATA[<p>Add a new file to the disk and to the DB.
+Function available if user logged and callable only by POST. Information in $_FILES are used.</p>]]></long-description>
+          <tag line="257" name="todo" description="Make a difference if error when erasing file or if error in DB"/>
+          <tag line="257" name="return" description="Array with success status, associative array of details and associative array of the files" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="310" package="Default">
+        <name>deleteAction</name>
+        <full_name>deleteAction</full_name>
+        <docblock line="302">
+          <description><![CDATA[Delete upload action]]></description>
+          <long-description><![CDATA[<p>Delete an element from the disk and from the DB.
+Function available if user logged and callable only by POST. Parameters in the post must contain id of the element.</p>]]></long-description>
+          <tag line="302" name="todo" description="Make a difference if error when erasing file or if error in DB"/>
+          <tag line="302" name="return" description="Array with success status and associative array of details" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="336" package="Default">
+        <name>loadAction</name>
+        <full_name>loadAction</full_name>
+        <docblock line="330">
+          <description><![CDATA[Load previous uploads]]></description>
+          <long-description><![CDATA[<p>User must be logged to use this function.</p>]]></long-description>
+          <tag line="330" name="return" description="Associative array with success status, files to display, details" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="362" package="Default">
+        <name>add</name>
+        <full_name>add</full_name>
+        <docblock line="357">
+          <description><![CDATA[Page add]]></description>
+          <long-description><![CDATA[<p>User must be logged to use this page.</p>]]></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="23" code="50018">No DocBlock was found for property $_uploadHandler</error>
+      <error line="169" code="50010">No DocBlock was found for method index()</error>
+      <error line="173" code="50014">Name of argument $upload does not match with the DocBlock's name $uploads in processFile()</error>
+      <notice line="173" code="50013">Parameter $uploads could not be found in processFile()</notice>
+      <error line="240" code="50015">Argument $upload is missing from the Docblock of generateDisplay()</error>
+    </parse_markers>
+  </file>
+  <file path="controllers/UsersController.php" hash="954f03667057d0633b1ccc766eea3a63" package="Default">
+    <docblock line="3">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="3" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="3" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+    <namespace-alias name="Users">app\models\Users</namespace-alias>
+    <namespace-alias name="Libraries">lithium\core\Libraries</namespace-alias>
+    <namespace-alias name="Auth">lithium\security\Auth</namespace-alias>
+    <class final="false" abstract="false" namespace="app\controllers" line="17" package="Default">
+      <extends>\lithium\action\Controller</extends>
+      <name>UsersController</name>
+      <full_name>\app\controllers\UsersController</full_name>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="app\controllers" line="19" package="Default">
+        <name>getUsers</name>
+        <full_name>getUsers</full_name>
+        <argument line="19">
+          <name>$users</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="app\controllers" line="24" package="Default">
+        <name>getUser</name>
+        <full_name>getUser</full_name>
+        <argument line="24">
+          <name>$id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="24">
+          <name>$user</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="33" package="Default">
+        <name>addUser</name>
+        <full_name>addUser</full_name>
+        <argument line="33">
+          <name>$login</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="33">
+          <name>$password</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="33">
+          <name>$errors</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="43" package="Default">
+        <name>index</name>
+        <full_name>index</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="49" package="Default">
+        <name>addAction</name>
+        <full_name>addAction</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="66" package="Default">
+        <name>add</name>
+        <full_name>add</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="72" package="Default">
+        <name>listUsers</name>
+        <full_name>listUsers</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="82" package="Default">
+        <name>deleteAction</name>
+        <full_name>deleteAction</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="101" package="Default">
+        <name>view</name>
+        <full_name>view</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="108" package="Default">
+        <name>edit</name>
+        <full_name>edit</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\controllers" line="120" package="Default">
+        <name>editAction</name>
+        <full_name>editAction</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="17" code="50000">No DocBlock was found for \app\controllers\UsersController</error>
+      <error line="19" code="50010">No DocBlock was found for method getUsers()</error>
+      <error line="24" code="50010">No DocBlock was found for method getUser()</error>
+      <error line="33" code="50010">No DocBlock was found for method addUser()</error>
+      <error line="43" code="50010">No DocBlock was found for method index()</error>
+      <error line="49" code="50010">No DocBlock was found for method addAction()</error>
+      <error line="66" code="50010">No DocBlock was found for method add()</error>
+      <error line="72" code="50010">No DocBlock was found for method listUsers()</error>
+      <error line="82" code="50010">No DocBlock was found for method deleteAction()</error>
+      <error line="101" code="50010">No DocBlock was found for method view()</error>
+      <error line="108" code="50010">No DocBlock was found for method edit()</error>
+      <error line="120" code="50010">No DocBlock was found for method editAction()</error>
+    </parse_markers>
+  </file>
+  <file path="extensions/helper/Form.php" hash="992e496a92c6c5ffb9a2f8b1405e902a" package="Default">
+    <class final="false" abstract="false" namespace="app\extensions\helper" line="5" package="Default">
+      <extends>\lithium\template\helper\Form</extends>
+      <name>Form</name>
+      <full_name>\app\extensions\helper\Form</full_name>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="app\extensions\helper" line="7" package="Default">
+        <name>_init</name>
+        <full_name>_init</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\extensions\helper" line="17" package="Default">
+        <name>textNoPlaceholder</name>
+        <full_name>textNoPlaceholder</full_name>
+        <argument line="17">
+          <name>$name</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="17">
+          <name>$options</name>
+          <default><![CDATA[array()]]></default>
+          <type>array</type>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file extensions/helper/Form.php</error>
+      <error line="5" code="50000">No DocBlock was found for \app\extensions\helper\Form</error>
+      <error line="7" code="50010">No DocBlock was found for method _init()</error>
+      <error line="17" code="50010">No DocBlock was found for method textNoPlaceholder()</error>
+    </parse_markers>
+  </file>
+  <file path="extensions/helper/Login.php" hash="2bc7911b6a1fb75fec90fab574739ea0" package="Default">
+    <namespace-alias name="Auth">lithium\security\Auth</namespace-alias>
+    <class final="false" abstract="false" namespace="app\extensions\helper" line="6" package="Default">
+      <extends>\lithium\template\Helper</extends>
+      <name>Login</name>
+      <full_name>\app\extensions\helper\Login</full_name>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="app\extensions\helper" line="7" package="Default">
+        <name>user</name>
+        <full_name>user</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\extensions\helper" line="11" package="Default">
+        <name>isUserAuth</name>
+        <full_name>isUserAuth</full_name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="app\extensions\helper" line="15" package="Default">
+        <name>displayName</name>
+        <full_name>displayName</full_name>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file extensions/helper/Login.php</error>
+      <error line="6" code="50000">No DocBlock was found for \app\extensions\helper\Login</error>
+      <error line="7" code="50010">No DocBlock was found for method user()</error>
+      <error line="11" code="50010">No DocBlock was found for method isUserAuth()</error>
+      <error line="15" code="50010">No DocBlock was found for method displayName()</error>
+    </parse_markers>
+  </file>
+  <file path="index.php" hash="e384f2bd3910ec2ca1a59893675245ed" package="Default">
+    <include line="9" type="Require" package="Default">
+      <name>webroot/index.php</name>
+      <docblock line="2">
+        <description><![CDATA[Lithium: the most rad php framework]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="2" name="copyright" description="Copyright 2012, Union of RAD (http://union-of-rad.org)"/>
+        <tag line="2" name="license" description="http://opensource.org/licenses/bsd-license.php The BSD License"/>
+      </docblock>
+    </include>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file index.php</error>
+    </parse_markers>
+  </file>
+  <file path="models/Comments.php" hash="86e73b3b38d381586624983f12dbe1f7" package="Default">
+    <docblock line="3">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="3" name="author" description="Adrien Candiotti"/>
+      <tag line="3" name="copyright" description="Copyright 2012, Adrien Candiotti"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="app\models" line="13" package="Default">
+      <extends>\lithium\data\Model</extends>
+      <name>Comments</name>
+      <full_name>\app\models\Comments</full_name>
+      <property final="false" static="false" visibility="protected" line="15" namespace="app\models" package="Default">
+        <name>$_schema</name>
+        <default><![CDATA[array('comment_id' => array('type' => 'id'), 'name' => array('type' => 'string', 'default' => '', 'null' => false), 'email' => array('type' => 'string', 'default' => '', 'null' => false), 'website' => array('type' => 'string', 'default' => '', 'null' => false), 'body' => array('type' => 'string', 'default' => '', 'null' => false), 'updated' => array('type' => 'datetime', 'null' => false), 'created' => array('type' => 'datetime', 'null' => false), 'post_id' => array('type' => 'integer', 'default' => 0, 'null' => false))]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="23" namespace="app\models" package="Default">
+        <name>$validates</name>
+        <default><![CDATA[array('name' => array(array('notEmpty', 'required' => true, 'message' => 'Please supply a title.')), 'email' => array(array('notEmpty', 'required' => true, 'message' => 'Please supply an email.'), array('email', 'skipEmpty' => true, 'message' => 'Email not valid.')), 'body' => array(array('notEmpty', 'required' => true, 'message' => 'Please supply a content for this comment.')), 'website' => array(array('url', 'skipEmpty' => true, 'message' => 'Website is not a valid url.')), 'post_id' => array(array('notEmpty', 'required' => true, 'message' => 'A comment belongs to a post.')))]]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="13" code="50000">No DocBlock was found for \app\models\Comments</error>
+      <error line="15" code="50018">No DocBlock was found for property $_schema</error>
+      <error line="23" code="50018">No DocBlock was found for property $validates</error>
+    </parse_markers>
+  </file>
+  <file path="models/Posts.php" hash="61bc9cafed471f15c91d166f6a138611" package="Default">
+    <docblock line="2">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="2" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="2" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="app\models" line="12" package="Default">
+      <extends>\lithium\data\Model</extends>
+      <name>Posts</name>
+      <full_name>\app\models\Posts</full_name>
+      <property final="false" static="false" visibility="public" line="13" namespace="app\models" package="Default">
+        <name>$hasMany</name>
+        <default><![CDATA[array('Comments')]]></default>
+      </property>
+      <property final="false" static="false" visibility="public" line="15" namespace="app\models" package="Default">
+        <name>$validates</name>
+        <default><![CDATA[array('title' => array(array('notEmpty', 'required' => true, 'message' => 'Please supply a title.')), 'body' => array(array('notEmpty', 'required' => true, 'message' => 'Please supply a content for this post.')))]]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="12" code="50000">No DocBlock was found for \app\models\Posts</error>
+      <error line="13" code="50018">No DocBlock was found for property $hasMany</error>
+      <error line="15" code="50018">No DocBlock was found for property $validates</error>
+    </parse_markers>
+  </file>
+  <file path="models/Uploads.php" hash="de3d2b0f0c9401ff62ed447beceead3e" package="Default">
+    <docblock line="3">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="3" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="3" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="app\models" line="13" package="Default">
+      <extends>\lithium\data\Model</extends>
+      <name>Uploads</name>
+      <full_name>\app\models\Uploads</full_name>
+      <property final="false" static="false" visibility="protected" line="14" namespace="app\models" package="Default">
+        <name>$_schema</name>
+        <default><![CDATA[array('upload_id' => array('type' => 'id'), 'filename' => array('type' => 'string', 'default' => '', 'null' => false), 'size' => array('type' => 'integer', 'default' => '', 'null' => false), 'type' => array('type' => 'string', 'default' => '', 'null' => false), 'thumbnail' => array('type' => 'boolean', 'default' => true, 'null' => false), 'created' => array('type' => 'datetime', 'null' => false))]]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="13" code="50000">No DocBlock was found for \app\models\Uploads</error>
+      <error line="14" code="50018">No DocBlock was found for property $_schema</error>
+    </parse_markers>
+  </file>
+  <file path="models/Users.php" hash="dada93125cdf7d5b2a33d4ba2b2eef90" package="Default">
+    <docblock line="2">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="2" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="2" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="app\models" line="12" package="Default">
+      <extends>\lithium\data\Model</extends>
+      <name>Users</name>
+      <full_name>\app\models\Users</full_name>
+      <property final="false" static="false" visibility="public" line="14" namespace="app\models" package="Default">
+        <name>$validates</name>
+        <default><![CDATA[array('username' => array(array('notEmpty', 'required' => true, 'message' => 'Please supply a username.'), array('alphaNumeric', 'message' => 'A username may only contain letters and numbers.'), array('usernameTaken', 'message' => 'This username already exist.'), array('lengthBetween', 'min' => 4, 'message' => 'A username must be at least 4 characters.')), 'password' => array(array('notEmpty', 'required' => true, 'message' => 'Please supply a password.'), array('lengthBetween', 'min' => 4, 'message' => 'A password must be at least 4 characters.')))]]></default>
+      </property>
+    </class>
+    <parse_markers>
+      <error line="12" code="50000">No DocBlock was found for \app\models\Users</error>
+      <error line="14" code="50018">No DocBlock was found for property $validates</error>
+    </parse_markers>
+  </file>
+  <file path="views/_errors/development.html.php" hash="0d4c494056d15247f824fcb4014502f6" package="Default">
+    <docblock line="3">
+      <description><![CDATA[Lithium: the most rad php framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="3" name="copyright" description="Copyright 2012, Union of RAD (http://union-of-rad.org)"/>
+      <tag line="3" name="license" description="http://opensource.org/licenses/bsd-license.php The BSD License"/>
+    </docblock>
+    <namespace-alias name="Debugger">lithium\analysis\Debugger</namespace-alias>
+    <namespace-alias name="Inspector">lithium\analysis\Inspector</namespace-alias>
+  </file>
+  <file path="views/captchas/generate.ajax.php" hash="c7196aa0c1254925cd6e813401fc09ac" package="Default">
+    <docblock line="3">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="3" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="3" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+  </file>
+  <file path="views/comments/indexAction.ajax.php" hash="9d98a652211937d1887fd9b9f0f25e7f" package="Default">
+    <docblock line="2">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="2" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="2" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+  </file>
+  <file path="views/comments/listComments.html.php" hash="ba9e136bb9060485087e3dda9fad0cb2" package="Default">
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file views/comments/listComments.html.php</error>
+    </parse_markers>
+  </file>
+  <file path="views/comments/viewAction.ajax.php" hash="b6f9d1b426499cbb141c98817e7dc539" package="Default">
+    <docblock line="2">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="2" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="2" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+  </file>
+  <file path="views/elements/adminMenu.html.php" hash="3e0390ea1e7d41776df1ebb0ad603fbb" package="Default">
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file views/elements/adminMenu.html.php</error>
+    </parse_markers>
+  </file>
+  <file path="views/elements/comment.html.php" hash="889d7a5309c1d1c6d5d0d2a6baef5359" package="Default">
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file views/elements/comment.html.php</error>
+    </parse_markers>
+  </file>
+  <file path="views/elements/commentCreateForm.html.php" hash="c65f68fcfaf8264e1264acb47ed51445" package="Default">
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file views/elements/commentCreateForm.html.php</error>
+    </parse_markers>
+  </file>
+  <file path="views/elements/post.html.php" hash="0db1f8897355561054b4bda2bcc536d9" package="Default">
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file views/elements/post.html.php</error>
+    </parse_markers>
+  </file>
+  <file path="views/installs/index.html.php" hash="721ba805357d95cea37905afaa7f12fd" package="Default">
+    <docblock line="2">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="2" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="2" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+  </file>
+  <file path="views/layouts/default.ajax.php" hash="2d39f2dd1a4475ec95a2f7f71f40ccbd" package="Default">
+    <docblock line="3">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="3" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="3" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+  </file>
+  <file path="views/layouts/default.html.php" hash="bbb5bbffbec58fbb2a88621c13bafe28" package="Default">
+    <docblock line="2">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="2" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="2" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+  </file>
+  <file path="views/layouts/default.upload.php" hash="2d39f2dd1a4475ec95a2f7f71f40ccbd" package="Default">
+    <docblock line="3">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="3" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="3" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+  </file>
+  <file path="views/layouts/default.xml.php" hash="8b6f021cf3e853a4ce8590fac50ddd14" package="Default">
+    <docblock line="3">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="3" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="3" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+  </file>
+  <file path="views/layouts/error.html.php" hash="66ae9fd55dcd501a5fa46383312dbc29" package="Default">
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file views/layouts/error.html.php</error>
+    </parse_markers>
+  </file>
+  <file path="views/layouts/install.html.php" hash="f6b84b32feebd084f9d729f48621c766" package="Default">
+    <docblock line="2">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="2" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="2" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+  </file>
+  <file path="views/posts/add.html.php" hash="320361d439cf8b5d6f632a5581e92bd1" package="Default">
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file views/posts/add.html.php</error>
+    </parse_markers>
+  </file>
+  <file path="views/posts/edit.html.php" hash="65c68d6b278dcf87ec9c864b69dc44a4" package="Default">
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file views/posts/edit.html.php</error>
+    </parse_markers>
+  </file>
+  <file path="views/posts/index.html.php" hash="1dd88524a328cfd07e3e8fe0dccd8a86" package="Default">
+    <docblock line="2">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="2" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="2" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+    <markers>
+      <fixme line="29">: Do something better for the url here</fixme>
+    </markers>
+  </file>
+  <file path="views/posts/indexAction.ajax.php" hash="d06dc0af82a1903d3e0be7566259761f" package="Default">
+    <docblock line="3">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="3" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="3" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+  </file>
+  <file path="views/posts/listPosts.html.php" hash="ee9d4597bca5a6482ab328f87abe733b" package="Default">
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file views/posts/listPosts.html.php</error>
+    </parse_markers>
+  </file>
+  <file path="views/posts/view.html.php" hash="7b473ffa4ea513450d6c91b23ba9e350" package="Default">
+    <docblock line="2">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="2" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="2" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+  </file>
+  <file path="views/sessions/add.html.php" hash="994b5e80721775d09d3d6f5c94dc1e49" package="Default">
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file views/sessions/add.html.php</error>
+    </parse_markers>
+  </file>
+  <file path="views/uploads/add.html.php" hash="acb47c1c9d8b328886e16360bc9210e7" package="Default">
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file views/uploads/add.html.php</error>
+    </parse_markers>
+  </file>
+  <file path="views/uploads/index.upload.php" hash="08081b6387fa73404a5e6c823cb1978c" package="Default">
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file views/uploads/index.upload.php</error>
+    </parse_markers>
+  </file>
+  <file path="views/users/add.html.php" hash="341e1910d8ca92077a5ee020ff405dab" package="Default">
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file views/users/add.html.php</error>
+    </parse_markers>
+  </file>
+  <file path="views/users/edit.html.php" hash="e607f22f255c6f8c14cbe26232b56742" package="Default">
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file views/users/edit.html.php</error>
+    </parse_markers>
+  </file>
+  <file path="views/users/index.html.php" hash="8eb15a53d1b5c9e223410d53a90b9a9c" package="Default">
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file views/users/index.html.php</error>
+    </parse_markers>
+  </file>
+  <file path="views/users/listUsers.html.php" hash="874762b6ece685dda0fee6fd4fc7bf11" package="Default">
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file views/users/listUsers.html.php</error>
+    </parse_markers>
+  </file>
+  <file path="views/users/view.html.php" hash="d2c665ab63601091174f44113480c7e4" package="Default">
+    <docblock line="2">
+      <description><![CDATA[Li3Press: A CMS with the Lithium (Li3) framework]]></description>
+      <long-description><![CDATA[]]></long-description>
+      <tag line="2" name="author" description="Romain Wurtz (http://www.t3kila.com)"/>
+      <tag line="2" name="copyright" description="Copyright 2012, Romain Wurtz (http://www.t3kila.com)"/>
+    </docblock>
+  </file>
+  <file path="webroot/index.php" hash="1c6e08ed3f898e58a4a7c526b1a7a6de" package="Default">
+    <include line="22" type="Require" package="Default">
+      <name/>
+      <docblock line="17">
+        <description><![CDATA[If you're sharing a single Lithium core install or other libraries among multiple
+applications, you may need to manually set things like `LITHIUM_LIBRARY_PATH`.]]></description>
+        <long-description><![CDATA[<p>You can do that in
+<code>config/bootstrap.php</code>, which is loaded below:</p>]]></long-description>
+      </docblock>
+    </include>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file webroot/index.php</error>
+    </parse_markers>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <namespace name="app" full_name="app">
+    <namespace name="controllers" full_name="app\controllers"/>
+    <namespace name="extensions" full_name="app\extensions">
+      <namespace name="helper" full_name="app\extensions\helper"/>
+    </namespace>
+    <namespace name="models" full_name="app\models"/>
+  </namespace>
+  <namespace name="global" full_name="global"/>
+  <marker count="8">todo</marker>
+  <marker count="1">fixme</marker>
+  <deprecated count="0"/>
+</project>
