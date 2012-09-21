@@ -9,25 +9,78 @@
 ?>
 
 <style>
-    .fileinput-button input {
-        -moz-border-bottom-colors: none;
-        -moz-border-left-colors: none;
-        -moz-border-right-colors: none;
-        -moz-border-top-colors: none;
-        -moz-transform: translate(-300px, 0px) scale(4);
-        border-color: transparent;
-        border-image: none;
-        border-style: solid;
-        border-width: 0 0 100px 200px;
-        cursor: pointer;
-        direction: ltr;
-        margin: 0;
-        opacity: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+  float: left;
+  margin-right: 4px;
+}
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  border: solid transparent;
+  border-width: 0 0 100px 200px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -moz-transform: translate(-300px, 0) scale(4);
+  direction: ltr;
+  cursor: pointer;
+}
+.fileupload-buttonbar .btn,
+.fileupload-buttonbar .toggle {
+  margin-bottom: 5px;
+}
+.files .progress {
+  width: 200px;
+}
+.progress-animated .bar {
+  background: url(../img/progressbar.gif) !important;
+  filter: none;
+}
+.fileupload-loading {
+  position: absolute;
+  left: 50%;
+  width: 128px;
+  height: 128px;
+  background: url(../img/loading.gif) center no-repeat;
+  display: none;
+}
+.fileupload-processing .fileupload-loading {
+  display: block;
+}
 
+/* Fix for IE 6: */
+*html .fileinput-button {
+  line-height: 22px;
+  margin: 1px -3px 0 0;
+}
+
+/* Fix for IE 7: */
+*+html .fileinput-button {
+  margin: 1px 0 0 0;
+}
+
+@media (max-width: 480px) {
+  .files .btn span {
+    display: none;
+  }
+  .files .preview * {
+    width: 40px;
+  }
+  .files .name * {
+    width: 80px;
+    display: inline-block;
+    word-wrap: break-word;
+  }
+  .files .progress {
+    width: 20px;
+  }
+  .files .delete {
+    width: 60px;
+  }
+}
 
     .modal-gallery{width:auto;max-height:none;}
     .modal-gallery .modal-body{max-height:none;}
@@ -56,6 +109,33 @@
         font-size: 13px;
         line-height: 18px;
     }
+    
+    #dropzone {
+    background: palegreen;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+}
+#dropzone.in {
+    width: 600px;
+    height: 200px;
+    line-height: 200px;
+    font-size: larger;
+}
+#dropzone.hover {
+    background: lawngreen;
+}
+#dropzone.fade {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    opacity: 1;
+}
+
 </style>
 
 <div class="container">
@@ -64,17 +144,25 @@
 
     <!-- The file upload form used as target for the file upload widget -->
     <form id="fileupload" action="<?php echo $this->url(array('Uploads::addAction', 'type' => 'json')); ?>" method="POST" enctype="multipart/form-data">
-        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+    
+        <div id="dropzone" class="fade well">Drop files here</div>
+        
         <div class="row fileupload-buttonbar">
            
-            <!-- The global progress information -->
-            <div class="span5 fileupload-progress fade">
-                <!-- The global progress bar -->
-                <div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-                    <div class="bar" style="width:0%;"></div>
-                </div>
-                <!-- The extended global progress information -->
-                <div class="progress-extended">&nbsp;</div>
+             <div class="span7">
+                <span class="btn btn-success fileinput-button">
+                    <i class="icon-plus icon-white"></i>
+                    <span>Add files...</span>
+                    <input type="file" name="files[]" multiple>
+                </span>
+                <button type="submit" class="btn btn-primary start">
+                    <i class="icon-upload icon-white"></i>
+                    <span>Start upload</span>
+                </button>
+                <button type="reset" class="btn btn-warning cancel">
+                    <i class="icon-ban-circle icon-white"></i>
+                    <span>Cancel upload</span>
+                </button>
             </div>
         </div>
         <!-- The loading indicator is shown during file processing -->
@@ -195,7 +283,26 @@
     
     $(document).ready(function () {
 
-    
+$(document).bind('dragover', function (e) {
+    var dropZone = $('#dropzone'),
+        timeout = window.dropZoneTimeout;
+    if (!timeout) {
+        dropZone.addClass('in');
+    } else {
+        clearTimeout(timeout);
+    }
+    if (e.target === dropZone[0]) {
+        dropZone.addClass('hover');
+    } else {
+        dropZone.removeClass('hover');
+    }
+    window.dropZoneTimeout = setTimeout(function () {
+        window.dropZoneTimeout = null;
+        dropZone.removeClass('in hover');
+    }, 100);
+});
+
+
 
 
     
@@ -234,6 +341,7 @@
             $('#fileupload').fileupload('option', {
                 url: '//jquery-file-upload.appspot.com/',
                 maxFileSize: 5000000,
+                    dropZone: $('#dropzone'),
                 acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
                 process: [
                     {
