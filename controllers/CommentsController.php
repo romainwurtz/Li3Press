@@ -48,7 +48,7 @@ class CommentsController extends \lithium\action\Controller {
             if ($postId != 0) {
                 $validates['post_id'] = $postId;
             }
-            $comments = Comments::find('all', $validates);
+            $comments = Comments::find('all', array('conditions' => $validates));
         }
         return count($comments);
     }

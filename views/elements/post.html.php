@@ -7,11 +7,18 @@
  * 
  */
 ?>
-<article class="row" id="<?php echo $post->id ?>">
-    <div class="span2">
-        <h2>  <?= $this->html->link($post->title, array('controller' => "posts", "action" => "view", "id" => $post->id)) ?></h2>
-    </div>
-    <div class="span7">
-        <p><?php echo $post->body ?></p>
-    </div>
+<article class=" entry row clearfix" id="<?php echo $post->id ?>">
+    <a title="<?= $post->title ?>" href="<?php echo $this->url(array('controller' => "posts", "action" => "view", "id" => $post->id)); ?>" >
+        <div class="thumb span3">
+            <img width="400" height="250" title="Snap Motion Screenshot 1" alt="Snap Motion Screenshot 1" class="attachment-homepage-thumb wp-post-image" src="http://placehold.it/400x250&text=Li3%20Press">
+        </div>
+        <div class="content-entry span7">
+            <header>
+                <h1><?= $post->title ?></h1>
+            </header>
+            <p><?php echo $this->text->limit_words($post->body, 42, '...'); ?></p>
+        <?= $this->html->link('Read More', array('controller' => "posts", "action" => "view", "id" => $post->id), array('class' => 'btn pull-right')) ?>
+
+        </div>
+    </a>
 </article>

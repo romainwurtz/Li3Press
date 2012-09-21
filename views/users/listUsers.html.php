@@ -52,7 +52,7 @@
                 cache: false,
                 timeout: 50000,
                 data: {
-                    "id": $(element).data('id'),
+                    "id": $(element).data('id')
                 },
                 success: function (data) {
                     if (data) {

@@ -19,7 +19,7 @@ if (isset($post)) {
         <?php echo $this->html->style(array('bootstrap.min', 'li3Press')); ?>
 
         <?php echo $this->html->link('Icon', null, array('type' => 'icon')); ?>
-        <?php echo $this->html->script(array('jquery-1.8.0.min', 'jquery.ajaxQueue', 'bootstrap.min', 'jquery.backstretch.min', 'nicEdit', 'bootbox.min'));?>
+        <?php echo $this->html->script(array('modernizr.2.6.2', 'jquery-1.8.0.min', 'jquery.ajaxQueue', 'bootstrap.min', 'jquery.backstretch.min', 'nicEdit')); ?>
         <?php echo $this->html->script(array('li3Press')); ?>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -38,17 +38,26 @@ if (isset($post)) {
         }
         ?>
         <div class="row">
-            <div id="container" class="span9 offset1">
-                <div class="row">
-                    <div id="header" class="span9">
-                        <h1><?php echo $this->html->link(BLOG_TITLE, "/"); ?></h1>
+
+            <header id="header" class="row">
+                <div class="wrap span10 offset2 clearfix">
+                    <div id="logo" class="row">
+                        <h1>
+                           <?php echo $this->html->link(BLOG_TITLE, "/"); ?>
+                        </h1>
+                        <h2>Powered by Li3 Press</h2>
                     </div>
-                    <span class="span9 dotted"></span>
-                    <div id="content" class="span9">
+                </div><!-- /.wrap -->
+                <div class="shadow"></div>
+            </header>
+
+            <div id="container" class="row">
+                    <div id="content" class="span10 offset2 ">
                         <?php echo $this->content(); ?>
                     </div>
-                </div>
             </div>
+
         </div>
+
     </body>
 </html>
