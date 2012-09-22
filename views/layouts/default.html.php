@@ -19,17 +19,11 @@ if (isset($post)) {
         <?php echo $this->html->style(array('bootstrap.min', 'li3Press')); ?>
 
         <?php echo $this->html->link('Icon', null, array('type' => 'icon')); ?>
-        <?php echo $this->html->script(array('modernizr.2.6.2', 'jquery-1.8.0.min', 'jquery.ajaxQueue', 'bootstrap.min', 'jquery.backstretch.min', 'nicEdit')); ?>
+        <?php echo $this->html->script(array('modernizr.2.6.2', 'jquery-1.8.0.min', 'jquery.ajaxQueue', 'bootstrap.min', 'nicEdit')); ?>
         <?php echo $this->html->script(array('li3Press')); ?>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $.backstretch("<?php echo BLOG_BG; ?>
-                ", {speed: 150});
-            });
-
-        </script>
+       
     </head>
     <body class="app">
         <?php

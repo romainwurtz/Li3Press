@@ -17,6 +17,24 @@ if ($posts) {
 
 <script type="text/javascript">
     $(document).ready(function () {
+        
+        
+        $(".entry").stop(true)
+        .mouseenter(function() {
+            $('.shadow', this).animate({
+                left: '0px'
+            }, 'fast');
+        })
+        .mouseleave(function() {
+
+            $('.shadow', this).stop(true).animate({
+                left: '-10px'
+            }, 'fast');
+
+        });
+
+        
+        
         var ajax = false;
         var end = false;
         var currentPage = <?php echo $page; ?>;  
