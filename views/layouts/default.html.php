@@ -23,7 +23,7 @@ if (isset($post)) {
         <?php echo $this->html->script(array('li3Press')); ?>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-       
+
     </head>
     <body class="app">
         <?php
@@ -36,22 +36,24 @@ if (isset($post)) {
             <header id="header" class="row">
                 <div class="wrap span10 offset2 clearfix">
                     <div id="logo" class="row">
-                        <h1>
-                           <?php echo $this->html->link(BLOG_TITLE, "/"); ?>
-                        </h1>
-                        <h2>Powered by Li3 Press</h2>
+                        <div class="span9">
+                            <h1>
+                                <?php echo $this->html->link(BLOG_TITLE, "/"); ?>
+                            </h1>
+                            <h2>Powered by Li3 Press</h2>
+                        </div>
+                        <div class="span1 stick">
+                            <?= $this->html->link('Login', 'Users::index', array('id' => 'login-admin')) ?>
+                        </div>
                     </div>
-                </div><!-- /.wrap -->
+                </div>
                 <div class="shadow"></div>
             </header>
-
             <div id="container" class="row">
-                    <div id="content" class="span10 offset2 ">
-                        <?php echo $this->content(); ?>
-                    </div>
+                <div id="content" class="span10 offset2 ">
+                    <?php echo $this->content(); ?>
+                </div>
             </div>
-
         </div>
-
     </body>
 </html>

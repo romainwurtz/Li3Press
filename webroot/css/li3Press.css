@@ -233,3 +233,19 @@ header {
 .single .thumbnail {
     margin-bottom: 22px;
 }
+
+#login-admin {
+    background: #049CDB;
+    color: white !important;
+    font-family: 'Cabin Condensed',"Lucida Sans","Lucida Sans Unicode","Lucida Grande",Lucida,Verdana,Arial,sans-serif;
+    font-size: 1.125em;
+    font-weight: 700;
+    line-height: 2.22222em;
+    text-transform: uppercase;
+    padding: 4px 4px 4px 10px;
+    margin-top: 12px;
+}
+
+.stick {
+    padding-top: 32px;
+}
