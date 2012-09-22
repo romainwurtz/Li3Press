@@ -18,7 +18,5 @@
             </header>
             <p><?php echo $this->text->limit_words($post->body, 42, '...'); ?></p>
             <?= $this->html->link('Read More', array('controller' => "posts", "action" => "view", "id" => $post->id), array('class' => 'btn pull-right')) ?>
-
         </div>
-
 </article>

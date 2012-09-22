@@ -8,10 +8,10 @@
  */
 if ($comments && count($comments) > 0) {
     ?>
-    <div class="span9">
+    <div class="span10">
         <h2>Comments</h2>
     </div>
-    <table class="table table-striped span9">
+    <table class="table table-striped span10">
         <tbody>
             <?php
             foreach ($comments as $comment) {

@@ -8,25 +8,28 @@
  */
 if ($success):
     ?>
-    <article class="row" id="<?php echo $post->id ?>">
-        <div class="span2">
-            <h2>  <?= $this->html->link($post->title, array('controller' => "posts", "action" => "view", "id" => $post->id)) ?></h2>
-            <?php
-            if ($this->login->isUserAuth()) {
-                echo $this->html->link('Edit', $this->url(array('Posts::edit', 'id' => $this->request()->id)), array('class' => "btn btn-large span1 right"));
-            }
-            ?>
-        </div>
-        <div class="span7">
+    <article class="single row" id="<?php echo $post->id ?>">
+        <div class="span10">
+            <header class="clearfix" >
+                <h1><?= $post->title ?></h1>
+                <div class="clear"></div>
+                <?php
+                if ($this->login->isUserAuth()) {
+                    echo $this->html->link('Edit', $this->url(array('Posts::edit', 'id' => $this->request()->id)), array('class' => "btn btn-large span1 right"));
+                }
+                ?>
+            </header>
+            <div class="thumbnail">
+                <img width="970" height="606" title="Snap Motion Screenshot 1" alt="Snap Motion Screenshot 1" class="attachment-homepage-thumb wp-post-image" src="http://placehold.it/970x606&text=Li3%20Press">
+            </div>
             <p><?php echo $post->body ?></p>
         </div>
     </article>
-    <div class="clearfix"></div>
-    <span class="span9 dotted"></span>
-    <div class="clearfix" id="list_comment"></div>
+    <div class="dotted"></div>
+    <div class="clearfix row" id="list_comment"></div>
     <div id="loader"><?= $this->html->image('loading.gif', array('align' => 'center', "width" => "64", "height" => "64")); ?></div>
-    <div class="clearfix"></div>
-    <div class="clearfix" id="add_comment">
+    <span class="clear"></span>
+    <div class="row" id="add_comment">
         <?php echo $this->_render('element', 'commentCreateForm', array(), array('type' => 'html')); ?>
     </div>
 
@@ -58,8 +61,6 @@ if ($success):
         }
 
         $(document).ready(function () {
-
-
             $(window).scroll(function () {
                 if (loaded == true) return;
                 if (ajax == true) return;
