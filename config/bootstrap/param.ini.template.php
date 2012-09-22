@@ -19,7 +19,6 @@ define('DB_ADAPTER' , 'MySql');			// Mysql is the only one supported
 
 /* Website config */
 define('BLOG_TITLE' , '');				// Ex: My amazing blog
-define('BLOG_BG' , '');					// Ex: /img/bg.jpg
 
 define('ITEMS_PAGE', 10);                                                                    // Items per page
 
